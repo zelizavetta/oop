@@ -1,2 +1,6 @@
 include 'lab1_1_1'
+include 'task_1_1_1:task_1_1_1'
+findProject(':task_1_1_1:task_1_1_1')?.name = 'task_1_1_1'
+include 'task_1_1_1'
+include 'task_1_1_1'
 
