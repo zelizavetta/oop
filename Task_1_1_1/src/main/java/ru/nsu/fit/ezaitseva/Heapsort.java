@@ -1,6 +1,15 @@
 package ru.nsu.fit.ezaitseva;
 
+/**
+ * Heapsort.
+ * Sorting using heap.
+ */
 public class Heapsort {
+    /**
+     * Sorting specify arr.
+     *
+     * @param arr for sorting.
+     */
     static public void sort(int arr[]) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
