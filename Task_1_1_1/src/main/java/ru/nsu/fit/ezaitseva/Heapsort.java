@@ -1,6 +1,7 @@
-import java.util.Scanner;
-public class Main {
-    public void sort(int arr[]) {
+package ru.nsu.fit.ezaitseva;
+
+public class Heapsort {
+    static public void sort(int arr[]) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(arr, n, i);
@@ -11,7 +12,8 @@ public class Main {
             heapify(arr, i, 0);
         }
     }
-    void heapify(int arr[], int n, int i) {
+
+    static private void heapify(int arr[], int n, int i) {
         int max_elem = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;
@@ -25,19 +27,5 @@ public class Main {
             arr[max_elem] = tmp;
             heapify(arr, n, max_elem);
         }
-    }
-    public static void main(String args[]) {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        int arr[] = new int[n];
-        for(int i = 0; i < n; i++) {
-            int el = scan.nextInt();
-            arr[i] = el;
-        }
-        Main ob = new Main();
-        ob.sort(arr);
-        for (int i = 0; i < n; i++)
-            System.out.print(arr[i] + " ");
-        System.out.println();
     }
 }
