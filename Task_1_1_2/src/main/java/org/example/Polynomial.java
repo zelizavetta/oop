@@ -2,7 +2,12 @@ package org.example;
 
 import java.util.Arrays;
 
-class Polynomial {
+
+/**
+ * Polynomial.
+ * Class that describe fields and method of the polynomial
+ */
+public class Polynomial {
     int n;
     int[] coef;
 
