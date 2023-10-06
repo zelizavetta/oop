@@ -52,7 +52,7 @@ public class Polynomial {
 
     /**
      * method oneTypePoly: adding zeros to start of the array to make the lengths of the both arrays equal
-     * for example to make from [1, 2, 3] and [3] -> [1, 2, 3], [0, 0, 3]
+     * for example to make from [1, 2, 3] and [3] this [1, 2, 3], [0, 0, 3]
      * @param p - polynomial
      * @param size - size of the array
      * @return new polynomial with zeros
@@ -142,7 +142,7 @@ public class Polynomial {
      * method for differentiate the polynomial
      * @param powDiff - power for differentiate
      * @return new polynomial - the result of differentiation
-     * @throws Exception if powDiff < 0
+     * @throws Exception if powDiff less than 0
      */
     public Polynomial differentiate(int powDiff) throws Exception{
         if (powDiff < 0) {
