@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SubStringSearch {
-    public static String root = "C:/Users/Elisa/oop/Task_1_3_1/src/main/java/ru/nsu/fit/ezaitseva/";
+    public static String root = "C:/Users/Elisa/oop/Task_1_3_1/";
 
-    public static List<Integer> search(String p, String filename) throws IOException {
+    public static Integer[] search(String p, String filename) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         String line;
         List<Integer> result = new ArrayList<>();
@@ -37,13 +37,15 @@ public class SubStringSearch {
             }
             quantSymb += line.length();
         }
-        return result;
+        Integer[] arr = new Integer[0];
+        arr = result.toArray(arr);
+        return arr;
     }
 
 
     public static void main(String[] args) throws IOException {
-        String searchingStr = "bra";
-        List<Integer> result = search(searchingStr, root + "input.txt");
-        System.out.println(result);
+        String searchingStr = "a";
+        Integer[] result = search(searchingStr, root + "src/main/java/ru/nsu/fit/ezaitseva/input.txt");
+        System.out.println(Arrays.toString(result));
     }
 }
