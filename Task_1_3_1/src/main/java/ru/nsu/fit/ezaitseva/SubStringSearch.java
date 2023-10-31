@@ -1,9 +1,11 @@
 package ru.nsu.fit.ezaitseva;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SubStringSearch {
     /**
@@ -28,35 +30,79 @@ public class SubStringSearch {
             Integer[] result = new Integer[] {};
             return result;
         }
-        BufferedReader reader = new BufferedReader(new FileReader(filename));
-        String line;
-        List<Integer> result = new ArrayList<>();
-        int quantSymb = 0;
-        while ((line = reader.readLine()) != null) {
-            String perfixLine = p + '#' + line;
-            int[] prefixFunc = new int[p.length()];
-            Arrays.fill(prefixFunc, 0);
-            int prefixFuncPrev = 0;
-            for (int i = 1; i < perfixLine.length(); i++) {
-                int k = prefixFuncPrev;
-                while (k > 0 && perfixLine.charAt(k) != perfixLine.charAt(i)) {
-                    k = prefixFunc[k - 1];
+
+        char[] myBuffer = new char[4];
+        int bytesRead = 0;
+        StringBuilder line = new StringBuilder();
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(filename, StandardCharsets.UTF_8));
+            List<Integer> result = new ArrayList<>();
+            int quantSymb = 0;
+            int prevK = 0;
+            boolean flNewLine = false;
+            while ((bytesRead = in.read(myBuffer, 0, 4)) != -1) {
+                for (char c : myBuffer) {
+                    int cInt = c;
+
+                    if (cInt != 0 && cInt != 13 && c != '\n') {
+//                        System.out.println(cInt);
+                        line.append(c);
+                    }
                 }
-                if (perfixLine.charAt(k) == perfixLine.charAt(i)) {
-                    k++;
+                String prefixLine = p + '#' + line;
+
+                int[] prefixFunc = new int[p.length()];
+                int prefixFuncPrev = 0;
+
+                Arrays.fill(prefixFunc, 0);
+                for (int i = 1; i < prefixLine.length(); i++) {
+                    int k = prefixFuncPrev;
+                    while (k > 0 && prefixLine.charAt(k) != prefixLine.charAt(i)) {
+                        k = prefixFunc[k - 1];
+                    }
+                    if (prefixLine.charAt(k) == prefixLine.charAt(i)) {
+                        k++;
+                    }
+                    if (i < p.length()) {
+                        prefixFunc[i] = k;
+                    }
+                    prefixFuncPrev = k;
+                    if (k == p.length()) {
+                        result.add(i + quantSymb - 2 * p.length());
+                    }
+                    if (prevK != 0 && k != 0 && k >= p.length() - prevK && flNewLine && i > p.length() + 1 &&
+                        !result.contains(quantSymb - 1)) {
+                        result.add(quantSymb - 1);
+                    }
+                    if (i == prefixLine.length() - 1) {
+                        prevK = k;
+                    }
+                    if (i == p.length() + 1 && k == 0) {
+                        flNewLine = false;
+                    }
+
                 }
-                if (i < p.length()) {
-                    prefixFunc[i] = k;
-                }
-                prefixFuncPrev = k;
-                if (k == p.length()) {
-                    result.add(i + quantSymb - 2 * p.length());
-                }
+
+                quantSymb += line.length();
+                line.delete(0, line.toString().length());
+                flNewLine = true;
+                char[] newBuff = new char[4];
+                myBuffer = newBuff.clone();
             }
-            quantSymb += line.length();
+            Integer[] arr = new Integer[0];
+            arr = result.toArray(arr);
+            return arr;
         }
-        Integer[] arr = new Integer[0];
-        arr = result.toArray(arr);
-        return arr;
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        String searchingStr = "a";
+        Integer[] result = search(searchingStr, root + "src/main/java/ru/nsu/fit/ezaitseva/input.txt");
+        System.out.println(Arrays.toString(result));
+
     }
 }
