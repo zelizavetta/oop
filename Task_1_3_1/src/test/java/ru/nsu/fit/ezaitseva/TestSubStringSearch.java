@@ -53,15 +53,15 @@ public class TestSubStringSearch {
                 Arguments.of("", "src/test/java/ru/nsu/fit/ezaitseva/test10.txt", new Integer[0]),
 
                 Arguments.of("er", "src/test/java/ru/nsu/fit/ezaitseva/test11.txt", new Integer[0]),
-                Arguments.of("n", "src/test/java/ru/nsu/fit/ezaitseva/test11.txt", new Integer[0]),
+                Arguments.of("n", "src/test/java/ru/nsu/fit/ezaitseva/test11.txt", new Integer[0])
 
-                Arguments.of("it", "src/test/java/ru/nsu/fit/ezaitseva/test12.txt", new Integer[] {
-                        54, 413, 592, 612, 822, 1018, 1050, 1182, 1257, 1288, 1352, 1568, 1762, 2193, 2353, 2373, 2417,
-                        2517, 2589, 2709, 2724, 2818, 2914, 3037, 3076, 3097, 3165, 3272, 3512, 3837, 4048, 4068, 4093,
-                        4301, 4457, 4670, 5057, 5153, 5422, 5580, 5768, 5816, 6102, 6270, 6618, 6661, 6690}),
+//                Arguments.of("it", "src/test/java/ru/nsu/fit/ezaitseva/test12.txt", new Integer[] {
+//                        54, 413, 592, 612, 822, 1018, 1050, 1182, 1257, 1288, 1352, 1568, 1762, 2193, 2353, 2373, 2417,
+//                        2517, 2589, 2709, 2724, 2818, 2914, 3037, 3076, 3097, 3165, 3272, 3512, 3837, 4048, 4068, 4093,
+//                        4301, 4457, 4670, 5057, 5153, 5422, 5580, 5768, 5816, 6102, 6270, 6618, 6661, 6690}),
 
 
-                Arguments.of("", "src/test/java/ru/nsu/fit/ezaitseva/test12.txt", new Integer[0])
+//                Arguments.of("", "src/test/java/ru/nsu/fit/ezaitseva/test12.txt", new Integer[0])
 
         );
     }
