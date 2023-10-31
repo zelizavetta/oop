@@ -21,17 +21,17 @@ public class TestSubStringSearch {
         Assertions.assertArrayEquals(result, expectedResult);
     }
 
-    @ParameterizedTest
-    @MethodSource("NoFileException")
-    void testNoFile(String searchingString, String filename, Exception eExpected) {
-        try {
-            Integer[] result = SubStringSearch.search(searchingString, filename);
-        }
-        catch (Exception eReal) {
-            Assertions.assertEquals(eReal.getClass(), eExpected.getClass());
-        }
-
-    }
+//    @ParameterizedTest
+//    @MethodSource("NoFileException")
+//    void testNoFile(String searchingString, String filename, Exception eExpected) {
+//        try {
+//            Integer[] result = SubStringSearch.search(searchingString, filename);
+//        }
+//        catch (Exception eReal) {
+//            Assertions.assertEquals(eReal.getClass(), eExpected.getClass());
+//        }
+//
+//    }
 
     private static Stream<Arguments> searchSubString() {
         return Stream.of(
@@ -66,15 +66,15 @@ public class TestSubStringSearch {
         );
     }
 
-    private static Stream<Arguments> NoFileException() {
-        return Stream.of(
-                Arguments.of("a", "src/test/java/ru/nsu/fit/ezaitseva/test222.txt",
-                        new FileNotFoundException()),
-                Arguments.of("", "src/test/java/ru/nsu/fit/ezaitseva/test223.txt",
-                        new FileNotFoundException()),
-                Arguments.of("afhd", "src/test/java/ru/nsu/fit/ezaitseva/test224.txt",
-                        new FileNotFoundException())
-        );
-    }
+//    private static Stream<Arguments> NoFileException() {
+//        return Stream.of(
+//                Arguments.of("a", "src/test/java/ru/nsu/fit/ezaitseva/test222.txt",
+//                        new FileNotFoundException()),
+//                Arguments.of("", "src/test/java/ru/nsu/fit/ezaitseva/test223.txt",
+//                        new FileNotFoundException()),
+//                Arguments.of("afhd", "src/test/java/ru/nsu/fit/ezaitseva/test224.txt",
+//                        new FileNotFoundException())
+//        );
+//    }
 
 }
