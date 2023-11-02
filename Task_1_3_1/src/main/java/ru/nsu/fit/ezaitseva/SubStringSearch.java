@@ -31,7 +31,7 @@ public class SubStringSearch {
             return result;
         }
 
-        char[] myBuffer = new char[4];
+        char[] myBuffer = new char[256];
         int bytesRead = 0;
         StringBuilder line = new StringBuilder();
         try {
@@ -40,7 +40,7 @@ public class SubStringSearch {
             int quantSymb = 0;
             int prevK = 0;
             boolean flNewLine = false;
-            while ((bytesRead = in.read(myBuffer, 0, 4)) != -1) {
+            while ((bytesRead = in.read(myBuffer, 0, 256)) != -1) {
                 for (char c : myBuffer) {
                     int cInt = c;
 
@@ -86,7 +86,7 @@ public class SubStringSearch {
                 quantSymb += line.length();
                 line.delete(0, line.toString().length());
                 flNewLine = true;
-                char[] newBuff = new char[4];
+                char[] newBuff = new char[256];
                 myBuffer = newBuff.clone();
             }
             Integer[] arr = new Integer[0];
