@@ -2,10 +2,10 @@ package ru.nsu.fit.ezaitseva;
 
 
 public class Edge<T> {
-    T src;
-    T dest;
+    Vertex<T> src;
+    Vertex<T> dest;
 
-    Edge(T src, T dest) {
+    Edge(Vertex<T> src, Vertex<T> dest) {
         this.src = src;
         this.dest = dest;
     }
