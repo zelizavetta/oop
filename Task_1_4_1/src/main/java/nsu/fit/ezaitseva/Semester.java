@@ -27,10 +27,6 @@ public class Semester {
         return this.subjects.stream().allMatch(x -> x.getMark().getValue() == Mark.FIVE.getValue());
     }
 
-    public Double averageSemMark() {
-        return this.subjects.stream().mapToInt(x -> x.getMark().getValue()).average().getAsDouble();
-    }
-
     public boolean noBadMarks(){
         return this.subjects.stream().allMatch(x -> x.getMark().getValue() > Mark.THREE.getValue());
     }
