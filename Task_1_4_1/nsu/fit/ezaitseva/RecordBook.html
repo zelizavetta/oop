@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">RecordBook</span>
 extends java.lang.Object</pre>
+<div class="block">class describing record book with field: mark and list of all semesters</div>
 </li>
 </ul>
 </div>
@@ -155,27 +156,37 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSemester(nsu.fit.ezaitseva.Semester)">addSemester</a></span>&#8203;(<a href="Semester.html" title="class in nsu.fit.ezaitseva">Semester</a>&nbsp;semester)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">adding new semester</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAverageMark()">getAverageMark</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">calculating average mark of all subjects</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Semester.html" title="class in nsu.fit.ezaitseva">Semester</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSemesterByNumber(int)">getSemesterByNumber</a></span>&#8203;(int&nbsp;number)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">method to get semester</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRedDiploma()">isRedDiploma</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">calculating is red diploma possible</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFinalTask(nsu.fit.ezaitseva.Mark)">setFinalTask</a></span>&#8203;(<a href="Mark.html" title="enum in nsu.fit.ezaitseva">Mark</a>&nbsp;mark)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">setting mark for final task</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -208,6 +219,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addSemester</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addSemester&#8203;(<a href="Semester.html" title="class in nsu.fit.ezaitseva">Semester</a>&nbsp;semester)</pre>
+<div class="block">adding new semester</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>semester</code> - </dd>
+</dl>
 </li>
 </ul>
 <a id="getSemesterByNumber(int)">
@@ -217,6 +233,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getSemesterByNumber</h4>
 <pre class="methodSignature">public&nbsp;<a href="Semester.html" title="class in nsu.fit.ezaitseva">Semester</a>&nbsp;getSemesterByNumber&#8203;(int&nbsp;number)</pre>
+<div class="block">method to get semester</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>number</code> - - order number of the semester</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>semester by its order number</dd>
+</dl>
 </li>
 </ul>
 <a id="setFinalTask(nsu.fit.ezaitseva.Mark)">
@@ -226,6 +249,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setFinalTask</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setFinalTask&#8203;(<a href="Mark.html" title="enum in nsu.fit.ezaitseva">Mark</a>&nbsp;mark)</pre>
+<div class="block">setting mark for final task</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>mark</code> - - mark for this task</dd>
+</dl>
 </li>
 </ul>
 <a id="getAverageMark()">
@@ -235,6 +263,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAverageMark</h4>
 <pre class="methodSignature">public&nbsp;double&nbsp;getAverageMark()</pre>
+<div class="block">calculating average mark of all subjects</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>average mark</dd>
+</dl>
 </li>
 </ul>
 <a id="isRedDiploma()">
@@ -244,6 +277,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isRedDiploma</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isRedDiploma()</pre>
+<div class="block">calculating is red diploma possible</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if re diploma is possible, false if not</dd>
+</dl>
 </li>
 </ul>
 </li>

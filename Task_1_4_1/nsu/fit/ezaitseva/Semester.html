@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Semester</span>
 extends java.lang.Object</pre>
+<div class="block">class describing semester with order number of it and subjects</div>
 </li>
 </ul>
 </div>
@@ -155,27 +156,30 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSubject(nsu.fit.ezaitseva.Subject)">addSubject</a></span>&#8203;(<a href="Subject.html" title="class in nsu.fit.ezaitseva">Subject</a>&nbsp;subject)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">adding subject</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumber()">getNumber</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Subject.html" title="class in nsu.fit.ezaitseva">Subject</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubjects()">getSubjects</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">method to get subject</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIncScholarship()">isIncScholarship</a></span>()</code></th>
+<td class="colLast">
+<div class="block">calculating possibility of scholarship of this semester</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIncScholarship()">isIncScholarship</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#noBadMarks()">noBadMarks</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">calculating is there a bad mark or not</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -208,15 +212,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getSubjects</h4>
 <pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="Subject.html" title="class in nsu.fit.ezaitseva">Subject</a>&gt;&nbsp;getSubjects()</pre>
-</li>
-</ul>
-<a id="getNumber()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getNumber</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getNumber()</pre>
+<div class="block">method to get subject</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>all subjects</dd>
+</dl>
 </li>
 </ul>
 <a id="addSubject(nsu.fit.ezaitseva.Subject)">
@@ -226,6 +226,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addSubject</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addSubject&#8203;(<a href="Subject.html" title="class in nsu.fit.ezaitseva">Subject</a>&nbsp;subject)</pre>
+<div class="block">adding subject</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subject</code> - </dd>
+</dl>
 </li>
 </ul>
 <a id="isIncScholarship()">
@@ -235,6 +240,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isIncScholarship</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isIncScholarship()</pre>
+<div class="block">calculating possibility of scholarship of this semester</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if scholarship is possible, false if not</dd>
+</dl>
 </li>
 </ul>
 <a id="noBadMarks()">
@@ -244,6 +254,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>noBadMarks</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;noBadMarks()</pre>
+<div class="block">calculating is there a bad mark or not</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if no bad marks in this semester, false if not</dd>
+</dl>
 </li>
 </ul>
 </li>
