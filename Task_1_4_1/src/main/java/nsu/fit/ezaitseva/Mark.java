@@ -1,5 +1,8 @@
 package nsu.fit.ezaitseva;
 
+/**
+ * Set of the marks
+ */
 public enum Mark {
 
     FIVE(5),
@@ -12,6 +15,10 @@ public enum Mark {
         this.value = value;
     }
 
+    /**
+     * to get value of the mark
+     * @return value of the mark
+     */
     public  int getValue() {
         return value;
     }

@@ -14,9 +14,10 @@ import java.util.stream.Stream;
 
 public class RecordBookTest {
 
-    static RecordBook excellentRecordBook1 = new RecordBook();
-    static RecordBook normalRecordBook1 = new RecordBook();
-    static RecordBook badRecordBook1 = new RecordBook();
+    static RecordBook excellentRecordBook = new RecordBook();
+    static RecordBook normalRecordBook = new RecordBook();
+    static RecordBook badRecordBook = new RecordBook();
+    static RecordBook emptyRecordBook = new RecordBook();
     @BeforeAll
     static void excellentSet() {
         Subject subj1_2 = new Subject("Russian", Mark.FOUR);
@@ -36,9 +37,9 @@ public class RecordBookTest {
         sem2.addSubject(subj4_2);
         sem2.addSubject(subj1_2);
 
-        excellentRecordBook1.setFinalTask(Mark.FIVE);
-        excellentRecordBook1.addSemester(sem1);
-        excellentRecordBook1.addSemester(sem2);
+        excellentRecordBook.setFinalTask(Mark.FIVE);
+        excellentRecordBook.addSemester(sem1);
+        excellentRecordBook.addSemester(sem2);
     }
 
     @BeforeAll
@@ -61,9 +62,9 @@ public class RecordBookTest {
         sem2.addSubject(subj1_2);
 
 
-        normalRecordBook1.setFinalTask(Mark.FOUR);
-        normalRecordBook1.addSemester(sem1);
-        normalRecordBook1.addSemester(sem2);
+        normalRecordBook.setFinalTask(Mark.FOUR);
+        normalRecordBook.addSemester(sem1);
+        normalRecordBook.addSemester(sem2);
     }
 
     @BeforeAll
@@ -85,11 +86,12 @@ public class RecordBookTest {
         sem2.addSubject(subj4_2);
         sem2.addSubject(subj1_2);
 
-        badRecordBook1.setFinalTask(Mark.THREE);
-        badRecordBook1.addSemester(sem1);
-        badRecordBook1.addSemester(sem2);
+        badRecordBook.setFinalTask(Mark.THREE);
+        badRecordBook.addSemester(sem1);
+        badRecordBook.addSemester(sem2);
 
     }
+
 
 
     @ParameterizedTest
@@ -107,35 +109,37 @@ public class RecordBookTest {
 
     @ParameterizedTest
     @MethodSource("averageMark")
-    void testAverageMark(RecordBook recordBook, double avMark) {
+    void testAverageMark(RecordBook recordBook, Double avMark) {
         Assertions.assertEquals(recordBook.getAverageMark(), avMark);
     }
 
 
     private static Stream<Arguments> averageMark() {
         return Stream.of(
-                Arguments.of(excellentRecordBook1, 4.9),
-                Arguments.of(normalRecordBook1, 4.2),
-                Arguments.of(badRecordBook1, 2.9)
+                Arguments.of(excellentRecordBook, 4.9),
+                Arguments.of(normalRecordBook, 4.2),
+                Arguments.of(badRecordBook, 2.9),
+                Arguments.of(emptyRecordBook, 0.0)
         );
     }
 
     private static Stream<Arguments> isIncScholarship() {
         return Stream.of(
-                Arguments.of(excellentRecordBook1, 1, true),
-                Arguments.of(normalRecordBook1, 1, false),
-                Arguments.of(badRecordBook1, 1, false),
-                Arguments.of(excellentRecordBook1, 2, false),
-                Arguments.of(normalRecordBook1, 2, false),
-                Arguments.of(badRecordBook1, 2, false)
+                Arguments.of(excellentRecordBook, 1, true),
+                Arguments.of(normalRecordBook, 1, false),
+                Arguments.of(badRecordBook, 1, false),
+                Arguments.of(excellentRecordBook, 2, false),
+                Arguments.of(normalRecordBook, 2, false),
+                Arguments.of(badRecordBook, 2, false)
         );
     }
 
     private static Stream<Arguments> isRedDiploma() {
         return Stream.of(
-                Arguments.of(excellentRecordBook1, true),
-                Arguments.of(normalRecordBook1, false),
-                Arguments.of(badRecordBook1, false)
+                Arguments.of(excellentRecordBook, true),
+                Arguments.of(normalRecordBook, false),
+                Arguments.of(badRecordBook, false),
+                Arguments.of(emptyRecordBook, false)
         );
     }
 

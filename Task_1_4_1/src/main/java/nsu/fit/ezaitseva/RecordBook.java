@@ -3,6 +3,10 @@ package nsu.fit.ezaitseva;
 import java.util.*;
 import java.util.stream.Stream;
 
+
+/**
+ * class describing record book with field: mark and list of all semesters
+ */
 public class RecordBook {
     private Mark finalTask;
     private ArrayList<Semester> allSemesters;
@@ -11,29 +15,57 @@ public class RecordBook {
         this.allSemesters = new ArrayList<>();
     }
 
+
+    /**
+     * adding new semester
+     * @param semester
+     */
     public void addSemester(Semester semester) {
         allSemesters.add(semester);
     }
 
+
+    /**
+     * method to get semester
+     * @param number - order number of the semester
+     * @return semester by its order number
+     */
     public Semester getSemesterByNumber(int number) {
         return allSemesters.get(number - 1);
     }
 
+    /**
+     * setting mark for final task
+     * @param mark - mark for this task
+     */
     public void setFinalTask(Mark mark) {
         this.finalTask = mark;
     }
 
+    /**
+     * calculating average mark of all subjects
+     * @return average mark
+     */
     public double getAverageMark() {
         Stream<Subject> subjects = Stream.empty();
         for (var semester : allSemesters) {
             subjects = Stream.concat(subjects, semester.getSubjects().stream());
         }
-        double avMark = subjects
+
+        OptionalDouble avMark = subjects
                 .mapToInt(x -> x.getMark().getValue())
-                .average().getAsDouble();
-        return Math.ceil(avMark * 10) / 10;
+                .average();
+        if (avMark.isEmpty()) {
+            return 0.0;
+        }
+        return Math.ceil(avMark.getAsDouble() * 10) / 10;
+
     }
 
+    /**
+     * calculating is red diploma possible
+     * @return true if re diploma is possible, false if not
+     */
     public boolean isRedDiploma() {
         HashMap<String, Mark> lastMark = new HashMap<>();
         int semestersQuantity = allSemesters.size();
@@ -53,6 +85,9 @@ public class RecordBook {
             }
         }
         boolean noBadMarks = allSemesters.stream().allMatch(x -> x.noBadMarks());
+        if (fives + fours == 0) {
+            return false;
+        }
         return (noBadMarks
                 &
                 (finalTask == Mark.FIVE)
