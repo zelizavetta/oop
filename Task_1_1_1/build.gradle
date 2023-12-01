@@ -1,0 +1,43 @@
+// Example of build.gradle for units
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+group 'nsu.fit.tsukanov'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+/*
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+    //Если включите данную опцию, то в воркфлоу у метки #JCC, поменяйте путь
+}
+ */
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.required = true
+        //html.outputLocation = layout.buildDirectory.dir('jacocoHtml') Доп опция, чтобы у себя можно было открыть html
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "Main.class", //"<package>.Main.class" Указывайте полное имея пакета с точками
+            ])
+        }))
+    }
+}
