@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"nsu.fit.ezaitseva","l":"Calculator"},{"p":"nsu.fit.ezaitseva","l":"NoSuchFunctionException"},{"p":"nsu.fit.ezaitseva","l":"WrongPolishNotationException"}]
