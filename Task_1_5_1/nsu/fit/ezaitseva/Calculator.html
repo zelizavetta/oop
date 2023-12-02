@@ -132,6 +132,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Calculator</span>
 extends java.lang.Object</pre>
+<div class="block">class describing calculator with funcs +, -, *, /,
+ sin, cos, pow, log, sqrt</div>
 </li>
 </ul>
 </div>
@@ -181,12 +183,16 @@ extends java.lang.Object</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.Double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTwoUpperElement()">getTwoUpperElement</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">get two upper elements from stack</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.Double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpperElement()">getUpperElement</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">get upper element from stack</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -239,7 +245,10 @@ extends java.lang.Object</pre>
 <h4>getUpperElement</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Double&nbsp;getUpperElement()
                                  throws <a href="WrongPolishNotationException.html" title="class in nsu.fit.ezaitseva">WrongPolishNotationException</a></pre>
+<div class="block">get upper element from stack</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>upper element</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="WrongPolishNotationException.html" title="class in nsu.fit.ezaitseva">WrongPolishNotationException</a></code></dd>
 </dl>
@@ -253,7 +262,10 @@ extends java.lang.Object</pre>
 <h4>getTwoUpperElement</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Double[]&nbsp;getTwoUpperElement()
                                       throws <a href="WrongPolishNotationException.html" title="class in nsu.fit.ezaitseva">WrongPolishNotationException</a></pre>
+<div class="block">get two upper elements from stack</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>two upper elements</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="WrongPolishNotationException.html" title="class in nsu.fit.ezaitseva">WrongPolishNotationException</a></code></dd>
 </dl>
@@ -269,6 +281,10 @@ extends java.lang.Object</pre>
                                  throws <a href="WrongPolishNotationException.html" title="class in nsu.fit.ezaitseva">WrongPolishNotationException</a>,
                                         <a href="NoSuchFunctionException.html" title="class in nsu.fit.ezaitseva">NoSuchFunctionException</a></pre>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>inputData</code> - - input value in Polish Notation</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>result of calculating</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="WrongPolishNotationException.html" title="class in nsu.fit.ezaitseva">WrongPolishNotationException</a></code></dd>
 <dd><code><a href="NoSuchFunctionException.html" title="class in nsu.fit.ezaitseva">NoSuchFunctionException</a></code></dd>
