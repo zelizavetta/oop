@@ -3,9 +3,19 @@ package nsu.fit.ezaitseva;
 import java.util.Stack;
 
 
+/**
+ * class describing calculator with funcs +, -, *, /,
+ * sin, cos, pow, log, sqrt
+ */
 public class Calculator {
     Stack<Double> stack = new Stack<>();
 
+
+    /**
+     * get upper element from stack
+     * @return upper element
+     * @throws WrongPolishNotationException
+     */
     public Double getUpperElement() throws WrongPolishNotationException {
         try {
             Double elem = stack.pop().doubleValue();
@@ -16,6 +26,12 @@ public class Calculator {
         }
     }
 
+
+    /**
+     * get two upper elements from stack
+     * @return two upper elements
+     * @throws WrongPolishNotationException
+     */
     public Double[] getTwoUpperElement() throws WrongPolishNotationException {
         try {
             Double[] twoElems = new Double[2];
@@ -28,6 +44,13 @@ public class Calculator {
         }
     }
 
+    /**
+     *
+     * @param inputData - input value in Polish Notation
+     * @return result of calculating
+     * @throws WrongPolishNotationException
+     * @throws NoSuchFunctionException
+     */
     public Double calculateResult(String inputData) throws WrongPolishNotationException, NoSuchFunctionException {
         String[] elems = inputData.split(" ");
         Double[] nums;
