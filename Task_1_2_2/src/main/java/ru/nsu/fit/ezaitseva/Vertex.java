@@ -1,11 +1,15 @@
 package ru.nsu.fit.ezaitseva;
 
 
-public class Vertex<T> {
-    T value;
+public class Vertex<V> {
+    private static int newId = 0;
+    V value;
+    int id;
 
-    Vertex(T value) {
+    Vertex(V value) {
         this.value = value;
+        this.id = newId;
+        newId++;
     }
 
     @Override
@@ -26,6 +30,11 @@ public class Vertex<T> {
         result = prime * result + ((value == null) ? 0 : value.hashCode());
         return result;
     }
+
+    public int getId() {
+        return this.id;
+    }
+
 
 
 }

@@ -3,58 +3,57 @@ package ru.nsu.fit.ezaitseva;
 
 import java.util.*;
 
-public class AdjListGraph<T> extends Graph<T>{
+public class AdjListGraph<V, E extends Number> extends GraphCommon<V, E>
+implements GraphInterface<V, E> {
 
-    Map<Vertex, List<Vertex>> adjVertices;
+    private final Map<Integer, List<Integer>> adjVertices;
 
     AdjListGraph() {
         this.adjVertices = new HashMap<>();
-
+        this.vertices = new HashMap<>();
+        this.edges = new HashMap<>();
     }
 
-//    AgjListGraph(List<Edge<T>> adjList) {
-//        this.adjList = adjList;
-//    }
 
-    @Override
-    void addVertex(Vertex<T> vertex) {
-        this.adjVertices.putIfAbsent(vertex, new ArrayList<>());
+    public Vertex<V> addVertex(Vertex<V> vertex) {
+        this.adjVertices.putIfAbsent(vertex.id, new ArrayList<>());
+        this.vertices.putIfAbsent(vertex.id, vertex);
+        return vertex;
     }
 
-    @Override
-    void removeVertex(Vertex<T> vertex) {
+    public void removeVertex(Vertex<V> vertex) {
         Vertex v = vertex;
-        this.adjVertices.values().stream().forEach(e -> e.remove(v));
-        this.adjVertices.remove(vertex);
+        this.adjVertices.values().stream().forEach(e -> e.remove(v.id));
+        this.adjVertices.remove(vertex.id);
+        this.vertices.remove(vertex.id);
     }
 
-    @Override
-    void addEdge(Edge<T> edge) {
+    public Edge<V, E> addEdge(Edge<V,E> edge) {
         addVertex(edge.src);
         addVertex(edge.dest);
 
-        this.adjVertices.get(edge.src).add(edge.dest);
-        this.adjVertices.get(edge.dest).add(edge.src);
+        this.edges.put(edge.id, edge);
+        this.adjVertices.get(edge.src.id).add(edge.dest.id);
+        this.adjVertices.get(edge.dest.id).add(edge.src.id);
+        return edge;
     }
 
 
-    @Override
-    void removeEdge(Edge<T> edge) {
-        List<Vertex> eV1 = this.adjVertices.get(edge.src);
-        List<Vertex> eV2 = this.adjVertices.get(edge.dest);
+    public void removeEdge(Edge<V, E> edge) {
+        List<Integer> eV1 = this.adjVertices.get(edge.src.id);
+        List<Integer> eV2 = this.adjVertices.get(edge.dest.id);
         if (eV1 != null)
-            eV1.remove(edge.dest);
+            eV1.remove(edge.dest.id);
         if (eV2 != null)
-            eV2.remove(edge.src);
+            eV2.remove(edge.src.id);
+        this.edges.remove(edge.id);
     }
-    @Override
     public void addVertices(Vertex[] vertices) {
         for (Vertex vertex : vertices) {
             this.addVertex(vertex);
         }
     }
 
-    @Override
     public void addEdges(Edge[] edges) {
         for (Edge edge: edges) {
             this.addEdge(edge);
@@ -65,38 +64,16 @@ public class AdjListGraph<T> extends Graph<T>{
         this.adjVertices.forEach((key, value) -> System.out.println(key + " " + value));
     }
 
-    public void BFS(T s)
-    {
-        // Mark all the vertices as not visited(By default
-        // set as false)
-        boolean visited[] = new boolean[this.adjVertices.size()];
-
-        // Create a queue for BFS
-        LinkedList<T> queue = new LinkedList<T>();
-
-        // Mark the current node as visited and enqueue it
-        visited[s] = true;
-        queue.add(s);
-
-        while (queue.size() != 0) {
-
-            // Dequeue a vertex from queue and print it
-            s = queue.poll();
-            System.out.print(s + " ");
-
-            // Get all adjacent vertices of the dequeued
-            // vertex s.
-            // If an adjacent has not been visited,
-            // then mark it visited and enqueue it
-            Iterator<Integer> i = adj[s].listIterator();
-            while (i.hasNext()) {
-                int n = i.next();
-                if (!visited[n]) {
-                    visited[n] = true;
-                    queue.add(n);
-                }
+    public ArrayList<Edge> findEdges(Integer srcId, Integer destId) {
+        ArrayList<Edge> res = new ArrayList<>();
+        for (var elem : this.edges.entrySet()) {
+            Integer edgeId = elem.getKey();
+            Edge edge = elem.getValue();
+            if (edge.src.id == srcId && edge.dest.id == destId) {
+                res.add(edge);
             }
         }
+        return res;
     }
 
 
