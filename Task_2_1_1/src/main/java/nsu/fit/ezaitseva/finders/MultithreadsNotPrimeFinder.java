@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class MultithreadsNotPrimeFinder implements NotPrimeFinderInterface{
     public AtomicInteger atomicInteger = new AtomicInteger(0);
-    public int quantThreads = Runtime.getRuntime().availableProcessors();
+    public int quantThreads;
 
 
     public MultithreadsNotPrimeFinder(int quantThreads) {

@@ -1,5 +1,7 @@
 package nsu.fit.ezaitseva;
 
+import nsu.fit.ezaitseva.finders.MultithreadsNotPrimeFinder;
+import nsu.fit.ezaitseva.finders.ParallelSreamNotPrimeFinder;
 import nsu.fit.ezaitseva.finders.SequentiallyNotPrimeFinder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,6 +19,7 @@ import java.util.stream.Stream;
 
 
 public class TestNotPrimeFinder {
+    public int quantThreads = Runtime.getRuntime().availableProcessors();
     @ParameterizedTest
     @MethodSource("finder")
     void testSeqFinder(ArrayList<Integer> numsList, boolean result){
@@ -27,14 +30,14 @@ public class TestNotPrimeFinder {
     @ParameterizedTest
     @MethodSource("finder")
     void testParallFinder(ArrayList<Integer> numsList, boolean result){
-        SequentiallyNotPrimeFinder finder = new SequentiallyNotPrimeFinder();
+        ParallelSreamNotPrimeFinder finder = new ParallelSreamNotPrimeFinder();
         Assertions.assertEquals(finder.noPrime(numsList), result);
 
     }
     @ParameterizedTest
     @MethodSource("finder")
-    void testThreadsFinder(ArrayList<Integer> numsList, boolean result){
-        SequentiallyNotPrimeFinder finder = new SequentiallyNotPrimeFinder();
+    void testThreadsFinder(ArrayList<Integer> numsList, boolean result) throws InterruptedException {
+        MultithreadsNotPrimeFinder finder = new MultithreadsNotPrimeFinder(quantThreads);
         Assertions.assertEquals(finder.noPrime(numsList), result);
 
     }
