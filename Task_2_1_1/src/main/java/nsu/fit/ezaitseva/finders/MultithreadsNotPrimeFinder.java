@@ -1,14 +1,14 @@
 package nsu.fit.ezaitseva.finders;
 
 
-import nsu.fit.ezaitseva.PrimeChecker;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MultithreadsNotPrimeFinder implements NotPrimeFinderInterface{
+import nsu.fit.ezaitseva.PrimeChecker;
+
+public class MultithreadsNotPrimeFinder implements NotPrimeFinderInterface {
     public AtomicInteger atomicInteger = new AtomicInteger(0);
     public int quantThreads;
 

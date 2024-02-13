@@ -20,20 +20,23 @@ import java.util.stream.Stream;
 
 public class TestNotPrimeFinder {
     public int quantThreads = Runtime.getRuntime().availableProcessors();
+
     @ParameterizedTest
     @MethodSource("finder")
-    void testSeqFinder(ArrayList<Integer> numsList, boolean result){
+    void testSeqFinder(ArrayList<Integer> numsList, boolean result) {
         SequentiallyNotPrimeFinder finder = new SequentiallyNotPrimeFinder();
         Assertions.assertEquals(finder.noPrime(numsList), result);
 
     }
+
     @ParameterizedTest
     @MethodSource("finder")
-    void testParallFinder(ArrayList<Integer> numsList, boolean result){
+    void testParallFinder(ArrayList<Integer> numsList, boolean result) {
         ParallelSreamNotPrimeFinder finder = new ParallelSreamNotPrimeFinder();
         Assertions.assertEquals(finder.noPrime(numsList), result);
 
     }
+
     @ParameterizedTest
     @MethodSource("finder")
     void testThreadsFinder(ArrayList<Integer> numsList, boolean result) throws InterruptedException {
@@ -44,8 +47,8 @@ public class TestNotPrimeFinder {
 
     private static Stream<Arguments> finder() {
         return Stream.of(
-                Arguments.of(new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7)), true),
-                Arguments.of(new ArrayList<>(Arrays.asList(2,3,5,7)), false));
+                Arguments.of(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7)), true),
+                Arguments.of(new ArrayList<>(Arrays.asList(2, 3, 5, 7)), false));
     }
 
 }

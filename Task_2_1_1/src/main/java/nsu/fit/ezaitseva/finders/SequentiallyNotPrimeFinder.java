@@ -1,10 +1,9 @@
 package nsu.fit.ezaitseva.finders;
 
 
-import nsu.fit.ezaitseva.PrimeChecker;
-import nsu.fit.ezaitseva.finders.NotPrimeFinderInterface;
-
 import java.util.Collection;
+
+import nsu.fit.ezaitseva.PrimeChecker;
 
 public class SequentiallyNotPrimeFinder implements NotPrimeFinderInterface {
     @Override
