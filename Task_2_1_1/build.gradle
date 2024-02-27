@@ -1,19 +1,23 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id "me.champeau.jmh" version "0.6.8"
 }
 
 group 'nsu.fit.ezaitseva'
-version 'unspecified'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    jmh 'org.openjdk.jmh:jmh-core:1.37'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
+
+    // this is the line that solves the missing /META-INF/BenchmarkList error
+    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
@@ -21,18 +25,26 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+jmh {
+    warmupIterations = 1
+    warmupBatchSize = 4
+    iterations = 3
+    fork = 1
+    resultsFile = project.file("${project.buildDir}/jmh/result/results.txt")
+}
 
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
+    dependsOn test
     reports {
         xml.required = true
-        //html.outputLocation = layout.buildDirectory.dir('jacocoHtml') Доп опция, чтобы у себя можно было открыть html
     }
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
-                    "Main.class", //"<package>.Main.class" Указывайте полное имея пакета с точками
+                    "Main.class",
             ])
         }))
     }
+
+
 }

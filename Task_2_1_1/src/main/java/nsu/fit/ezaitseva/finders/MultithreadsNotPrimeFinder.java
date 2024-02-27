@@ -1,12 +1,13 @@
 package nsu.fit.ezaitseva.finders;
 
 
+import nsu.fit.ezaitseva.Tools;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import nsu.fit.ezaitseva.PrimeChecker;
 
 public class MultithreadsNotPrimeFinder implements NotPrimeFinderInterface {
     public AtomicInteger atomicInteger = new AtomicInteger(0);
@@ -19,7 +20,7 @@ public class MultithreadsNotPrimeFinder implements NotPrimeFinderInterface {
 
     @Override
     public boolean noPrime(Collection<Integer> nums) throws InterruptedException {
-        CurThread curThread = new CurThread(nums, new PrimeChecker(), atomicInteger);
+        CurThread curThread = new CurThread(nums, new Tools(), atomicInteger);
         List<Thread> threads = new ArrayList<>();
         for (int i = 0; i < quantThreads; i++) {
             Thread thread = new Thread(curThread);
@@ -39,12 +40,12 @@ public class MultithreadsNotPrimeFinder implements NotPrimeFinderInterface {
 
     private static class CurThread implements Runnable {
         private final Integer[] numsArr;
-        private final PrimeChecker primeChecker;
+        private final Tools primeChecker;
         private final AtomicInteger atomicInteger;
         public boolean fl = false;
 
         private CurThread(Collection<Integer> nums,
-                          PrimeChecker primeNumberChecker,
+                          Tools primeNumberChecker,
                           AtomicInteger atomicInteger) {
             this.atomicInteger = atomicInteger;
             this.primeChecker = primeNumberChecker;
