@@ -28,7 +28,7 @@ public class ClientService implements PizzaService {
     @Override
     public void startWorking() {
         initialize();
-//        log.info("Client service start working, amount of bakers: {}", clientThreadMap.size());
+        log.info("Client service start working, amount of bakers: {}", clientThreadMap.size());
         clientThreadMap.forEach(((client, thread) -> {
             client.setWorking(true);
             thread.start();
@@ -42,7 +42,7 @@ public class ClientService implements PizzaService {
      */
     @Override
     public void stopWorking() {
-//        log.info("Client service stop working, amount of clients: {}", clientThreadMap.size());
+        log.info("Client service stop working, amount of clients: {}", clientThreadMap.size());
         clientThreadMap.forEach((client, thread) -> {
             client.setWorking(false);
             thread.interrupt();

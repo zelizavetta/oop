@@ -30,7 +30,7 @@ public class CourierManager implements Runnable {
         Collection<Delivery> orders = new ArrayList<>();
         storage.drainTo(orders, courier.canTake());
         courier.addOrder(orders);
-//        log.info("{} Took pizza for delivering {}", courier, orders);
+        log.info("{} Took pizza for delivering {}", courier, orders);
     }
 
     /**
@@ -39,7 +39,7 @@ public class CourierManager implements Runnable {
      */
     public void produce() throws InterruptedException {
         courier.deliver();
-//        log.info("{} Delivered orders", courier);
+        log.info("{} Delivered orders", courier);
     }
 
     /**

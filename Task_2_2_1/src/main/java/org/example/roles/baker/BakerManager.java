@@ -43,11 +43,11 @@ public class BakerManager implements Runnable {
     public void produce() throws InterruptedException {
         Pizza pizza = new Pizza(order.pizzaSerialNumber());
         baker.cook(pizza);
-//        log.info("{} Cooked pizza {} to {}", baker, order.pizzaSerialNumber(), order.clientNumber());
+        log.info("{} Cooked pizza {} to {}", baker, order.pizzaSerialNumber(), order.clientNumber());
         Delivery deliveryOrder = new Delivery(pizza, order.orderCallback(), order.clientNumber());
         order = null;
         storage.put(deliveryOrder);
-//        log.info("{} Put order {} to storage", baker, deliveryOrder);
+        log.info("{} Put order {} to storage", baker, deliveryOrder);
     }
 
     /**
@@ -56,11 +56,11 @@ public class BakerManager implements Runnable {
 
     @Override
     public void run() {
-//        log.info("{} starts working", baker);
+        log.info("{} starts working", baker);
         while (isWorking) {
             try {
                 consume();
-//                log.info("{} took order {}", baker, order);
+                log.info("{} took order {}", baker, order);
             } catch (InterruptedException e) {
                 if (!isWorking) {
                     break;

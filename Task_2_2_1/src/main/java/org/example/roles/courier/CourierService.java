@@ -27,7 +27,7 @@ public class CourierService implements PizzaService {
     @Override
     public void startWorking() {
         initialize();
-//        log.info("Courier service start working, amount of bakers: {}", courierThreadMap.size());
+        log.info("Courier service start working, amount of bakers: {}", courierThreadMap.size());
         courierThreadMap.forEach(((courierManager, thread) -> {
             courierManager.setWorking(true);
             thread.start();
@@ -41,7 +41,7 @@ public class CourierService implements PizzaService {
      */
     @Override
     public void stopWorking() {
-//        log.info("Courier service stop working, amount of couriers: {}", courierThreadMap.size());
+        log.info("Courier service stop working, amount of couriers: {}", courierThreadMap.size());
         courierThreadMap.forEach((courierManager, thread) -> {
             courierManager.setWorking(false);
             thread.interrupt();

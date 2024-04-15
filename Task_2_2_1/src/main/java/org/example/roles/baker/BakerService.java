@@ -1,16 +1,16 @@
 package org.example.roles.baker;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.common.atoms.Delivery;
 import org.example.common.buffer.OrderBoard;
 import org.example.common.buffer.Storage;
 import org.example.common.configuration.FactoryConfiguration;
-import org.example.common.atoms.Delivery;
+import org.example.common.atoms.Order;
 import org.example.common.interfaces.PizzaService;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 
 @Slf4j
 public class BakerService implements PizzaService {
@@ -19,10 +19,10 @@ public class BakerService implements PizzaService {
     private final OrderBoard orderBoard;
     private final BakerRepository bakerRepository;
 
-    public BakerService(FactoryConfiguration factoryConfiguration) {
-        storage = factoryConfiguration.getStorage();
-        orderBoard = factoryConfiguration.getOrderBoard();
-        bakerRepository = factoryConfiguration.getBakerRepository();
+    public BakerService(FactoryConfiguration sharedClassFactory) {
+        storage = sharedClassFactory.getStorage();
+        orderBoard = sharedClassFactory.getOrderBoard();
+        bakerRepository = sharedClassFactory.getBakerRepository();
     }
 
     /**
@@ -31,7 +31,7 @@ public class BakerService implements PizzaService {
     @Override
     public void startWorking() {
         initialize();
-//        log.info("Baker service start working, amount of bakers: {}", bakerThreadMap.size());
+        log.info("Baker service start working, amount of bakers: {}", bakerThreadMap.size());
         bakerThreadMap.forEach(((bakerManager, thread) -> {
             bakerManager.setWorking(true);
             thread.start();
@@ -45,7 +45,7 @@ public class BakerService implements PizzaService {
      */
     @Override
     public void stopWorking() {
-//        log.info("Baker service stop working, amount of bakers: {}", bakerThreadMap.size());
+        log.info("Baker service stop working, amount of bakers: {}", bakerThreadMap.size());
         bakerThreadMap.forEach((bakerManager, thread) -> {
             bakerManager.setWorking(false);
             thread.interrupt();

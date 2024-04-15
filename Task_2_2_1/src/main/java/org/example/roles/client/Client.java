@@ -33,7 +33,7 @@ public class Client implements Runnable {
             }
             this.wait();
         }
-//        log.info("{} got pizza {}", name, pizza);
+        log.info("{} got pizza {}", name, pizza);
     }
 
     public void produce() throws InterruptedException {
@@ -41,7 +41,7 @@ public class Client implements Runnable {
         String pizzaName = getRandomPizza();
         Consumer<Pizza> callable = (pizza) -> {
             this.pizza = pizza;
-//            log.warn("call {}", this.name);
+            log.warn("call {}", this.name);
             synchronized (this) {
                 this.notify();
             }
@@ -49,13 +49,13 @@ public class Client implements Runnable {
         Order order = new Order(pizzaName, callable, name);
         Thread.sleep((long) waitingTime * 1000 + (long) random.nextInt(biasTime) * 1000);
         orderBoard.put(order);
-//        log.info("{} put order {} to the orderBoard", name, order);
+        log.info("{} put order {} to the orderBoard", name, order);
     }
 
 
     @Override
     public void run() {
-//        log.info("Start working");
+        log.info("Start working");
         while (isWorking) {
 
             try {
