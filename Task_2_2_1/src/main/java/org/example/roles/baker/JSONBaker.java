@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import org.example.common.configuration.Configuration;
 
 /**
- * class for json for baker
+ * class for json for baker.
  */
 public class JSONBaker implements BakerRepository {
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -19,6 +19,9 @@ public class JSONBaker implements BakerRepository {
 
     private List<Baker> bakers;
 
+    /**
+     * constructor for json baker.
+     */
     public JSONBaker() {
         fileBakers = new File(Configuration.BAKERS);
         if (!fileBakers.exists()) {
@@ -57,7 +60,7 @@ public class JSONBaker implements BakerRepository {
     }
 
     /**
-     * Creates initialize values, if there is no file
+     * Creates initialize values, if there is no file.
      *
      * @return list of couriers
      */

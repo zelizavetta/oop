@@ -10,7 +10,7 @@ import org.example.common.buffer.Storage;
 
 @Slf4j
 /**
- * class for baker manager
+ * class for baker manager.
  */
 public class BakerManager implements Runnable {
 
@@ -26,7 +26,7 @@ public class BakerManager implements Runnable {
 
 
     /**
-     * constructor for baker manager
+     * constructor for baker manager.
      *
      * @param baker type Baker
      *
@@ -41,7 +41,7 @@ public class BakerManager implements Runnable {
     }
 
     /**
-     * Get order from orderBoard
+     * Get order from orderBoard.
      */
     public void consume() throws InterruptedException {
         order = orderBoard.take();
@@ -93,7 +93,7 @@ public class BakerManager implements Runnable {
     }
 
     /**
-     * Set working type for stop running
+     * Set working type for stop running.
      *
      * @param working true - working, false - stop working
      */

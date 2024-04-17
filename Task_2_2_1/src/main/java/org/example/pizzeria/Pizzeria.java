@@ -7,7 +7,7 @@ import org.example.roles.client.ClientService;
 import org.example.roles.courier.CourierService;
 
 /**
- * main pizzeria controller
+ * main pizzeria controller.
  */
 @Slf4j
 public class Pizzeria {
@@ -18,7 +18,7 @@ public class Pizzeria {
     private final FactoryConfiguration factory = new FactoryConfiguration();
 
     /**
-     * constructor of pizzeria
+     * constructor of pizzeria.
      */
     public Pizzeria() {
         log.info("Pizzeria created");

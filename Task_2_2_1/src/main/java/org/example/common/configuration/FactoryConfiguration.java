@@ -9,7 +9,7 @@ import org.example.roles.courier.CourierRepository;
 import org.example.roles.courier.JSONCourier;
 
 /**
- * class describing factory configuration
+ * class describing factory configuration.
  */
 public class FactoryConfiguration {
     private final OrderBoard orderBoard = new OrderBoard(Configuration.MAX_ORDER_BOARD_SIZE);

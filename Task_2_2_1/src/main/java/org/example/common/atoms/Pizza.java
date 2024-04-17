@@ -1,14 +1,14 @@
 package org.example.common.atoms;
 
 /**
- * class describing pizza
+ * class describing pizza.
  */
 public class Pizza {
     private String serialNumber;
     private boolean cooked = false;
 
     /**
-     * constructor for Pizza
+     * constructor for Pizza.
      *
      * @param name type String
      */
@@ -17,7 +17,7 @@ public class Pizza {
     }
 
     /**
-     * setting cooked
+     * setting cooked.
      *
      * @param cooked type boolean
      */

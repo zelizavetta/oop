@@ -11,7 +11,7 @@ import org.example.common.interfaces.PizzaService;
 
 @Slf4j
 /**
- * class describing courier service
+ * class describing courier service.
  */
 public class CourierService implements PizzaService {
     private final Map<CourierManager, Thread> courierThreadMap = new LinkedHashMap<>();
@@ -51,6 +51,9 @@ public class CourierService implements PizzaService {
     }
 
 
+    /**
+     * initializing meth.
+     */
     private void initialize() {
         List<Courier> couriers = courierRepository.findAll();
         for (Courier courier : couriers) {

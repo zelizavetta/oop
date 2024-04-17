@@ -1,7 +1,7 @@
 package org.example.common.interfaces;
 
 /**
- * interface describing pizzeria starting and stopping
+ * interface describing pizzeria starting and stopping.
  */
 public interface PizzaService {
     /**

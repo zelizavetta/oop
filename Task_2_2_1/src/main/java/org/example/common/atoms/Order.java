@@ -3,7 +3,7 @@ package org.example.common.atoms;
 import java.util.function.Consumer;
 
 /**
- * class describing order of pizzeria
+ * class describing order of pizzeria.
  *
  * @param pizzaSerialNumber type String
  *

@@ -1,7 +1,7 @@
 package org.example.common.interfaces;
 
 /**
- * With synchronization
+ * With synchronization.
  *
  * @param <T> the objects that contains in buffer
  */

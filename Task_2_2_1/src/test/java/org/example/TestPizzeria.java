@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Assertions;
 
 
 /**
- * class for testing pizzeria
+ * class for testing pizzeria.
  */
 public class TestPizzeria {
 

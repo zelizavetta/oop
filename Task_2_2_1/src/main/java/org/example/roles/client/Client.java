@@ -10,7 +10,7 @@ import org.example.common.buffer.OrderBoard;
 
 @Slf4j
 /**
- * class for client
+ * class for client.
  */
 public class Client implements Runnable {
 
@@ -23,7 +23,7 @@ public class Client implements Runnable {
     private volatile boolean isWorking;
 
     /**
-     * constructor for client
+     * constructor for client.
      *
      * @param orderBoard type OrderBoard
      *
@@ -38,7 +38,7 @@ public class Client implements Runnable {
     }
 
     /**
-     * func describing consuming pizza
+     * func describing consuming pizza.
      *
      * @throws InterruptedException
      */
@@ -53,7 +53,7 @@ public class Client implements Runnable {
     }
 
     /**
-     * producing order
+     * producing order.
      *
      * @throws InterruptedException if interrupted
      */

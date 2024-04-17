@@ -13,7 +13,7 @@ import org.example.common.interfaces.PizzaService;
 
 @Slf4j
 /**
- * class for baker service
+ * class for baker service.
  */
 public class BakerService implements PizzaService {
     private final Map<BakerManager, Thread> bakerThreadMap = new LinkedHashMap<>();
@@ -54,6 +54,9 @@ public class BakerService implements PizzaService {
         });
     }
 
+    /**
+     * initializing meth.
+     */
     private void initialize() {
         List<Baker> bakerEntities = bakerRepository.findAll();
         for (Baker baker : bakerEntities) {

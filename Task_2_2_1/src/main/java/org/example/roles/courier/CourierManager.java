@@ -8,7 +8,7 @@ import org.example.common.buffer.Storage;
 
 @Slf4j
 /**
- * class describing manager courier
+ * class describing manager courier.
  */
 public class CourierManager implements Runnable {
 
@@ -73,7 +73,7 @@ public class CourierManager implements Runnable {
     }
 
     /**
-     * Set working type for stop running
+     * Set working type for stop running.
      *
      * @param working true - working, false - stop working
      */

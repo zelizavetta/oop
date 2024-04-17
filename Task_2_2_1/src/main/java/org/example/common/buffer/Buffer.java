@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import org.example.common.interfaces.IBuffer;
 
 /**
- * main pizzeria buffer
+ * main pizzeria buffer.
  *
  * @param <T>
  */

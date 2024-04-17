@@ -4,7 +4,7 @@ import org.example.common.atoms.Order;
 import org.example.common.configuration.Configuration;
 
 /**
- * class describing order board
+ * class describing order board.
  */
 public class OrderBoard extends Buffer<Order> {
     public OrderBoard(int capacity) {

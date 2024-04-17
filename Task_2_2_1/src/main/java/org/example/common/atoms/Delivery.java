@@ -3,7 +3,7 @@ package org.example.common.atoms;
 import java.util.function.Consumer;
 
 /**
- * class describing delivery with pizza, client name
+ * class describing delivery with pizza, client name.
  */
 public class Delivery {
     private final Pizza pizza;
@@ -11,7 +11,7 @@ public class Delivery {
     private final String clientName;
 
     /**
-     * constructor for Delivery
+     * constructor for Delivery.
      *
      * @param pizza type Pizza
      *

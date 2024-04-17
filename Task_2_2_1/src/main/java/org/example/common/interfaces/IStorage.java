@@ -3,7 +3,7 @@ package org.example.common.interfaces;
 import java.util.Collection;
 
 /**
- * interface describing storage
+ * interface describing storage.
  *
  * @param <T>
  */

@@ -6,7 +6,7 @@ import org.example.common.configuration.Configuration;
 import org.example.common.interfaces.IStorage;
 
 /**
- * class describing storage of pizzeria
+ * class describing storage of pizzeria.
  *
  * @param <T>
  */

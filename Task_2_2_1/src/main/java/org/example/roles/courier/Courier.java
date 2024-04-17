@@ -16,7 +16,7 @@ import org.example.common.atoms.Delivery;
 @Setter
 @NoArgsConstructor
 /**
- * class for courier
+ * class for courier.
  */
 public class Courier {
 
@@ -29,7 +29,7 @@ public class Courier {
     private final List<Delivery> orderList = new ArrayList<>();
 
     /**
-     * constructor for courier
+     * constructor for courier.
      *
      * @param id type Long
      *
@@ -50,7 +50,7 @@ public class Courier {
     }
 
     /**
-     * adding order for courier
+     * adding order for courier.
      *
      * @param orders
      */
@@ -66,7 +66,7 @@ public class Courier {
     }
 
     /**
-     * deliver func
+     * deliver func.
      *
      * @throws InterruptedException if interrupting
      */
@@ -85,7 +85,7 @@ public class Courier {
     }
 
     /**
-     * define ability of courier to take order
+     * define ability of courier to take order.
      *
      * @return ability of courier to take order
      */
@@ -123,7 +123,7 @@ public class Courier {
     }
 
     /**
-     * getting id
+     * getting id.
      *
      * @return id of courier
      */

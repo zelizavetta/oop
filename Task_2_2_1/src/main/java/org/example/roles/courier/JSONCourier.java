@@ -11,7 +11,7 @@ import java.util.List;
 import org.example.common.configuration.Configuration;
 
 /**
- * class for json for courier
+ * class for json for courier.
  */
 public class JSONCourier implements CourierRepository {
     private final List<Courier> couriers;
@@ -19,6 +19,9 @@ public class JSONCourier implements CourierRepository {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final File fileCouriers;
 
+    /**
+     * constructor for json courier.
+     */
     public JSONCourier() {
         fileCouriers = new File(Configuration.COURIERS);
         if (!fileCouriers.exists()) {
@@ -35,7 +38,7 @@ public class JSONCourier implements CourierRepository {
     }
 
     /**
-     * Creates initialize values, if there is no file
+     * Creates initialize values, if there is no file.
      *
      * @return list of couriers
      */

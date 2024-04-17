@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.common.atoms.Pizza;
 
 /**
- * class describing baker part
+ * class describing baker part.
  *
  * @param id
  *
@@ -23,7 +23,7 @@ public record Baker(
         int productionTime,
         int errorTime) {
     /**
-     * Simulate cooking with sleeping
+     * Simulate cooking with sleeping.
      *
      * @param pizza the pizza that needs to cook
      *
