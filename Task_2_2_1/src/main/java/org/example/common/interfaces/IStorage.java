@@ -23,5 +23,6 @@ public interface IStorage<T> extends IBuffer<T> {
      * @param maxElements         – the maximum number of elements to transfer
      * @return the number of elements transferred
      */
-    int drainTo(Collection<? super T> collectionForSaving, int maxElements) throws InterruptedException;
+    int drainTo(Collection<? super T> collectionForSaving, int maxElements)
+            throws InterruptedException;
 }

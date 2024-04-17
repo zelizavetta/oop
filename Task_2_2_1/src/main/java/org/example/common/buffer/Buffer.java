@@ -56,7 +56,8 @@ public class Buffer<T> implements IBuffer<T> {
     }
 
     /**
-     * Put something to the buffer. This method uses synchronized, so it's parallel save. Waits if buffer is full.
+     * Put something to the buffer. This method uses synchronized,
+     * so it's parallel save. Waits if buffer is full.
      *
      * @param object the object that will be stored into the buffer.
      */
@@ -70,7 +71,6 @@ public class Buffer<T> implements IBuffer<T> {
                 buffer.addFirst(object);
             }
         }
-//        notifyAllCanTake();
         notifyCanTake();
     }
 
@@ -91,7 +91,6 @@ public class Buffer<T> implements IBuffer<T> {
                 tookObject = buffer.removeLast();
             }
         }
-//        notifyAllCanPut();
         notifyCanPut();
         return tookObject;
     }

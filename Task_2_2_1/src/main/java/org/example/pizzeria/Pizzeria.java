@@ -16,7 +16,7 @@ public class Pizzeria {
     private final FactoryConfiguration factory = new FactoryConfiguration();
 
     public Pizzeria() {
-//        log.info("Pizzeria created");
+        log.info("Pizzeria created");
         bakerService = new BakerService(factory);
         clientService = new ClientService(factory);
         courierService = new CourierService(factory);
@@ -26,7 +26,7 @@ public class Pizzeria {
      * Start working. maybe download objects.
      */
     public void start() {
-//        log.info("Pizzeria start new beautiful day");
+        log.info("Pizzeria start new beautiful day");
         bakerService.startWorking();
         clientService.startWorking();
         courierService.startWorking();

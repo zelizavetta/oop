@@ -2,14 +2,13 @@ package org.example.roles.baker;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.common.configuration.Configuration;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.example.common.configuration.Configuration;
 
 public class JSONBaker implements BakerRepository {
     private final ObjectMapper objectMapper = new ObjectMapper();

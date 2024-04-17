@@ -1,11 +1,10 @@
 package org.example.roles.courier;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.common.buffer.Storage;
-import org.example.common.atoms.Delivery;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import org.example.common.buffer.Storage;
+import org.example.common.atoms.Delivery;
 
 @Slf4j
 public class CourierManager implements Runnable {
@@ -80,9 +79,11 @@ public class CourierManager implements Runnable {
 
     @Override
     public String toString() {
-        return "Courier{" +
-                "courier=" + courier +
-                ", isWorking=" + isWorking +
-                '}';
+        return "Courier{"
+                + "courier="
+                + courier
+                + ", isWorking="
+                + isWorking
+                + '}';
     }
 }

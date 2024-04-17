@@ -1,8 +1,8 @@
 package org.example.common.configuration;
 
 import org.example.common.buffer.OrderBoard;
-import org.example.common.buffer.Storage;
 import org.example.common.atoms.Delivery;
+import org.example.common.buffer.Storage;
 import org.example.roles.baker.BakerRepository;
 import org.example.roles.baker.JSONBaker;
 import org.example.roles.courier.CourierRepository;

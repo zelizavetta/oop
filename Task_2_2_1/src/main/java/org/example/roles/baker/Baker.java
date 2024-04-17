@@ -1,10 +1,9 @@
 package org.example.roles.baker;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.common.atoms.Pizza;
-
 import java.util.Objects;
 import java.util.Random;
+import org.example.common.atoms.Pizza;
 
 
 @Slf4j
@@ -29,16 +28,22 @@ public record Baker(
 
     @Override
     public String toString() {
-        return "Baker{" +
-                id +
-                "-'" + name + '\'' +
-                '}';
+        return "Baker{"
+                + id
+                + "-'"
+                + name
+                + '\''
+                + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Baker that = (Baker) o;
         return id.equals(that.id);
     }

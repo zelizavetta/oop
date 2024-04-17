@@ -6,19 +6,19 @@ import org.example.common.configuration.Configuration;
 import org.example.common.configuration.FactoryConfiguration;
 import org.example.common.interfaces.IStorage;
 import org.example.roles.baker.BakerManager;
-import org.example.roles.baker.JSONBaker;
 import org.example.roles.baker.Baker;
 import org.example.roles.baker.BakerRepository;
 import org.example.roles.baker.BakerService;
+import org.example.roles.baker.JSONBaker;
 import org.example.roles.client.Client;
 import org.example.roles.courier.Courier;
 import org.example.roles.courier.CourierRepository;
-import org.example.roles.courier.JSONCourier;
 import org.example.roles.courier.CourierManager;
 import org.example.roles.courier.CourierService;
-import org.junit.jupiter.api.Assertions;
+import org.example.roles.courier.JSONCourier;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 

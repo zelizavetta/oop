@@ -1,12 +1,11 @@
 package org.example.roles.client;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.common.buffer.OrderBoard;
 import org.example.common.atoms.Order;
-import org.example.common.atoms.Pizza;
-
 import java.util.Random;
 import java.util.function.Consumer;
+import org.example.common.atoms.Pizza;
+import org.example.common.buffer.OrderBoard;
 
 
 @Slf4j
@@ -101,9 +100,12 @@ public class Client implements Runnable {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "name='" + name + '\'' +
-                ", isWorking=" + isWorking +
-                '}';
+        return "Client{"
+                + "name='"
+                + name
+                + '\''
+                + ", isWorking="
+                + isWorking
+                + '}';
     }
 }

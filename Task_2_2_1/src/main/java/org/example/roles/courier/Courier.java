@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+import java.util.Iterator;
+import java.util.Objects;
 import org.example.common.atoms.Delivery;
-
-import java.util.*;
-
 
 @Getter
 @Setter
@@ -68,17 +71,24 @@ public class Courier {
 
     @Override
     public String toString() {
-        return "Courier{" +
-                id +
-                "-'" + name + '\'' +
-                "orders:" + orderList +
-                "}";
+        return "Courier{"
+                + id
+                + "-'"
+                + name
+                + '\''
+                + "orders:"
+                + orderList
+                + "}";
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Courier that = (Courier) o;
         return id.equals(that.id);
     }

@@ -1,8 +1,8 @@
 package org.example.roles.baker;
 
-import org.springframework.stereotype.Repository;
 import java.util.Collection;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  * Repository for bakers.

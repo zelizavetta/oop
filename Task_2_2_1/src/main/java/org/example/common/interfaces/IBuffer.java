@@ -27,7 +27,8 @@ public interface IBuffer<T> {
     void notifyCanTake();
 
     /**
-     * Put something to the buffer. This method uses synchronized, so it's parallel save. Waits if buffer is full.
+     * Put something to the buffer. This method uses synchronized,
+     * so it's parallel save. Waits if buffer is full.
      *
      * @param object the object that will be stored into the buffer.
      */

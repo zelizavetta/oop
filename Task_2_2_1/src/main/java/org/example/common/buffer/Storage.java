@@ -38,14 +38,16 @@ public class Storage<T> extends Buffer<T> implements IStorage<T> {
     }
 
     /**
-     * Removes at most the given number of available elements from this queue and adds them to the given collection.
+     * Removes at most the given number of available elements from
+     * this queue and adds them to the given collection.
      *
      * @param collectionForSaving – the collection to transfer elements into
      * @param maxElements         – the maximum number of elements to transfer
      * @return the number of elements transferred
      */
     @Override
-    public int drainTo(Collection<? super T> collectionForSaving, int maxElements) throws InterruptedException {
+    public int drainTo(Collection<? super T> collectionForSaving, int maxElements)
+            throws InterruptedException {
         int amount = 0;
         if (maxElements < 0) {
             throw new IllegalArgumentException("Negative maxElemenets");

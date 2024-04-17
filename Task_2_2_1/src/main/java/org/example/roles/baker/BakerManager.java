@@ -2,10 +2,10 @@ package org.example.roles.baker;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.common.buffer.OrderBoard;
-import org.example.common.buffer.Storage;
 import org.example.common.atoms.Delivery;
 import org.example.common.atoms.Order;
 import org.example.common.atoms.Pizza;
+import org.example.common.buffer.Storage;
 
 
 @Slf4j
@@ -43,7 +43,8 @@ public class BakerManager implements Runnable {
     public void produce() throws InterruptedException {
         Pizza pizza = new Pizza(order.pizzaSerialNumber());
         baker.cook(pizza);
-        log.info("{} Cooked pizza {} to {}", baker, order.pizzaSerialNumber(), order.clientNumber());
+        log.info("{} Cooked pizza {} to {}", baker,order.pizzaSerialNumber(),
+                order.clientNumber());
         Delivery deliveryOrder = new Delivery(pizza, order.orderCallback(), order.clientNumber());
         order = null;
         storage.put(deliveryOrder);
@@ -97,9 +98,11 @@ public class BakerManager implements Runnable {
 
     @Override
     public String toString() {
-        return "Baker{" +
-                "baker=" + baker +
-                ", isWorking=" + isWorking +
-                '}';
+        return "Baker{"
+                + "baker="
+                + baker
+                + ", isWorking="
+                + isWorking
+                + '}';
     }
 }
