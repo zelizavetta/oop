@@ -2,7 +2,6 @@ package org.example.roles.courier;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -90,7 +89,7 @@ public class Courier {
         return Objects.hash(id);
     }
 
-    public Object getId() {
+    public Long getId() {
         return this.id;
     }
 }
