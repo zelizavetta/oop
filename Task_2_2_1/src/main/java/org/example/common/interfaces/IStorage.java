@@ -2,6 +2,10 @@ package org.example.common.interfaces;
 
 import java.util.Collection;
 
+/**
+ * interface describing storage
+ * @param <T>
+ */
 public interface IStorage<T> extends IBuffer<T> {
     /**
      * Take at least one! It is waiting if storage is empty.

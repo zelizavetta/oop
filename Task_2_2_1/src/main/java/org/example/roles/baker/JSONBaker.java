@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.example.common.configuration.Configuration;
 
+/**
+ * class for json for baker
+ */
 public class JSONBaker implements BakerRepository {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final File fileBakers;

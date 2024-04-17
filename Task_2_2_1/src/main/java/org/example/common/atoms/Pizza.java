@@ -1,6 +1,8 @@
 package org.example.common.atoms;
 
-
+/**
+ * class describing pizza
+ */
 public class Pizza {
     private String serialNumber;
     private boolean cooked = false;

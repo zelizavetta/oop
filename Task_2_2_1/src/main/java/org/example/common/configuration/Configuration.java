@@ -1,5 +1,8 @@
 package org.example.common.configuration;
 
+/**
+ * class describing parameters of pizzeria
+ */
 public class Configuration {
     public static final int MAX_STORAGE_SIZE = 1;
     public static final int MAX_ORDER_BOARD_SIZE = 2;

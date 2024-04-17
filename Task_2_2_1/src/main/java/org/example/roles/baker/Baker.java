@@ -1,11 +1,17 @@
 package org.example.roles.baker;
 
-import lombok.extern.slf4j.Slf4j;
 import java.util.Objects;
 import java.util.Random;
+import lombok.extern.slf4j.Slf4j;
 import org.example.common.atoms.Pizza;
 
-
+/**
+ * class describing baker part
+ * @param id
+ * @param name
+ * @param productionTime
+ * @param errorTime
+ */
 @Slf4j
 public record Baker(
         Long id,

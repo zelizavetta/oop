@@ -1,9 +1,9 @@
 package org.example.roles.client;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.common.atoms.Order;
 import java.util.Random;
 import java.util.function.Consumer;
+import org.example.common.atoms.Order;
 import org.example.common.atoms.Pizza;
 import org.example.common.buffer.OrderBoard;
 

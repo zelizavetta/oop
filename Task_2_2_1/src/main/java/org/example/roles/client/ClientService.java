@@ -1,9 +1,9 @@
 package org.example.roles.client;
 
-import lombok.extern.slf4j.Slf4j;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
+import lombok.extern.slf4j.Slf4j;
 import org.example.common.buffer.OrderBoard;
 import org.example.common.configuration.Configuration;
 import org.example.common.configuration.FactoryConfiguration;

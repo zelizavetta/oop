@@ -5,6 +5,10 @@ import java.util.Iterator;
 import org.example.common.configuration.Configuration;
 import org.example.common.interfaces.IStorage;
 
+/**
+ * class describing storage of pizzeria
+ * @param <T>
+ */
 public class Storage<T> extends Buffer<T> implements IStorage<T> {
     public Storage(int capacity) {
         super(capacity);

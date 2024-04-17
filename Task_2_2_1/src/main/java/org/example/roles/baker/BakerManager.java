@@ -1,10 +1,10 @@
 package org.example.roles.baker;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.common.buffer.OrderBoard;
 import org.example.common.atoms.Delivery;
 import org.example.common.atoms.Order;
 import org.example.common.atoms.Pizza;
+import org.example.common.buffer.OrderBoard;
 import org.example.common.buffer.Storage;
 
 
@@ -22,6 +22,12 @@ public class BakerManager implements Runnable {
     private Order order = null;
 
 
+    /**
+     * constructor for baker manager
+     * @param baker
+     * @param storage
+     * @param orderBoard
+     */
     public BakerManager(Baker baker, Storage storage, OrderBoard orderBoard) {
         this.baker = baker;
         this.storage = storage;
@@ -43,7 +49,7 @@ public class BakerManager implements Runnable {
     public void produce() throws InterruptedException {
         Pizza pizza = new Pizza(order.pizzaSerialNumber());
         baker.cook(pizza);
-        log.info("{} Cooked pizza {} to {}", baker,order.pizzaSerialNumber(),
+        log.info("{} Cooked pizza {} to {}", baker, order.pizzaSerialNumber(),
                 order.clientNumber());
         Delivery deliveryOrder = new Delivery(pizza, order.orderCallback(), order.clientNumber());
         order = null;

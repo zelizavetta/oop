@@ -1,13 +1,16 @@
 package org.example.common.configuration;
 
-import org.example.common.buffer.OrderBoard;
 import org.example.common.atoms.Delivery;
+import org.example.common.buffer.OrderBoard;
 import org.example.common.buffer.Storage;
 import org.example.roles.baker.BakerRepository;
 import org.example.roles.baker.JSONBaker;
 import org.example.roles.courier.CourierRepository;
 import org.example.roles.courier.JSONCourier;
 
+/**
+ * class describing factory configuration
+ */
 public class FactoryConfiguration {
     private final OrderBoard orderBoard = new OrderBoard(Configuration.MAX_ORDER_BOARD_SIZE);
     private final Storage<Delivery> storage = new Storage<>(Configuration.MAX_STORAGE_SIZE);
