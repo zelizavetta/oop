@@ -76,9 +76,16 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-pizzaSerialNumber">pizzaSerialNumber</span></code> - </dd>
+<dd><code><span id="param-orderCallback">orderCallback</span></code> - </dd>
+<dd><code><span id="param-clientNumber">clientNumber</span></code> - </dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">Order</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pizzaSerialNumber, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Pizza.html" title="class in org.example.common.atoms">Pizza</a>&gt;&nbsp;orderCallback, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;clientNumber)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
+<div class="block">class describing order of pizzeria</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -113,7 +120,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clientNumber()" class="member-name-link">clientNumber</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>clientNumber</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-clientNumber"><code>clientNumber</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -128,12 +135,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Pizza.html" title="class in org.example.common.atoms">Pizza</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#orderCallback()" class="member-name-link">orderCallback</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>orderCallback</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-orderCallback"><code>orderCallback</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pizzaSerialNumber()" class="member-name-link">pizzaSerialNumber</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>pizzaSerialNumber</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-pizzaSerialNumber"><code>pizzaSerialNumber</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -166,9 +173,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>Order</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>pizzaSerialNumber</code> - the value for the <code>pizzaSerialNumber</code> record component</dd>
-<dd><code>orderCallback</code> - the value for the <code>orderCallback</code> record component</dd>
-<dd><code>clientNumber</code> - the value for the <code>clientNumber</code> record component</dd>
+<dd><code>pizzaSerialNumber</code> - the value for the <a href="#param-pizzaSerialNumber"><code>pizzaSerialNumber</code></a> record component</dd>
+<dd><code>orderCallback</code> - the value for the <a href="#param-orderCallback"><code>orderCallback</code></a> record component</dd>
+<dd><code>clientNumber</code> - the value for the <a href="#param-clientNumber"><code>clientNumber</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -225,10 +232,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="pizzaSerialNumber()">
 <h3>pizzaSerialNumber</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">pizzaSerialNumber</span>()</div>
-<div class="block">Returns the value of the <code>pizzaSerialNumber</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-pizzaSerialNumber"><code>pizzaSerialNumber</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>pizzaSerialNumber</code> record component</dd>
+<dd>the value of the <a href="#param-pizzaSerialNumber"><code>pizzaSerialNumber</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -236,10 +243,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="orderCallback()">
 <h3>orderCallback</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Pizza.html" title="class in org.example.common.atoms">Pizza</a>&gt;</span>&nbsp;<span class="element-name">orderCallback</span>()</div>
-<div class="block">Returns the value of the <code>orderCallback</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-orderCallback"><code>orderCallback</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>orderCallback</code> record component</dd>
+<dd>the value of the <a href="#param-orderCallback"><code>orderCallback</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -247,10 +254,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="clientNumber()">
 <h3>clientNumber</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">clientNumber</span>()</div>
-<div class="block">Returns the value of the <code>clientNumber</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-clientNumber"><code>clientNumber</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>clientNumber</code> record component</dd>
+<dd>the value of the <a href="#param-clientNumber"><code>clientNumber</code></a> record component</dd>
 </dl>
 </section>
 </li>
