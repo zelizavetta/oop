@@ -97,10 +97,6 @@ public class Client implements Runnable {
         }
     }
 
-    public boolean isWorking() {
-        return isWorking;
-    }
-
     public void setWorking(boolean working) {
         isWorking = working;
     }

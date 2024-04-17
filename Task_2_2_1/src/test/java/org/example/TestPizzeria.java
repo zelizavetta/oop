@@ -5,6 +5,7 @@ import org.example.common.buffer.Storage;
 import org.example.common.configuration.Configuration;
 import org.example.common.configuration.FactoryConfiguration;
 import org.example.common.interfaces.IStorage;
+import org.example.pizzeria.Pizzeria;
 import org.example.roles.baker.Baker;
 import org.example.roles.baker.BakerManager;
 import org.example.roles.baker.BakerRepository;
@@ -201,6 +202,21 @@ public class TestPizzeria {
         }
         Assertions.assertTrue(integers.contains(3));
 
+    }
+
+    @Test
+    void testPizzeriaController() throws Exception {
+        Pizzeria pizzeria = new Pizzeria();
+        try {
+            pizzeria.start();
+        } catch (Exception e) {
+            throw new Exception("error in start func");
+        }
+        try {
+            pizzeria.stop();
+        } catch (Exception e) {
+            throw new Exception("error in stop func");
+        }
     }
 
 

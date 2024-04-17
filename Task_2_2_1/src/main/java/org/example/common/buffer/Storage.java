@@ -2,7 +2,7 @@ package org.example.common.buffer;
 
 import java.util.Collection;
 import java.util.Iterator;
-import org.example.common.configuration.Configuration;
+
 import org.example.common.interfaces.IStorage;
 
 /**
@@ -13,10 +13,6 @@ import org.example.common.interfaces.IStorage;
 public class Storage<T> extends Buffer<T> implements IStorage<T> {
     public Storage(int capacity) {
         super(capacity);
-    }
-
-    public Storage() {
-        super(Configuration.MAX_STORAGE_SIZE);
     }
 
     /**

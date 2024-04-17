@@ -8,13 +8,13 @@ import org.example.common.atoms.Pizza;
 /**
  * class describing baker part.
  *
- * @param id
+ * @param id type Long
  *
- * @param name
+ * @param name type String
  *
- * @param productionTime
+ * @param productionTime type int
  *
- * @param errorTime
+ * @param errorTime type int
  */
 @Slf4j
 public record Baker(
