@@ -19,9 +19,12 @@ public class Delivery {
 
     @Override
     public String toString() {
-        return "DeliveryOrder{" +
-                "pizza=" + pizza +
-                ", clientName='" + clientName + '\'' +
-                '}';
+        return "DeliveryOrder{"
+                + "pizza="
+                + pizza
+                + ", clientName='"
+                + clientName
+                + '\''
+                + '}';
     }
 }

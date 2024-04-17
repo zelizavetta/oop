@@ -1,10 +1,7 @@
 package org.example;
 
-import org.example.common.interfaces.PizzaService;
-import org.example.pizzeria.Pizzeria;
-
-import java.util.List;
 import java.util.Scanner;
+import org.example.pizzeria.Pizzeria;
 
 public class Main {
     public static void main(String[] args) {

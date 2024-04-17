@@ -1,11 +1,8 @@
 package org.example.common.buffer;
 
-import org.example.common.interfaces.IBuffer;
-
-import java.util.Collection;
 import java.util.Deque;
-import java.util.Iterator;
 import java.util.LinkedList;
+import org.example.common.interfaces.IBuffer;
 
 public class Buffer<T> implements IBuffer<T> {
 

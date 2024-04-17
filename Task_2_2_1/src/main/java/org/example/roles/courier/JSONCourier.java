@@ -1,15 +1,14 @@
 package org.example.roles.courier;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.common.configuration.Configuration;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.common.configuration.Configuration;
 
 public class JSONCourier implements CourierRepository {
     private final List<Courier> couriers;

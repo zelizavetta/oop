@@ -1,14 +1,13 @@
 package org.example.roles.courier;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.example.common.buffer.Storage;
 import org.example.common.configuration.FactoryConfiguration;
 import org.example.common.atoms.Delivery;
 import org.example.common.interfaces.PizzaService;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 @Slf4j
 public class CourierService implements PizzaService {

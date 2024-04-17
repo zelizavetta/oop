@@ -7,9 +7,13 @@ public record Order(String pizzaSerialNumber, Consumer<Pizza> orderCallback, Str
 
     @Override
     public String toString() {
-        return "Order{" +
-                "pizzaSerialNumber='" + pizzaSerialNumber + '\'' +
-                ", clientNumber='" + clientNumber + '\'' +
-                '}';
+        return "Order{"
+                + "pizzaSerialNumber='"
+                + pizzaSerialNumber
+                + '\''
+                + ", clientNumber='"
+                + clientNumber
+                + '\''
+                + '}';
     }
 }

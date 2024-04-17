@@ -1,10 +1,9 @@
 package org.example.common.buffer;
 
-import org.example.common.configuration.Configuration;
-import org.example.common.interfaces.IStorage;
-
 import java.util.Collection;
 import java.util.Iterator;
+import org.example.common.configuration.Configuration;
+import org.example.common.interfaces.IStorage;
 
 public class Storage<T> extends Buffer<T> implements IStorage<T> {
     public Storage(int capacity) {

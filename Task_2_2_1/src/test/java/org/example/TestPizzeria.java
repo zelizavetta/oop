@@ -5,14 +5,23 @@ import org.example.common.buffer.Storage;
 import org.example.common.configuration.Configuration;
 import org.example.common.configuration.FactoryConfiguration;
 import org.example.common.interfaces.IStorage;
-import org.example.roles.baker.*;
+import org.example.roles.baker.BakerManager;
+import org.example.roles.baker.JSONBaker;
+import org.example.roles.baker.Baker;
+import org.example.roles.baker.BakerRepository;
+import org.example.roles.baker.BakerService;
 import org.example.roles.client.Client;
-import org.example.roles.courier.*;
+import org.example.roles.courier.Courier;
+import org.example.roles.courier.CourierRepository;
+import org.example.roles.courier.JSONCourier;
+import org.example.roles.courier.CourierManager;
+import org.example.roles.courier.CourierService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Test;
+
+
 
 
 public class TestPizzeria {
@@ -22,8 +31,6 @@ public class TestPizzeria {
     void testProductionChain() {
         OrderBoard orderBoard = new OrderBoard(2);
         Storage storage = new Storage(2);
-
-
         Assertions.assertTrue(orderBoard.isEmpty());
         Assertions.assertFalse(orderBoard.isFull());
         Assertions.assertEquals(0, orderBoard.size());
@@ -103,7 +110,6 @@ public class TestPizzeria {
         Assertions.assertFalse(client.havePizza());
         bakerService.startWorking();
         courierService.startWorking();
-
         Thread clientThread = new Thread(() -> {
             try {
                 client.produce();
@@ -119,8 +125,6 @@ public class TestPizzeria {
         } catch (InterruptedException e) {
         }
         Assertions.assertTrue(client.havePizza());
-
-
     }
 
     @Test
@@ -135,7 +139,6 @@ public class TestPizzeria {
         Assertions.assertTrue(bakerRepository1.findAll().contains(baker));
         bakerRepository.delete(baker.id());
         Assertions.assertFalse(bakerRepository.findAll().contains(baker));
-
         CourierRepository courierRepository = new JSONCourier();
         courierRepository.delete(15L);
         Courier courier = new Courier(15L, "Og", 1, 1, 2);
