@@ -219,5 +219,19 @@ public class TestPizzeria {
         }
     }
 
+    @Test
+    void configsTest() throws Exception {
+        if (Configuration.MAX_STORAGE_SIZE < 0) {
+            throw new Exception("max storage size is invalid");
+        }
+        if (Configuration.CLIENTS_AMOUNT < 0) {
+            throw new Exception("clients amount is invalid");
+        }
+        if (Configuration.MAX_ORDER_BOARD_SIZE < 0) {
+            throw new Exception("max order board size is invalid");
+        }
+
+    }
+
 
 }
