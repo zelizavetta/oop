@@ -1,0 +1,9 @@
+org.example
+org.example.common.atoms
+org.example.common.buffer
+org.example.common.configuration
+org.example.common.interfaces
+org.example.pizzeria
+org.example.roles.baker
+org.example.roles.client
+org.example.roles.courier
