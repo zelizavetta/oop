@@ -15,7 +15,7 @@ public class Delivery {
      *
      * @param pizza type Pizza
      *
-     * @param orderCallback type Consumer<Pizza>
+     * @param orderCallback type Consumer Pizza
      *
      * @param clientName type String
      */

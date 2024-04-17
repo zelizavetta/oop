@@ -7,7 +7,7 @@ import java.util.function.Consumer;
  *
  * @param pizzaSerialNumber type String
  *
- * @param orderCallback type Consumer<Pizza>
+ * @param orderCallback type Consumer Pizza
  *
  * @param clientNumber type String
  */
