@@ -11,6 +11,9 @@ import org.example.common.interfaces.PizzaService;
 
 
 @Slf4j
+/**
+ * class for client service
+ */
 public class ClientService implements PizzaService {
     private final Map<Client, Thread> clientThreadMap = new LinkedHashMap<>();
     private final OrderBoard orderBoard;
@@ -48,6 +51,9 @@ public class ClientService implements PizzaService {
         });
     }
 
+    /**
+     * initializing func
+     */
     private void initialize() {
         int clientsAmount = Configuration.CLIENTS_AMOUNT;
         Random random = new Random();

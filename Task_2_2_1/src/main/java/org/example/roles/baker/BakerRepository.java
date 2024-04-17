@@ -13,6 +13,7 @@ public interface BakerRepository {
      * Save.
      *
      * @param baker the baker for save
+     *
      * @return saved baker
      */
     Baker save(Baker baker);

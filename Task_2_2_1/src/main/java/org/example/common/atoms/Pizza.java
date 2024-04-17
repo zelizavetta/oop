@@ -7,14 +7,20 @@ public class Pizza {
     private String serialNumber;
     private boolean cooked = false;
 
+    /**
+     * constructor for Pizza
+     *
+     * @param name type String
+     */
     public Pizza(String name) {
         this.serialNumber = name;
     }
 
-    public boolean isCooked() {
-        return cooked;
-    }
-
+    /**
+     * setting cooked
+     *
+     * @param cooked type boolean
+     */
     public void setCooked(boolean cooked) {
         this.cooked = cooked;
     }

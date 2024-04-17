@@ -10,6 +10,9 @@ import java.util.Iterator;
 import java.util.List;
 import org.example.common.configuration.Configuration;
 
+/**
+ * class for json for courier
+ */
 public class JSONCourier implements CourierRepository {
     private final List<Courier> couriers;
 

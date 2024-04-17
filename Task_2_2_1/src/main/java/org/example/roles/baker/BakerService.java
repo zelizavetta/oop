@@ -3,15 +3,18 @@ package org.example.roles.baker;
 import lombok.extern.slf4j.Slf4j;
 import org.example.common.atoms.Delivery;
 import org.example.common.buffer.OrderBoard;
-import org.example.common.buffer.Storage;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import org.example.common.buffer.Storage;
 import org.example.common.configuration.FactoryConfiguration;
 import org.example.common.interfaces.PizzaService;
 
 
 @Slf4j
+/**
+ * class for baker service
+ */
 public class BakerService implements PizzaService {
     private final Map<BakerManager, Thread> bakerThreadMap = new LinkedHashMap<>();
     private final Storage<Delivery> storage;

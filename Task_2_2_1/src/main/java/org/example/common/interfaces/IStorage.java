@@ -4,6 +4,7 @@ import java.util.Collection;
 
 /**
  * interface describing storage
+ *
  * @param <T>
  */
 public interface IStorage<T> extends IBuffer<T> {
@@ -13,6 +14,7 @@ public interface IStorage<T> extends IBuffer<T> {
      * to the given collection.
      *
      * @param collection the collection to transfer elements into
+     *
      * @return the number of elements transferred
      */
 
@@ -24,7 +26,9 @@ public interface IStorage<T> extends IBuffer<T> {
      * from this queue and adds them to the given collection.
      *
      * @param collectionForSaving – the collection to transfer elements into
+     *
      * @param maxElements         – the maximum number of elements to transfer
+     *
      * @return the number of elements transferred
      */
     int drainTo(Collection<? super T> collectionForSaving, int maxElements)

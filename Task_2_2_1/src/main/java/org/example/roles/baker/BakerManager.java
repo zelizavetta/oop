@@ -9,6 +9,9 @@ import org.example.common.buffer.Storage;
 
 
 @Slf4j
+/**
+ * class for baker manager
+ */
 public class BakerManager implements Runnable {
 
     private final Baker baker;
@@ -24,9 +27,12 @@ public class BakerManager implements Runnable {
 
     /**
      * constructor for baker manager
-     * @param baker
-     * @param storage
-     * @param orderBoard
+     *
+     * @param baker type Baker
+     *
+     * @param storage type Storage
+     *
+     * @param orderBoard type OrderBoard
      */
     public BakerManager(Baker baker, Storage storage, OrderBoard orderBoard) {
         this.baker = baker;
@@ -88,6 +94,7 @@ public class BakerManager implements Runnable {
 
     /**
      * Set working type for stop running
+     *
      * @param working true - working, false - stop working
      */
     public void setWorking(boolean working) {
@@ -96,6 +103,7 @@ public class BakerManager implements Runnable {
 
     /**
      * Just for test
+     *
      * @return order
      */
     public Order getOrder() {

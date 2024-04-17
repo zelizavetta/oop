@@ -1,12 +1,15 @@
 package org.example.roles.courier;
 
-import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.Collection;
-import org.example.common.buffer.Storage;
+import lombok.extern.slf4j.Slf4j;
 import org.example.common.atoms.Delivery;
+import org.example.common.buffer.Storage;
 
 @Slf4j
+/**
+ * class describing manager courier
+ */
 public class CourierManager implements Runnable {
 
     private final Courier courier;
@@ -23,7 +26,8 @@ public class CourierManager implements Runnable {
 
     /**
      * Courier got order from storage.
-     * @throws InterruptedException aboba
+     *
+     * @throws InterruptedException if interrupted
      */
     public void consume() throws InterruptedException {
         Collection<Delivery> orders = new ArrayList<>();
@@ -34,7 +38,8 @@ public class CourierManager implements Runnable {
 
     /**
      * Courier deliver order.
-     * @throws InterruptedException aboba
+     *
+     * @throws InterruptedException if interrupting
      */
     public void produce() throws InterruptedException {
         courier.deliver();

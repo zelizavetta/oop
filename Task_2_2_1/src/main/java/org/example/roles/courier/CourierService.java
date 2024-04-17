@@ -4,12 +4,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
-import org.example.common.buffer.Storage;
 import org.example.common.atoms.Delivery;
+import org.example.common.buffer.Storage;
 import org.example.common.configuration.FactoryConfiguration;
 import org.example.common.interfaces.PizzaService;
 
 @Slf4j
+/**
+ * class describing courier service
+ */
 public class CourierService implements PizzaService {
     private final Map<CourierManager, Thread> courierThreadMap = new LinkedHashMap<>();
     private final Storage<Delivery> storage;

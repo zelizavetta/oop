@@ -4,9 +4,12 @@ import java.util.function.Consumer;
 
 /**
  * class describing order of pizzeria
- * @param pizzaSerialNumber
- * @param orderCallback
- * @param clientNumber
+ *
+ * @param pizzaSerialNumber type String
+ *
+ * @param orderCallback type Consumer<Pizza>
+ *
+ * @param clientNumber type String
  */
 public record Order(String pizzaSerialNumber, Consumer<Pizza> orderCallback, String clientNumber) {
 

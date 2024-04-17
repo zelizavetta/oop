@@ -7,9 +7,13 @@ import org.example.common.atoms.Pizza;
 
 /**
  * class describing baker part
+ *
  * @param id
+ *
  * @param name
+ *
  * @param productionTime
+ *
  * @param errorTime
  */
 @Slf4j
@@ -22,6 +26,7 @@ public record Baker(
      * Simulate cooking with sleeping
      *
      * @param pizza the pizza that needs to cook
+     *
      * @throws InterruptedException sometimes
      */
     public void cook(Pizza pizza) throws InterruptedException {

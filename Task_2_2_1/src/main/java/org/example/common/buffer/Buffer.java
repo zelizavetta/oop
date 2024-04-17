@@ -6,6 +6,7 @@ import org.example.common.interfaces.IBuffer;
 
 /**
  * main pizzeria buffer
+ *
  * @param <T>
  */
 public class Buffer<T> implements IBuffer<T> {

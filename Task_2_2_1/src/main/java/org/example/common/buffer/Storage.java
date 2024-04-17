@@ -7,6 +7,7 @@ import org.example.common.interfaces.IStorage;
 
 /**
  * class describing storage of pizzeria
+ *
  * @param <T>
  */
 public class Storage<T> extends Buffer<T> implements IStorage<T> {
@@ -23,6 +24,7 @@ public class Storage<T> extends Buffer<T> implements IStorage<T> {
      * to the given collection.
      *
      * @param collection the collection to transfer elements into
+     *
      * @return the number of elements transferred
      */
     @Override
@@ -46,7 +48,9 @@ public class Storage<T> extends Buffer<T> implements IStorage<T> {
      * this queue and adds them to the given collection.
      *
      * @param collectionForSaving – the collection to transfer elements into
+     *
      * @param maxElements         – the maximum number of elements to transfer
+     *
      * @return the number of elements transferred
      */
     @Override

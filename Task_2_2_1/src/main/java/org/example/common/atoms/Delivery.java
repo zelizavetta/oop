@@ -12,9 +12,12 @@ public class Delivery {
 
     /**
      * constructor for Delivery
-     * @param pizza
-     * @param orderCallback
-     * @param clientName
+     *
+     * @param pizza type Pizza
+     *
+     * @param orderCallback type Consumer<Pizza>
+     *
+     * @param clientName type String
      */
     public Delivery(Pizza pizza, Consumer<Pizza> orderCallback, String clientName) {
         this.pizza = pizza;

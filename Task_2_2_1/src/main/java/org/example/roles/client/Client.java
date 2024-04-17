@@ -1,14 +1,17 @@
 package org.example.roles.client;
 
-import lombok.extern.slf4j.Slf4j;
-import java.util.Random;
 import java.util.function.Consumer;
+import java.util.Random;
+import lombok.extern.slf4j.Slf4j;
 import org.example.common.atoms.Order;
 import org.example.common.atoms.Pizza;
 import org.example.common.buffer.OrderBoard;
 
 
 @Slf4j
+/**
+ * class for client
+ */
 public class Client implements Runnable {
 
     private final OrderBoard orderBoard;
@@ -19,12 +22,26 @@ public class Client implements Runnable {
     private Pizza pizza;
     private volatile boolean isWorking;
 
+    /**
+     * constructor for client
+     *
+     * @param orderBoard type OrderBoard
+     *
+     * @param waitingTime type int
+     *
+     * @param biasTime type int
+     */
     public Client(OrderBoard orderBoard, int waitingTime, int biasTime) {
         this.orderBoard = orderBoard;
         this.waitingTime = waitingTime;
         this.biasTime = biasTime;
     }
 
+    /**
+     * func describing consuming pizza
+     *
+     * @throws InterruptedException
+     */
     public void consume() throws InterruptedException {
         synchronized (this) {
             if (Thread.interrupted()) {
@@ -35,6 +52,11 @@ public class Client implements Runnable {
         log.info("{} got pizza {}", name, pizza);
     }
 
+    /**
+     * producing order
+     *
+     * @throws InterruptedException if interrupted
+     */
     public void produce() throws InterruptedException {
         pizza = null;
         String pizzaName = getRandomPizza();
