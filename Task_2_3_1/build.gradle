@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+apply plugin: 'application'
+
+mainClassName = "java.model.Main"
+group 'nsu.fit.ezaitseva'
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainModule = 'oop'
+    mainClass = 'nsu.fit.ezaitseva.snakegame.SnakeApp'
+}
+
+javafx {
+    version = '22'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.projectlombok:lombok:1.18.26'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.14.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+    implementation 'com.googlecode.lanterna:lanterna:3.0.1'
+    implementation 'org.openjfx:javafx-media:18'
+    implementation 'org.ejml:ejml-core:0.43'
+    implementation 'org.ejml:ejml-simple:0.43'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.required = true
+        html.required = true
+        //html.outputLocation = layout.buildDirectory.dir('jacocoHtml') //Доп опция, чтобы у себя можно было открыть html
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "ru/nsu/ezaitseva/snakegame/HelloApplication.class",
+                    "ru/nsu/ezaitseva/snakegame/fx/*",
+                    "ru/nsu/ezaitseva/snakegame/console/*",
+                    "ru/nsu/ezaitseva/snakegame/units/*",
+                    //"<package>.Main.class" Указывайте полное имея пакета с точками
+            ])
+        }))
+
+    }
+
+}

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="nsu.fit.ezaitseva.snakegame.fx.game.GameController">
+    <Canvas fx:id="canvas" height="700.0" width="700.0"/>
+    <Separator layoutX="697.0" orientation="VERTICAL" prefHeight="700.0" prefWidth="10.0"/>
+    <Separator layoutX="701.0" layoutY="98.0" prefHeight="3.0" prefWidth="345.0"/>
+    <Text fill="#0d84ff" layoutX="707.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score:">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <Text fx:id="score" layoutX="826.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0"
+          wrappingWidth="96.8687744140625">
+        <font>
+            <Font size="20.0"/>
+        </font>
+    </Text>
+    <ImageView fx:id="imagePlayer2" fitHeight="57.0" fitWidth="57.0" layoutX="707.0" layoutY="278.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@textures/snakeHead.png"/>
+        </image>
+    </ImageView>
+    <ImageView fx:id="imagePlayer1" fitHeight="57.0" fitWidth="85.0" layoutX="708.0" layoutY="196.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@textures/snakeHead.png"/>
+        </image>
+    </ImageView>
+    <Text layoutX="707.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players and scores:">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <Text fx:id="namePlayer1" layoutX="776.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1"
+          wrappingWidth="222.4871826171875">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <Text fx:id="scorePlayer1" layoutX="778.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score1"
+          wrappingWidth="222.4871826171875">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <Text fx:id="namePlayer2" layoutX="774.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2"
+          wrappingWidth="222.4871826171875">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <Text fx:id="scorePlayer2" layoutX="774.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score2"
+          wrappingWidth="222.4871826171875">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <ImageView fx:id="imagePlayer3" fitHeight="57.0" fitWidth="85.0" layoutX="708.0" layoutY="360.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@textures/snakeHead.png"/>
+        </image>
+    </ImageView>
+    <Text fx:id="namePlayer3" layoutX="774.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3"
+          wrappingWidth="222.4871826171875">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <Text fx:id="scorePlayer3" layoutX="774.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score3"
+          wrappingWidth="222.4871826171875">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <ImageView fx:id="personImage" fitHeight="57.0" fitWidth="85.0" layoutX="968.0" layoutY="13.0" pickOnBounds="true"
+               preserveRatio="true">
+        <image>
+            <Image url="@textures/snakeHead.png"/>
+        </image>
+    </ImageView>
+    <Text fill="#3aa0f2" layoutX="707.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Name:"
+          wrappingWidth="110.48724365234375">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <Text fx:id="personName" layoutX="811.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PlayerName"
+          wrappingWidth="110.48724365234375">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Text>
+    <Text fx:id="winnerText" disable="true" fill="RED" layoutX="852.0" layoutY="245.0" strokeType="OUTSIDE"
+          strokeWidth="0.0" text="Winner" wrappingWidth="65.68719482421875">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Text>
+    <ImageView fx:id="winnerImage" disable="true" fitHeight="57.0" fitWidth="66.0" layoutX="707.0" layoutY="168.0"
+               pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@textures/win.png"/>
+        </image>
+    </ImageView>
+</AnchorPane>
