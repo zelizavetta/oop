@@ -80,9 +80,7 @@ public class FieldView {
                 TextColor.ANSI.BLACK));
     }
 
-    private void setCharacterAtPoint(PointDTO point, Character character) {
-        screen.setCharacter(point.x(), point.y(), new TextCharacter(character));
-    }
+
 
     private void setCharacterAtPoint(PointDTO point, TextCharacter textCharacter) {
         screen.setCharacter(point.x(), point.y(), textCharacter);

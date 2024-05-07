@@ -7,10 +7,7 @@ import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
 import java.util.Map;
 
-/**
- * Бот построенный на эвристике.
- * Каждый ход считает абстрактный штраф для трёх направлений и выбирает то, где штраф меньше
- */
+
 public class EuristickBot extends PlayerListener {
     private final int range;
 

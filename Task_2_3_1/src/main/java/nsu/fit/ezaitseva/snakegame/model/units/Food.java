@@ -1,8 +1,6 @@
 package nsu.fit.ezaitseva.snakegame.model.units;
 
-/**
- *
- */
+
 public final class Food extends GameUnit {
     private final int value;
 

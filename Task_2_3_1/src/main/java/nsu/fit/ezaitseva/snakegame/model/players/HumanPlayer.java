@@ -4,9 +4,7 @@ import nsu.fit.ezaitseva.snakegame.model.basic.Point;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
-/**
- * Player who can change the state of the passed snake. Accordingly, he did not notice the game on the screen.
- */
+
 public class HumanPlayer extends PlayerListener {
     private Direction direction = Direction.getRandomDirection();
 

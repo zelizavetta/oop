@@ -2,9 +2,6 @@ package nsu.fit.ezaitseva.snakegame.model.units;
 
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
-/**
- * The body of a snake, which can also be a head. Has direction and reference to the snake itself.
- */
 public final class SnakeBody extends GameUnit {
     private Direction direction;
     private Snake snake;

@@ -3,10 +3,6 @@ package nsu.fit.ezaitseva.snakegame.model.players;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
-/**
- * Used in game logic. Where each player is asked his next direction.
- * Allows you to implement many possible options for managing the snake, even through http requests.
- */
 abstract public class PlayerListener {
     protected final Game game;
     protected final Integer mySnakeId;

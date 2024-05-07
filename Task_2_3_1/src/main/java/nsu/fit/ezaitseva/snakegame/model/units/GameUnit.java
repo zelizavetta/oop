@@ -2,9 +2,7 @@ package nsu.fit.ezaitseva.snakegame.model.units;
 
 import nsu.fit.ezaitseva.snakegame.model.basic.Point;
 
-/**
- * Base of game logic after point.
- */
+
 public abstract class GameUnit extends Point {
     public GameUnit(int x, int y) {
         super(x, y);
