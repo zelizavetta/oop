@@ -5,7 +5,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import nsu.fit.ezaitseva.snakegame.console.settings.SavedSettings;
 import nsu.fit.ezaitseva.snakegame.console.settings.UserMode;
-import nsu.fit.ezaitseva.snakegame.model.game.field.fieldDao;
+import nsu.fit.ezaitseva.snakegame.model.game.field.FieldDao;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
@@ -28,7 +28,7 @@ public class GameSettings {
 
   public GameSettings() {
     this.file = new File("C:\\Users\\Elisa\\oop\\Task_2_3_1\\src\\main\\resources\\maps", "1");
-    setGame(new fieldDao(file).getField());
+    setGame(new FieldDao(file).getField());
     keyCharacterDirectionMap = new HashMap<>();
     keyTypeDirectionMap = new HashMap<>();
     initializeKeyMap();
@@ -71,7 +71,7 @@ public class GameSettings {
   }
 
   public Game getCustom() {
-    setGame(new fieldDao(file).getField());
+    setGame(new FieldDao(file).getField());
     return game;
   }
 

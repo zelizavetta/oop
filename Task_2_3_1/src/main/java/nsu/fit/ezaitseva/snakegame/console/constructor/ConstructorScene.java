@@ -10,7 +10,7 @@ import java.util.List;
 import nsu.fit.ezaitseva.snakegame.console.common.FieldView;
 import nsu.fit.ezaitseva.snakegame.model.game.field.FieldConstructor;
 import nsu.fit.ezaitseva.snakegame.model.game.field.GameField;
-import nsu.fit.ezaitseva.snakegame.model.game.field.fieldDao;
+import nsu.fit.ezaitseva.snakegame.model.game.field.FieldDao;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.Empty;
 import nsu.fit.ezaitseva.snakegame.model.units.Food;
@@ -21,9 +21,9 @@ import nsu.fit.ezaitseva.snakegame.units.PointDTO;
 import nsu.fit.ezaitseva.snakegame.units.SnakeBodyDTO;
 import nsu.fit.ezaitseva.snakegame.units.SnakeHeadDTO;
 import nsu.fit.ezaitseva.snakegame.units.WallDTO;
-import nsu.fit.ezaitseva.snakegame.units.foodDto;
-import nsu.fit.ezaitseva.snakegame.units.gameStateDto;
-import nsu.fit.ezaitseva.snakegame.units.snakeDto;
+import nsu.fit.ezaitseva.snakegame.units.FoodDto;
+import nsu.fit.ezaitseva.snakegame.units.GameStateDto;
+import nsu.fit.ezaitseva.snakegame.units.SnakeDto;
 
 /**
  * class-constructor for scene.
@@ -32,14 +32,14 @@ public class ConstructorScene {
   private FieldConstructor fieldConstructor;
   private Screen screen;
   private TerminalPosition cursorPosition = new TerminalPosition(0, 0);
-  private fieldDao fieldDao;
+  private FieldDao FieldDao;
   private int width;
   private int height;
 
   public ConstructorScene(File file, Screen screen) {
     this.screen = screen;
-    fieldDao = new fieldDao(file);
-    GameField field = fieldDao.getField().getField();
+    FieldDao = new FieldDao(file);
+    GameField field = FieldDao.getField().getField();
     fieldConstructor = new FieldConstructor(field.width(), field.height());
     field.getAll().forEach((gameUnit) -> fieldConstructor.setUnit(gameUnit));
     width = field.width();
@@ -101,25 +101,25 @@ public class ConstructorScene {
       refreshScreen(gameScene);
     }
     Game game = fieldConstructor.getGameField();
-    fieldDao.saveField(game);
+    FieldDao.saveField(game);
     return game;
   }
 
-  private gameStateDto getgameStateDto() {
-    List<foodDto> foods = new ArrayList<>();
+  private GameStateDto getGameStateDto() {
+    List<FoodDto> foods = new ArrayList<>();
     List<WallDTO> walls = new ArrayList<>();
     fieldConstructor
         .getAll()
         .forEach(
             (unit -> {
               if (unit instanceof Food food) {
-                foods.add(new foodDto(new PointDTO(food.getX(), food.getY()), food.getValue()));
+                foods.add(new FoodDto(new PointDTO(food.getX(), food.getY()), food.getValue()));
               }
               if (unit instanceof Wall wall) {
                 walls.add(new WallDTO(new PointDTO(wall.getX(), wall.getY())));
               }
             }));
-    List<snakeDto> snakeDtoS = new ArrayList<>();
+    List<SnakeDto> SnakeDtoS = new ArrayList<>();
     fieldConstructor
         .getSnakes()
         .forEach(
@@ -127,8 +127,8 @@ public class ConstructorScene {
               List<SnakeBodyDTO> bodyDtos = new ArrayList<>();
               //                bodyDtos.add(new SnakeBodyDTO(new PointDTO(snake.getX(),
               // snake.getY()), DirectionDTO.UP));
-              snakeDtoS.add(
-                  new snakeDto(
+              SnakeDtoS.add(
+                  new SnakeDto(
                       bodyDtos,
                       new SnakeHeadDTO(
                           new PointDTO(snake.getX(), snake.getY()),
@@ -136,11 +136,11 @@ public class ConstructorScene {
                       true,
                       0));
             });
-    return new gameStateDto(snakeDtoS, walls, foods);
+    return new GameStateDto(SnakeDtoS, walls, foods);
   }
 
   private void refreshScreen(FieldView fieldView) {
-    fieldView.update(getgameStateDto());
+    fieldView.update(getGameStateDto());
     screen.setCursorPosition(cursorPosition);
     try {
       screen.refresh();

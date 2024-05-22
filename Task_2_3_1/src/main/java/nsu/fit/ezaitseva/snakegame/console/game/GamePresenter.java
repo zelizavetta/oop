@@ -16,7 +16,7 @@ import nsu.fit.ezaitseva.snakegame.model.players.EuristickBot;
 import nsu.fit.ezaitseva.snakegame.model.players.HumanPlayer;
 import nsu.fit.ezaitseva.snakegame.model.players.PlayerListener;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
-import nsu.fit.ezaitseva.snakegame.units.gameStateDto;
+import nsu.fit.ezaitseva.snakegame.units.GameStateDto;
 
 /** class for presenter of the game. */
 public class GamePresenter {
@@ -46,7 +46,7 @@ public class GamePresenter {
    */
   public int start() {
     GameScene gameScene = new GameScene(screen);
-    gameScene.drawStartScreen(gameStateDto.getGameState(game));
+    gameScene.drawStartScreen(GameStateDto.getGameState(game));
     HumanPlayer humanPlayer = new HumanPlayer(game, 0);
     if (gameSettings.getUserMode() == UserMode.Player) {
       game.addPlayer(0, humanPlayer);
@@ -77,7 +77,7 @@ public class GamePresenter {
             if (!booleanWrapper.flag) {
               this.cancel();
             }
-            gameScene.update(gameStateDto.getGameState(game));
+            gameScene.update(GameStateDto.getGameState(game));
             try {
               screen.refresh();
             } catch (IOException e) {

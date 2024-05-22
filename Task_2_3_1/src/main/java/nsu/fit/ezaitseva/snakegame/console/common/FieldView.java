@@ -8,9 +8,9 @@ import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.game.sprites.UnitsCharacters;
 import nsu.fit.ezaitseva.snakegame.units.PointDTO;
 import nsu.fit.ezaitseva.snakegame.units.WallDTO;
-import nsu.fit.ezaitseva.snakegame.units.foodDto;
-import nsu.fit.ezaitseva.snakegame.units.gameStateDto;
-import nsu.fit.ezaitseva.snakegame.units.snakeDto;
+import nsu.fit.ezaitseva.snakegame.units.FoodDto;
+import nsu.fit.ezaitseva.snakegame.units.GameStateDto;
+import nsu.fit.ezaitseva.snakegame.units.SnakeDto;
 
 /**
  * class describing view for field.
@@ -25,18 +25,18 @@ public class FieldView {
   /**
    * update meth.
    *
-   * @param gameStateDto state of the game
+   * @param GameStateDto state of the game
    */
-  public void update(gameStateDto gameStateDto) {
+  public void update(GameStateDto GameStateDto) {
     screen.clear();
-    gameStateDto.walls().forEach(this::drawWall);
-    gameStateDto.foodDtoS().forEach(this::drawFood);
-    gameStateDto
+    GameStateDto.walls().forEach(this::drawWall);
+    GameStateDto.FoodDtoS().forEach(this::drawFood);
+    GameStateDto
         .snakes()
         .forEach(
-            snakeDto -> {
-              if (snakeDto.isAlive()) {
-                drawSnake(snakeDto);
+            SnakeDto -> {
+              if (SnakeDto.isAlive()) {
+                drawSnake(SnakeDto);
               }
             });
     try {
@@ -46,14 +46,14 @@ public class FieldView {
     }
   }
 
-  private void drawFood(foodDto foodDto) {
+  private void drawFood(FoodDto FoodDto) {
     setCharacterAtPoint(
-        foodDto.foodPoint(),
+        FoodDto.foodPoint(),
         new TextCharacter(UnitsCharacters.FOOD1, TextColor.ANSI.GREEN, TextColor.ANSI.BLACK));
   }
 
-  private void drawSnake(snakeDto snakeDto) {
-    var snakeHead = snakeDto.head();
+  private void drawSnake(SnakeDto SnakeDto) {
+    var snakeHead = SnakeDto.head();
     Character headCharacter = UnitsCharacters.HEADDOWN;
     switch (snakeHead.directionDTO()) {
       case UP -> headCharacter = UnitsCharacters.HEADUP;
@@ -62,7 +62,7 @@ public class FieldView {
       case RIGHT -> headCharacter = UnitsCharacters.HEADRIGHT;
     }
     TextColor textColor1 = new TextColor.ANSI.RGB(200, 200, 200);
-    if (snakeDto.id() == 0) {
+    if (SnakeDto.id() == 0) {
       textColor1 = new TextColor.ANSI.RGB(250, 250, 150);
     }
     final TextColor textColor = textColor1;
@@ -71,7 +71,7 @@ public class FieldView {
         new TextCharacter(headCharacter, textColor, TextColor.ANSI.BLACK));
 
     Color color = textColor.toColor();
-    int size = snakeDto.body().size();
+    int size = SnakeDto.body().size();
     class IntWrapper {
       int val;
 
@@ -81,7 +81,7 @@ public class FieldView {
     }
     
     IntWrapper intWrapper = new IntWrapper(size);
-    snakeDto
+    SnakeDto
         .body()
         .forEach(
             snakeBodyDTO -> {

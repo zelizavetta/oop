@@ -5,7 +5,7 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.common.FieldView;
 import nsu.fit.ezaitseva.snakegame.console.game.sprites.utils.ConsoleUtils;
-import nsu.fit.ezaitseva.snakegame.units.gameStateDto;
+import nsu.fit.ezaitseva.snakegame.units.GameStateDto;
 
 /** class for game scene. */
 public class GameScene extends FieldView {
@@ -16,11 +16,11 @@ public class GameScene extends FieldView {
   /**
    * draw start scene meth.
    *
-   * @param gameStateDto game state
+   * @param GameStateDto game state
    */
-  public void drawStartScreen(gameStateDto gameStateDto) {
+  public void drawStartScreen(GameStateDto GameStateDto) {
     var size = screen.getTerminalSize();
-    update(gameStateDto);
+    update(GameStateDto);
     ConsoleUtils.printLine(
         screen,
         "Press any key to start",
