@@ -3,11 +3,15 @@ package nsu.fit.ezaitseva.snakegame.console.common;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
-import nsu.fit.ezaitseva.snakegame.console.game.sprites.UnitsCharacters;
-import nsu.fit.ezaitseva.snakegame.units.*;
-
-import java.awt.*;
+import java.awt.Color;
 import java.io.IOException;
+import nsu.fit.ezaitseva.snakegame.console.game.sprites.UnitsCharacters;
+import nsu.fit.ezaitseva.snakegame.units.FoodDto;
+import nsu.fit.ezaitseva.snakegame.units.GameStateDto;
+import nsu.fit.ezaitseva.snakegame.units.PointDTO;
+import nsu.fit.ezaitseva.snakegame.units.SnakeDto;
+import nsu.fit.ezaitseva.snakegame.units.WallDTO;
+
 
 /**
  * class describing view for field.
