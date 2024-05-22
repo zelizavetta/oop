@@ -76,9 +76,16 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-snakes">snakes</span></code> - snakes</dd>
+<dd><code><span id="param-walls">walls</span></code> - walls</dd>
+<dd><code><span id="param-FoodDtoS">FoodDtoS</span></code> - food</dd>
+</dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">GameStateDto</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeDto</a>&gt;&nbsp;snakes, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDTO</a>&gt;&nbsp;walls, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FoodDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">FoodDto</a>&gt;&nbsp;FoodDtoS)
+<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">GameStateDto</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeDto</a>&gt;&nbsp;snakes, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDto</a>&gt;&nbsp;walls, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FoodDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">FoodDto</a>&gt;&nbsp;FoodDtoS)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
+<div class="block">states of the game.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -91,7 +98,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,java.util.List,java.util.List)" class="member-name-link">GameStateDto</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeDto</a>&gt;&nbsp;snakes,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDTO</a>&gt;&nbsp;walls,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDto</a>&gt;&nbsp;walls,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FoodDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">FoodDto</a>&gt;&nbsp;FoodDtoS)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of a <code>GameStateDto</code> record class.</div>
@@ -118,7 +125,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FoodDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">FoodDto</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#FoodDtoS()" class="member-name-link">FoodDtoS</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>FoodDtoS</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-FoodDtoS"><code>FoodDtoS</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="GameStateDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">GameStateDto</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGameState(nsu.fit.ezaitseva.snakegame.model.game.logic.Game)" class="member-name-link">getGameState</a><wbr>(<a href="../model/game/logic/Game.html" title="class in nsu.fit.ezaitseva.snakegame.model.game.logic">Game</a>&nbsp;game)</code></div>
@@ -131,17 +138,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeDto</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#snakes()" class="member-name-link">snakes</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>snakes</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-snakes"><code>snakes</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a string representation of this record class.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDTO</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDto</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#walls()" class="member-name-link">walls</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>walls</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-walls"><code>walls</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -164,14 +171,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.util.List,java.util.List,java.util.List)">
 <h3>GameStateDto</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">GameStateDto</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeDto</a>&gt;&nbsp;snakes,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDTO</a>&gt;&nbsp;walls,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDto</a>&gt;&nbsp;walls,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FoodDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">FoodDto</a>&gt;&nbsp;FoodDtoS)</span></div>
 <div class="block">Creates an instance of a <code>GameStateDto</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>snakes</code> - the value for the <code>snakes</code> record component</dd>
-<dd><code>walls</code> - the value for the <code>walls</code> record component</dd>
-<dd><code>FoodDtoS</code> - the value for the <code>FoodDtoS</code> record component</dd>
+<dd><code>snakes</code> - the value for the <a href="#param-snakes"><code>snakes</code></a> record component</dd>
+<dd><code>walls</code> - the value for the <a href="#param-walls"><code>walls</code></a> record component</dd>
+<dd><code>FoodDtoS</code> - the value for the <a href="#param-FoodDtoS"><code>FoodDtoS</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -234,21 +241,21 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="snakes()">
 <h3>snakes</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeDto</a>&gt;</span>&nbsp;<span class="element-name">snakes</span>()</div>
-<div class="block">Returns the value of the <code>snakes</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-snakes"><code>snakes</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>snakes</code> record component</dd>
+<dd>the value of the <a href="#param-snakes"><code>snakes</code></a> record component</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="walls()">
 <h3>walls</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDTO</a>&gt;</span>&nbsp;<span class="element-name">walls</span>()</div>
-<div class="block">Returns the value of the <code>walls</code> record component.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WallDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">WallDto</a>&gt;</span>&nbsp;<span class="element-name">walls</span>()</div>
+<div class="block">Returns the value of the <a href="#param-walls"><code>walls</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>walls</code> record component</dd>
+<dd>the value of the <a href="#param-walls"><code>walls</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -256,10 +263,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="FoodDtoS()">
 <h3>FoodDtoS</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FoodDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">FoodDto</a>&gt;</span>&nbsp;<span class="element-name">FoodDtoS</span>()</div>
-<div class="block">Returns the value of the <code>FoodDtoS</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-FoodDtoS"><code>FoodDtoS</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>FoodDtoS</code> record component</dd>
+<dd>the value of the <a href="#param-FoodDtoS"><code>FoodDtoS</code></a> record component</dd>
 </dl>
 </section>
 </li>

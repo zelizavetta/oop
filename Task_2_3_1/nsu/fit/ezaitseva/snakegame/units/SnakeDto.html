@@ -76,9 +76,17 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-body">body</span></code> - body</dd>
+<dd><code><span id="param-head">head</span></code> - head</dd>
+<dd><code><span id="param-isAlive">isAlive</span></code> - alive or note</dd>
+<dd><code><span id="param-id">id</span></code> - snake id</dd>
+</dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">SnakeDto</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDTO</a>&gt;&nbsp;body, <a href="SnakeHeadDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDTO</a>&nbsp;head, boolean&nbsp;isAlive, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)
+<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">SnakeDto</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDto</a>&gt;&nbsp;body, <a href="SnakeHeadDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDto</a>&nbsp;head, boolean&nbsp;isAlive, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
+<div class="block">snake class.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -90,8 +98,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,nsu.fit.ezaitseva.snakegame.units.SnakeHeadDTO,boolean,java.lang.Integer)" class="member-name-link">SnakeDto</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDTO</a>&gt;&nbsp;body,
- <a href="SnakeHeadDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDTO</a>&nbsp;head,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,nsu.fit.ezaitseva.snakegame.units.SnakeHeadDto,boolean,java.lang.Integer)" class="member-name-link">SnakeDto</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDto</a>&gt;&nbsp;body,
+ <a href="SnakeHeadDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDto</a>&nbsp;head,
  boolean&nbsp;isAlive,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</code></div>
 <div class="col-last even-row-color">
@@ -111,10 +119,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDTO</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDto</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#body()" class="member-name-link">body</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>body</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-body"><code>body</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -126,20 +134,20 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a hash code value for this object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SnakeHeadDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDTO</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SnakeHeadDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDto</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#head()" class="member-name-link">head</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>head</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-head"><code>head</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>id</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-id"><code>id</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isAlive()" class="member-name-link">isAlive</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>isAlive</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-isAlive"><code>isAlive</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -164,19 +172,19 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.util.List,nsu.fit.ezaitseva.snakegame.units.SnakeHeadDTO,boolean,java.lang.Integer)">
+<section class="detail" id="&lt;init&gt;(java.util.List,nsu.fit.ezaitseva.snakegame.units.SnakeHeadDto,boolean,java.lang.Integer)">
 <h3>SnakeDto</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SnakeDto</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDTO</a>&gt;&nbsp;body,
- <a href="SnakeHeadDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDTO</a>&nbsp;head,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SnakeDto</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDto</a>&gt;&nbsp;body,
+ <a href="SnakeHeadDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDto</a>&nbsp;head,
  boolean&nbsp;isAlive,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
 <div class="block">Creates an instance of a <code>SnakeDto</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>body</code> - the value for the <code>body</code> record component</dd>
-<dd><code>head</code> - the value for the <code>head</code> record component</dd>
-<dd><code>isAlive</code> - the value for the <code>isAlive</code> record component</dd>
-<dd><code>id</code> - the value for the <code>id</code> record component</dd>
+<dd><code>body</code> - the value for the <a href="#param-body"><code>body</code></a> record component</dd>
+<dd><code>head</code> - the value for the <a href="#param-head"><code>head</code></a> record component</dd>
+<dd><code>isAlive</code> - the value for the <a href="#param-isAlive"><code>isAlive</code></a> record component</dd>
+<dd><code>id</code> - the value for the <a href="#param-id"><code>id</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -232,22 +240,22 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="body()">
 <h3>body</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDTO</a>&gt;</span>&nbsp;<span class="element-name">body</span>()</div>
-<div class="block">Returns the value of the <code>body</code> record component.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SnakeBodyDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeBodyDto</a>&gt;</span>&nbsp;<span class="element-name">body</span>()</div>
+<div class="block">Returns the value of the <a href="#param-body"><code>body</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>body</code> record component</dd>
+<dd>the value of the <a href="#param-body"><code>body</code></a> record component</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="head()">
 <h3>head</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SnakeHeadDTO.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDTO</a></span>&nbsp;<span class="element-name">head</span>()</div>
-<div class="block">Returns the value of the <code>head</code> record component.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SnakeHeadDto.html" title="class in nsu.fit.ezaitseva.snakegame.units">SnakeHeadDto</a></span>&nbsp;<span class="element-name">head</span>()</div>
+<div class="block">Returns the value of the <a href="#param-head"><code>head</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>head</code> record component</dd>
+<dd>the value of the <a href="#param-head"><code>head</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -255,10 +263,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isAlive()">
 <h3>isAlive</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAlive</span>()</div>
-<div class="block">Returns the value of the <code>isAlive</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-isAlive"><code>isAlive</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>isAlive</code> record component</dd>
+<dd>the value of the <a href="#param-isAlive"><code>isAlive</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -266,10 +274,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="id()">
 <h3>id</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">id</span>()</div>
-<div class="block">Returns the value of the <code>id</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-id"><code>id</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>id</code> record component</dd>
+<dd>the value of the <a href="#param-id"><code>id</code></a> record component</dd>
 </dl>
 </section>
 </li>
