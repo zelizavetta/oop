@@ -6,9 +6,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import nsu.fit.ezaitseva.snakegame.fx.game.GameController;
-
 import java.io.IOException;
+import nsu.fit.ezaitseva.snakegame.fx.game.GameController;
 
 public class MenuController {
 

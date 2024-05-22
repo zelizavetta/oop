@@ -1,6 +1,9 @@
 package nsu.fit.ezaitseva.snakegame.units;
 
-public enum DirectionDTO {
+/**
+ * directions class.
+ */
+public enum DirectionDto {
     LEFT, UP, RIGHT, DOWN;
 
 

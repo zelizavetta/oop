@@ -8,9 +8,9 @@ import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.game.sprites.UnitsCharacters;
 import nsu.fit.ezaitseva.snakegame.units.FoodDto;
 import nsu.fit.ezaitseva.snakegame.units.GameStateDto;
-import nsu.fit.ezaitseva.snakegame.units.PointDTO;
+import nsu.fit.ezaitseva.snakegame.units.PointDto;
 import nsu.fit.ezaitseva.snakegame.units.SnakeDto;
-import nsu.fit.ezaitseva.snakegame.units.WallDTO;
+import nsu.fit.ezaitseva.snakegame.units.WallDto;
 
 
 /**
@@ -49,13 +49,14 @@ public class FieldView {
     private void drawFood(FoodDto foodDto) {
         setCharacterAtPoint(
                 foodDto.foodPoint(),
-                new TextCharacter(UnitsCharacters.FOOD1, TextColor.ANSI.GREEN, TextColor.ANSI.BLACK));
+                new TextCharacter(UnitsCharacters.FOOD1,
+                        TextColor.ANSI.GREEN, TextColor.ANSI.BLACK));
     }
 
     private void drawSnake(SnakeDto snakeDto) {
         var snakeHead = snakeDto.head();
         Character headCharacter = UnitsCharacters.HEADDOWN;
-        switch (snakeHead.directionDTO()) {
+        switch (snakeHead.directionDto()) {
             case UP -> headCharacter = UnitsCharacters.HEADUP;
             case DOWN -> headCharacter = UnitsCharacters.HEADDOWN;
             case LEFT -> headCharacter = UnitsCharacters.HEADLEFT;
@@ -67,7 +68,7 @@ public class FieldView {
         }
         final TextColor textColor = textColor1;
         setCharacterAtPoint(
-                new PointDTO(snakeHead.pointDTO().x(), snakeHead.pointDTO().y()),
+                new PointDto(snakeHead.pointDto().x(), snakeHead.pointDto().y()),
                 new TextCharacter(headCharacter, textColor, TextColor.ANSI.BLACK));
 
         Color color = textColor.toColor();
@@ -83,10 +84,10 @@ public class FieldView {
         IntWrapper intWrapper = new IntWrapper(size);
         snakeDto.body()
                 .forEach(
-                        snakeBodyDTO -> {
+                        snakeBodyDto -> {
                             int i = intWrapper.val--;
                             int k = (i + size) >> 1;
-                            var snakeBody = snakeBodyDTO.pointDTO();
+                            var snakeBody = snakeBodyDto.pointDto();
                             setCharacterAtPoint(
                                     snakeBody,
                                     new TextCharacter(
@@ -99,13 +100,14 @@ public class FieldView {
                         });
     }
 
-    private void drawWall(WallDTO wall) {
+    private void drawWall(WallDto wall) {
         setCharacterAtPoint(
                 wall.point(),
-                new TextCharacter(UnitsCharacters.WALL, TextColor.ANSI.YELLOW, TextColor.ANSI.BLACK));
+                new TextCharacter(UnitsCharacters.WALL,
+                        TextColor.ANSI.YELLOW, TextColor.ANSI.BLACK));
     }
 
-    private void setCharacterAtPoint(PointDTO point, TextCharacter textCharacter) {
+    private void setCharacterAtPoint(PointDto point, TextCharacter textCharacter) {
         screen.setCharacter(point.x(), point.y(), textCharacter);
     }
 }

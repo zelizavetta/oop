@@ -5,10 +5,9 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
-
 import java.util.HashMap;
 import java.util.Map;
+import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
 public class SnakeDrawer {
     private final SnapshotParameters parameters;

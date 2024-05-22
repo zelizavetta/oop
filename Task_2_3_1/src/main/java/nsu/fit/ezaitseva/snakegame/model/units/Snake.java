@@ -1,9 +1,8 @@
 package nsu.fit.ezaitseva.snakegame.model.units;
 
-import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
-
 import java.util.Deque;
 import java.util.LinkedList;
+import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
 
 public final class Snake {

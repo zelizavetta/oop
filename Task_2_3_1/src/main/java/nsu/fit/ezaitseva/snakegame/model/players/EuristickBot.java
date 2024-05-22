@@ -1,11 +1,10 @@
 package nsu.fit.ezaitseva.snakegame.model.players;
 
+import java.util.Map;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.GameLogic;
 import nsu.fit.ezaitseva.snakegame.model.units.*;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
-
-import java.util.Map;
 
 
 public class EuristickBot extends PlayerListener {

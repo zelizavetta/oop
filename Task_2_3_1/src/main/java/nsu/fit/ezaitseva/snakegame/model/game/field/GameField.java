@@ -1,14 +1,22 @@
 package nsu.fit.ezaitseva.snakegame.model.game.field;
 
+import java.util.ArrayList;
+import java.util.List;
 import nsu.fit.ezaitseva.snakegame.model.units.Empty;
 import nsu.fit.ezaitseva.snakegame.model.units.GameUnit;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * class for game field.
+ */
 public class GameField {
     private final List<List<GameUnit>> field;
 
+    /**
+     * class-constructor for game field.
+     *
+     * @param width  width
+     * @param height height
+     */
     public GameField(int width, int height) {
         field = new ArrayList<>();
         for (int i = 0; i < width; i++) {
@@ -45,6 +53,9 @@ public class GameField {
     }
 
     public List<GameUnit> getAll() {
-        return field.stream().reduce(new ArrayList<>(),(acc, units)-> {acc.addAll(units); return acc;});
+        return field.stream().reduce(new ArrayList<>(), (acc, units) -> {
+            acc.addAll(units);
+            return acc;
+        });
     }
 }

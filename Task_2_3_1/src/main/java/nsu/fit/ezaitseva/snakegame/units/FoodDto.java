@@ -1,5 +1,11 @@
 package nsu.fit.ezaitseva.snakegame.units;
 
-public record FoodDto(PointDTO foodPoint, int value) {
+/**
+ * food class.
+ *
+ * @param foodPoint food point
+ * @param value     food value
+ */
+public record FoodDto(PointDto foodPoint, int value) {
 
 }

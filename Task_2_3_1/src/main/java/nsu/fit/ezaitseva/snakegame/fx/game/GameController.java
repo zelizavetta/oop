@@ -10,11 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import nsu.fit.ezaitseva.snakegame.fx.gameview.GameView;
-import nsu.fit.ezaitseva.snakegame.fx.gameview.ImageCollector;
-
 import java.io.IOException;
 import java.util.List;
+import nsu.fit.ezaitseva.snakegame.fx.gameview.GameView;
+import nsu.fit.ezaitseva.snakegame.fx.gameview.ImageCollector;
 
 public class GameController implements GameView {
     @FXML

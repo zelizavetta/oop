@@ -1,5 +1,8 @@
 package nsu.fit.ezaitseva.snakegame.fx.game;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
@@ -17,10 +20,6 @@ import nsu.fit.ezaitseva.snakegame.model.players.PlayerListener;
 import nsu.fit.ezaitseva.snakegame.model.units.Snake;
 import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 public class GamePresenter extends DefaultGamePresenter {
     private final GameController gameController;
@@ -190,7 +189,7 @@ public class GamePresenter extends DefaultGamePresenter {
     public class KeyResolver {
         public void resolveKeyCode(KeyCode keyCode) {
             if (keyCode == null) return;
-            Runnable action = keyMap.get(keyCode);
+            Runnable action = keyMap.get(keyCode.getCode());
             if (action != null) {
                 action.run();
             }

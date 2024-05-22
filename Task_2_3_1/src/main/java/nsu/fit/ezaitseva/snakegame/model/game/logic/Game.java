@@ -1,5 +1,8 @@
 package nsu.fit.ezaitseva.snakegame.model.game.logic;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import nsu.fit.ezaitseva.snakegame.model.game.field.GameField;
 import nsu.fit.ezaitseva.snakegame.model.players.PlayerListener;
 import nsu.fit.ezaitseva.snakegame.model.units.Empty;
@@ -8,10 +11,9 @@ import nsu.fit.ezaitseva.snakegame.model.units.Snake;
 import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+/**
+ * game class.
+ */
 public class Game {
     private final GameField field;
     private final Map<Integer, Snake> snakeMap;
@@ -27,6 +29,12 @@ public class Game {
         return field.get(x, y);
     }
 
+    /**
+     * game constructor class.
+     *
+     * @param field  field
+     * @param snakes snakes
+     */
     public Game(GameField field, Map<Integer, Snake> snakes) {
         this.field = field;
         this.snakeMap = snakes;

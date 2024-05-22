@@ -1,13 +1,12 @@
 package nsu.fit.ezaitseva.snakegame.fx.gameview;
 
 import javafx.scene.image.Image;
+import java.util.Map;
 import nsu.fit.ezaitseva.snakegame.console.GameSettings;
 import nsu.fit.ezaitseva.snakegame.fx.GlobalGameSettings;
 import nsu.fit.ezaitseva.snakegame.model.game.field.GameField;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.*;
-
-import java.util.Map;
 
 public class DefaultGamePresenter {
     private final GameView gameView;
@@ -67,7 +66,6 @@ public class DefaultGamePresenter {
             }
         }
     }
-
 
 
     protected void drawFood(Food food) {

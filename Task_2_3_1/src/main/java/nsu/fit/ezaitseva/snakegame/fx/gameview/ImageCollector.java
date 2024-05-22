@@ -1,12 +1,11 @@
 package nsu.fit.ezaitseva.snakegame.fx.gameview;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
-import javafx.scene.paint.Color;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
 
 public class ImageCollector {
     public final static Image light_grass = loadImage("light_grass.png");

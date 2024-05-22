@@ -1,21 +1,33 @@
 package nsu.fit.ezaitseva.snakegame.model.game.field;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.Empty;
 import nsu.fit.ezaitseva.snakegame.model.units.GameUnit;
 import nsu.fit.ezaitseva.snakegame.model.units.Snake;
 import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
 
-import java.util.*;
-
+/**
+ * class for fields.
+ */
 public class FieldConstructor {
     private final GameField gameField;
     private final Set<SnakeBody> snakeHeads = new HashSet<>();
 
+    /**
+     * class-constructor for field.
+     *
+     * @param width  width
+     * @param height height
+     */
     public FieldConstructor(int width, int height) {
         gameField = new GameField(width, height);
     }
-
+    
     public void setUnit(GameUnit unit) {
         int x = unit.getX();
         int y = unit.getY();

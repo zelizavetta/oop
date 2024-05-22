@@ -5,10 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import nsu.fit.ezaitseva.snakegame.console.GameSettings;
-
-import java.io.File;
 import java.io.IOException;
+import nsu.fit.ezaitseva.snakegame.console.GameSettings;
 
 public class SnakeFXApp extends Application {
     private GameSettings gameSettings = GlobalGameSettings.gameSettings;

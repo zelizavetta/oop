@@ -1,13 +1,12 @@
 package nsu.fit.ezaitseva.snakegame.model.game.logic;
 
+import java.util.Map;
+import java.util.Random;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.events.SnakeDeath;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.events.SnakeEating;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.events.SnakeOutOfBorder;
 import nsu.fit.ezaitseva.snakegame.model.units.*;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
-
-import java.util.Map;
-import java.util.Random;
 
 public class GameLogic {
     private Game game;
@@ -141,7 +140,7 @@ public class GameLogic {
         return false;
     }
 
-    public void addToFood(int delta) {
+    public void adDtoFood(int delta) {
         amountOfFood += delta;
     }
 

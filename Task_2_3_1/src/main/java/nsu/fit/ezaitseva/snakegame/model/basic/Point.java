@@ -7,6 +7,12 @@ public class Point {
     int x;
     int y;
 
+    /**
+     * constructor for point.
+     *
+     * @param x x
+     * @param y y
+     */
     public Point(int x, int y) {
         this.x = x;
         this.y = y;

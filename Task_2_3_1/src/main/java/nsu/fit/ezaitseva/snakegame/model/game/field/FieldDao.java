@@ -1,6 +1,11 @@
 package nsu.fit.ezaitseva.snakegame.model.game.field;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import nsu.fit.ezaitseva.snakegame.model.game.field.data.FoodData;
 import nsu.fit.ezaitseva.snakegame.model.game.field.data.PointData;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
@@ -8,16 +13,19 @@ import nsu.fit.ezaitseva.snakegame.model.units.Food;
 import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
 import nsu.fit.ezaitseva.snakegame.model.units.Wall;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * field class.
+ */
 public class FieldDao {
     private File file;
 
 
+    /**
+     * field constructor.
+     *
+     * @param file file
+     */
     public FieldDao(File file) {
         this.file = file;
     }
@@ -74,6 +82,15 @@ public class FieldDao {
     }
 }
 
+/**
+ * filed data class.
+ *
+ * @param foods      foods
+ * @param walls      walls
+ * @param snakeHeads snake head
+ * @param width      width
+ * @param height     height
+ */
 record FieldData(List<FoodData> foods, List<PointData> walls, List<PointData> snakeHeads, int width, int height) {
 
 }
