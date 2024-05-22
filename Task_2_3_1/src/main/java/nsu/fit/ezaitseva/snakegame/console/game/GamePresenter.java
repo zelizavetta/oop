@@ -3,6 +3,9 @@ package nsu.fit.ezaitseva.snakegame.console.game;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 import nsu.fit.ezaitseva.snakegame.console.GameSettings;
 import nsu.fit.ezaitseva.snakegame.console.game.scenes.GameScene;
 import nsu.fit.ezaitseva.snakegame.console.game.scenes.WinnerScene;
@@ -13,145 +16,154 @@ import nsu.fit.ezaitseva.snakegame.model.players.EuristickBot;
 import nsu.fit.ezaitseva.snakegame.model.players.HumanPlayer;
 import nsu.fit.ezaitseva.snakegame.model.players.PlayerListener;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
-import nsu.fit.ezaitseva.snakegame.units.GameStateDTO;
+import nsu.fit.ezaitseva.snakegame.units.gameStateDto;
 
-import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
-
+/** class for presenter of the game. */
 public class GamePresenter {
 
-    private Game game;
-    private Screen screen;
-    private boolean escapeFlag = false;
-    private GameSettings gameSettings;
+  private Game game;
+  private Screen screen;
+  private boolean escapeFlag = false;
+  private GameSettings gameSettings;
 
-    public GamePresenter(Game game, GameSettings gameSettings, Screen screen) {
-        this.game = game;
-        this.screen = screen;
-        this.gameSettings = gameSettings;
+  /**
+   * constructor.
+   *
+   * @param game game
+   * @param gameSettings settings of the game
+   * @param screen screen
+   */
+  public GamePresenter(Game game, GameSettings gameSettings, Screen screen) {
+    this.game = game;
+    this.screen = screen;
+    this.gameSettings = gameSettings;
+  }
+
+  /**
+   * start game.
+   *
+   * @return 1 if success
+   */
+  public int start() {
+    GameScene gameScene = new GameScene(screen);
+    gameScene.drawStartScreen(gameStateDto.getGameState(game));
+    HumanPlayer humanPlayer = new HumanPlayer(game, 0);
+    if (gameSettings.getUserMode() == UserMode.Player) {
+      game.addPlayer(0, humanPlayer);
+    } else {
+      game.addPlayer(0, getBot(0));
     }
-
-    public int start() {
-        GameScene gameScene = new GameScene(screen);
-        gameScene.drawStartScreen(GameStateDTO.getGameState(game));
-        HumanPlayer humanPlayer = new HumanPlayer(game, 0);
-        if (gameSettings.getUserMode() == UserMode.Player) {
-            game.addPlayer(0, humanPlayer);
-        } else {
-            game.addPlayer(0, getBot(0));
-        }
-        game.getSnakeMap().forEach(((id, snake) -> {
-            if (id != 0) {
+    game.getSnakeMap()
+        .forEach(
+            ((id, snake) -> {
+              if (id != 0) {
                 game.addPlayer(id, getBot(id));
-            }
-        }));
-        try {
-            screen.readInput();
-            screen.clear();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        DirectionWrapper directionWrapper = new DirectionWrapper(null);
+              }
+            }));
+    try {
+      screen.readInput();
+      screen.clear();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    DirectionWrapper directionWrapper = new DirectionWrapper(null);
 
-        Timer timer = new Timer();
-        BooleanWrapper booleanWrapper = new BooleanWrapper(true);
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if (!booleanWrapper.flag) {
-                    this.cancel();
-                }
-                gameScene.update(GameStateDTO.getGameState(game));
-                try {
-                    screen.refresh();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                if (directionWrapper.direction != null) {
-                    humanPlayer.setDirection(directionWrapper.direction);
-                }
-                if (game.tick()) {
-                    try {
-                        Thread.sleep(10 * ((long) (8 - gameSettings.getGameSpeed())));
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                } else {
-                    //TODO: Список победителей
-                    booleanWrapper.flag = false;
-                    this.cancel();
-                }
+    Timer timer = new Timer();
+    BooleanWrapper booleanWrapper = new BooleanWrapper(true);
+    timer.schedule(
+        new TimerTask() {
+          @Override
+          public void run() {
+            if (!booleanWrapper.flag) {
+              this.cancel();
             }
-        }, 100, 10 * ((long) (8 - gameSettings.getGameSpeed())));
-
-        while (loopCondition() && booleanWrapper.flag) {
+            gameScene.update(gameStateDto.getGameState(game));
             try {
-                KeyStroke keyStroke = null;
-                KeyStroke tmpStroke;
-                while ((tmpStroke = screen.pollInput()) != null) {
-                    keyStroke = tmpStroke;
-                }
-                if (keyStroke != null) {
-                    switch (keyStroke.getKeyType()) {
-                        case Escape -> {
-                            escapeFlag = true;
-                        }
-                        default -> directionWrapper.direction = gameSettings.keyDirection(keyStroke);
-
-                    }
-                }
+              screen.refresh();
             } catch (IOException e) {
+              throw new RuntimeException(e);
+            }
+            if (directionWrapper.direction != null) {
+              humanPlayer.setDirection(directionWrapper.direction);
+            }
+            if (game.tick()) {
+              try {
+                Thread.sleep(10 * ((long) (8 - gameSettings.getGameSpeed())));
+              } catch (InterruptedException e) {
                 throw new RuntimeException(e);
+              }
+            } else {
+              booleanWrapper.flag = false;
+              this.cancel();
             }
+          }
+        },
+        100,
+        10 * ((long) (8 - gameSettings.getGameSpeed())));
+
+    while (loopCondition() && booleanWrapper.flag) {
+      try {
+        KeyStroke keyStroke = null;
+        KeyStroke tmpStroke;
+        while ((tmpStroke = screen.pollInput()) != null) {
+          keyStroke = tmpStroke;
         }
-        WinnerScene winnerScene = new WinnerScene(screen, game.getResults());
-        winnerScene.showWinners();
-        timer.cancel();
-        while (true) {
-            KeyStroke key = null;
-            try {
-                key = screen.readInput();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        if (keyStroke != null) {
+          switch (keyStroke.getKeyType()) {
+            case Escape -> {
+              escapeFlag = true;
             }
-            if (key.getKeyType().equals(KeyType.Escape)) {
-                break;
-            }
+            default -> directionWrapper.direction = gameSettings.keyDirection(keyStroke);
+          }
         }
-
-        return 1;
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+    }
+    WinnerScene winnerScene = new WinnerScene(screen, game.getResults());
+    winnerScene.showWinners();
+    timer.cancel();
+    while (true) {
+      KeyStroke key = null;
+      try {
+        key = screen.readInput();
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+      if (key.getKeyType().equals(KeyType.Escape)) {
+        break;
+      }
     }
 
-    public boolean loopCondition() {
+    return 1;
+  }
 
-        return !escapeFlag;
+  public boolean loopCondition() {
+
+    return !escapeFlag;
+  }
+
+  private PlayerListener getBot(int id) {
+    if (true) {
+      return new EuristickBot(game, id);
+    } else {
+      return new CommonBotPlayer(game, id);
     }
+  }
 
-    private PlayerListener getBot(int id) {
-        if (true) {
-            return new EuristickBot(game, id);
-        } else {
-            return new CommonBotPlayer(game, id);
-        }
+  private static class DirectionWrapper {
+    Direction direction;
 
+    public DirectionWrapper(Direction direction) {
+      this.direction = direction;
     }
+  }
 
+  private static class BooleanWrapper {
+    boolean flag;
 
-    private static class DirectionWrapper {
-        Direction direction;
-
-        public DirectionWrapper(Direction direction) {
-            this.direction = direction;
-        }
+    public BooleanWrapper(boolean flag) {
+      this.flag = flag;
     }
-
-    private static class BooleanWrapper {
-        boolean flag;
-
-        public BooleanWrapper(boolean flag) {
-            this.flag = flag;
-        }
-    }
-
+  }
 }

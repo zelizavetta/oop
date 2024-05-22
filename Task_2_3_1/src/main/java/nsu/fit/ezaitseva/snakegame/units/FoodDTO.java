@@ -1,5 +1,5 @@
 package nsu.fit.ezaitseva.snakegame.units;
 
-public record FoodDTO(PointDTO foodPoint, int value) {
+public record foodDto(PointDTO foodPoint, int value) {
 
 }

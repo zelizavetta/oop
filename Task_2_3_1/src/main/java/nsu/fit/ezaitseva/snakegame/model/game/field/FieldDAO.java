@@ -14,11 +14,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FieldDAO {
+public class fieldDao {
     private File file;
 
 
-    public FieldDAO(File file) {
+    public fieldDao(File file) {
         this.file = file;
     }
 

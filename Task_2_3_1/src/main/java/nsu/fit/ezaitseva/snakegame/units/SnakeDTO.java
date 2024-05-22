@@ -2,6 +2,6 @@ package nsu.fit.ezaitseva.snakegame.units;
 
 import java.util.List;
 
-public record SnakeDTO(List<SnakeBodyDTO> body, SnakeHeadDTO head, boolean isAlive, Integer id) {
+public record snakeDto(List<SnakeBodyDTO> body, SnakeHeadDTO head, boolean isAlive, Integer id) {
 
 }

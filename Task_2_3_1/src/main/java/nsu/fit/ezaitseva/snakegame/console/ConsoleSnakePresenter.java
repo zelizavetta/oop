@@ -18,53 +18,52 @@ import java.io.File;
 import java.io.IOException;
 
 public class ConsoleSnakePresenter {
-    private Terminal terminal;
-    private Screen screen;
-    private GameSettings settings;
-    private final File mapDir;
-    private TerminalSize defaultSize;
+  private Terminal terminal;
+  private Screen screen;
+  private GameSettings settings;
+  private final File mapDir;
+  private TerminalSize defaultSize;
 
-    public ConsoleSnakePresenter() throws IOException {
+  public ConsoleSnakePresenter() throws IOException {
 
-        terminal = new DefaultTerminalFactory()
-                .setInitialTerminalSize(new TerminalSize(MenuConfig.WIDTH, MenuConfig.HEIGHT))
-                .createTerminal();
-        screen = new TerminalScreen(terminal);
-        mapDir = new File("resources/maps");
-        System.out.println(mapDir.getAbsolutePath());
-        settings = new GameSettings();
-        defaultSize = terminal.getTerminalSize();
-    }
+    terminal =
+        new DefaultTerminalFactory()
+            .setInitialTerminalSize(new TerminalSize(MenuConfig.WIDTH, MenuConfig.HEIGHT))
+            .createTerminal();
+    screen = new TerminalScreen(terminal);
+    mapDir = new File("resources/maps");
+    System.out.println(mapDir.getAbsolutePath());
+    settings = new GameSettings();
+    defaultSize = terminal.getTerminalSize();
+  }
 
-    public void start() throws IOException {
+  public void start() throws IOException {
 
-        ConsoleMenuScene menuScene = new ConsoleMenuScene(screen);
-        boolean flag = true;
-        while (flag) {
-            MenuPage menuPage = menuScene.start();
-            switch (menuPage) {
-                case Game -> {
-                    terminal.setCursorVisible(false);
-                    screen.setCursorPosition(new TerminalPosition(1000, 1000));
-                    Game game = settings.getGame().getCopy();
-                    GamePresenter gamePresenter = new GamePresenter(game, settings, screen);
-                    gamePresenter.start();
-                }
-                case Settings -> {
-                    ConsoleSettingsScene settingsPresenter = new ConsoleSettingsScene(screen, settings);
-                    settingsPresenter.start();
-                }
-                case Exit -> {
-                    flag = false;
-                }
-                case FieldConstructor -> {
-                    ConstructorScene constructorScene = new ConstructorScene(settings.getFile(), screen);
-                    settings.setGame(constructorScene.start());
-                }
-            }
+    ConsoleMenuScene menuScene = new ConsoleMenuScene(screen);
+    boolean flag = true;
+    while (flag) {
+      MenuPage menuPage = menuScene.start();
+      switch (menuPage) {
+        case Game -> {
+          terminal.setCursorVisible(false);
+          screen.setCursorPosition(new TerminalPosition(1000, 1000));
+          Game game = settings.getGame().getCopy();
+          GamePresenter gamePresenter = new GamePresenter(game, settings, screen);
+          gamePresenter.start();
         }
-        menuScene.close();
+        case Settings -> {
+          ConsoleSettingsScene settingsPresenter = new ConsoleSettingsScene(screen, settings);
+          settingsPresenter.start();
+        }
+        case Exit -> {
+          flag = false;
+        }
+        case FieldConstructor -> {
+          ConstructorScene constructorScene = new ConstructorScene(settings.getFile(), screen);
+          settings.setGame(constructorScene.start());
+        }
+      }
     }
-
-
+    menuScene.close();
+  }
 }
