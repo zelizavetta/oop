@@ -140,11 +140,22 @@ public class GamePresenter {
         return 1;
     }
 
+    /**
+     * loop condition.
+     *
+     * @return if loop
+     */
     public boolean loopCondition() {
 
         return !escapeFlag;
     }
 
+    /**
+     * get bot method.
+     *
+     * @param id id
+     * @return bot behavior
+     */
     private PlayerListener getBot(int id) {
         if (true) {
             return new EuristickBot(game, id);
@@ -153,6 +164,9 @@ public class GamePresenter {
         }
     }
 
+    /**
+     * direction wrapper.
+     */
     private static class DirectionWrapper {
         Direction direction;
 
@@ -161,6 +175,9 @@ public class GamePresenter {
         }
     }
 
+    /**
+     * boolean wrapper.
+     */
     private static class BooleanWrapper {
         boolean flag;
 

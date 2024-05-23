@@ -7,11 +7,20 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.game.sprites.utils.ConsoleUtils;
 
+/**
+ * settings of view.
+ */
 public class SettingsView {
     private Screen screen;
     private TerminalPosition gameSpeedPosition;
     private int speed;
 
+    /**
+     * settings of view.
+     *
+     * @param screen screen
+     * @param speed  speed
+     */
     public SettingsView(Screen screen, int speed) {
         this.screen = screen;
         screen.clear();
@@ -27,6 +36,9 @@ public class SettingsView {
         drawText();
     }
 
+    /**
+     * initial positions.
+     */
     private void initialisePositions() {
         TerminalSize size = screen.getTerminalSize();
         gameSpeedPosition =
@@ -34,24 +46,19 @@ public class SettingsView {
                         Math.max(size.getColumns() / 2 - 7, 1), Math.max(1, size.getRows() / 2 - 3));
     }
 
-    public void clear() {
-        screen.clear();
-    }
-
-    public void close() {
-        screen.clear();
-        try {
-            screen.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void changeSpeed(int speed) throws IOException {
+    /**
+     * change speed.
+     *
+     * @param speed speed
+     */
+    public void changeSpeed(int speed) {
         this.speed = speed;
         drawText();
     }
 
+    /**
+     * draw text meth.
+     */
     private void drawText() {
         ConsoleUtils.printLine(
                 screen,
@@ -73,10 +80,20 @@ public class SettingsView {
         }
     }
 
+    /**
+     * possibility of increasing.
+     *
+     * @return possibility
+     */
     private boolean canIncrease() {
         return speed < 5;
     }
 
+    /**
+     * possibility of decreasing.
+     *
+     * @return possibility
+     */
     private boolean canDecrease() {
         return speed > 1;
     }

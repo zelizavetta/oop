@@ -1,5 +1,8 @@
 package nsu.fit.ezaitseva.snakegame.console.game.sprites;
 
+/**
+ * units characters class.
+ */
 public class UnitsCharacters {
     public static final Character WALL = '#';
     public static final Character HEADUP = 'v';

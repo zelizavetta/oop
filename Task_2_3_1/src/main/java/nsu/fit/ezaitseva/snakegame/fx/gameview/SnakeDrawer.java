@@ -9,12 +9,20 @@ import java.util.HashMap;
 import java.util.Map;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
+/**
+ * class for snake drawer.
+ */
 public class SnakeDrawer {
     private final SnapshotParameters parameters;
     private final int playersAmount;
     private final Map<Integer, Map<Direction, HeadBody>> imageViewMap = new HashMap<>();
 
 
+    /**
+     * class-constructor for snake drawer.
+     *
+     * @param playersAmount amount of players
+     */
     public SnakeDrawer(int playersAmount) {
         this.playersAmount = playersAmount;
         parameters = new SnapshotParameters();
@@ -22,6 +30,9 @@ public class SnakeDrawer {
         initSkinMap();
     }
 
+    /**
+     * init for skin map.
+     */
     private void initSkinMap() {
         for (int id = 0; id < playersAmount; id++) {
             ImageView headView = new ImageView(ImageCollector.snakeHead);
@@ -47,16 +58,36 @@ public class SnakeDrawer {
     }
 
 
+    /**
+     * getting head image.
+     *
+     * @param headDirection head direction
+     * @param id            id
+     * @return image
+     */
     public Image getHeadImage(Direction headDirection, int id) {
         HeadBody headBody = imageViewMap.get(id).get(headDirection);
         return headBody.headImage;
     }
 
+    /**
+     * getting head image.
+     *
+     * @param id id
+     * @return image
+     */
     public Image getHeadImage(int id) {
         HeadBody headBody = imageViewMap.get(id).get(Direction.UP);
         return headBody.headImage;
     }
 
+    /**
+     * getting body image.
+     *
+     * @param bodyDirection body direction
+     * @param id            id
+     * @return image
+     */
     public Image getBodyImage(Direction bodyDirection, int id) {
         HeadBody headBody = imageViewMap.get(id).get(bodyDirection);
         return headBody.bodyImage;

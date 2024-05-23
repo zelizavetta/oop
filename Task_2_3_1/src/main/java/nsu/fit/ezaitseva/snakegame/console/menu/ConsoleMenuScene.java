@@ -6,16 +6,30 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.menu.states.MenuPage;
 
+/**
+ * console menu scene class.
+ */
 public class ConsoleMenuScene {
     private MenuView menuView;
 
     private Screen screen;
     private int state = 0;
 
+    /**
+     * console menu scene class-constructor.
+     *
+     * @param screen screen
+     */
     public ConsoleMenuScene(Screen screen) {
         this.screen = screen;
     }
 
+    /**
+     * start menu page.
+     *
+     * @return menu page
+     * @throws IOException if exception
+     */
     public MenuPage start() throws IOException {
         screen.startScreen();
         menuView = new MenuView(screen);
@@ -54,6 +68,9 @@ public class ConsoleMenuScene {
         return MenuPage.getMenuPage(state);
     }
 
+    /**
+     * close menu method.
+     */
     public void close() {
         menuView.close();
     }

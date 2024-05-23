@@ -2,6 +2,9 @@ package nsu.fit.ezaitseva.snakegame.fx.gameview;
 
 import javafx.scene.image.Image;
 
+/**
+ * game view class.
+ */
 public interface GameView {
     double getViewWidth();
 

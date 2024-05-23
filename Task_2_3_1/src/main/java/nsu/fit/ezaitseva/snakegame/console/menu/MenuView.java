@@ -7,12 +7,21 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.game.sprites.utils.ConsoleUtils;
 
+/**
+ * menu view class.
+ */
 public class MenuView {
     private Screen screen;
     private TerminalPosition playPosition;
     private TerminalPosition settingsPosition;
     private TerminalPosition editorPosition;
 
+    /**
+     * menu view constructor.
+     *
+     * @param screen screen
+     * @throws IOException if exception
+     */
     public MenuView(Screen screen) throws IOException {
         this.screen = screen;
         screen.clear();
@@ -31,6 +40,9 @@ public class MenuView {
         screen.refresh();
     }
 
+    /**
+     * init position.
+     */
     private void initialisePositions() {
         TerminalSize size = screen.getTerminalSize();
         playPosition =
@@ -48,10 +60,16 @@ public class MenuView {
                         Math.min(settingsPosition.getRow() + 3, size.getRows() * 3 / 4));
     }
 
+    /**
+     * clear menu view.
+     */
     public void clear() {
         screen.clear();
     }
 
+    /**
+     * close menu view.
+     */
     public void close() {
         screen.clear();
         try {
@@ -61,6 +79,12 @@ public class MenuView {
         }
     }
 
+    /**
+     * set cursor position.
+     *
+     * @param index index
+     * @throws IOException if exception
+     */
     public void setCursorPosition(int index) throws IOException {
         if (index < 0 || index > 2) {
             throw new RuntimeException();

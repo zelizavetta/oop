@@ -17,6 +17,9 @@ import nsu.fit.ezaitseva.snakegame.console.settings.ConsoleSettingsScene;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 
 
+/**
+ * presenter of snake.
+ */
 public class ConsoleSnakePresenter {
     private Terminal terminal;
     private Screen screen;
@@ -24,6 +27,11 @@ public class ConsoleSnakePresenter {
     private final File mapDir;
     private TerminalSize defaultSize;
 
+    /**
+     * class-constructor for snake presenter.
+     *
+     * @throws IOException if exception
+     */
     public ConsoleSnakePresenter() throws IOException {
 
         terminal =
@@ -37,6 +45,11 @@ public class ConsoleSnakePresenter {
         defaultSize = terminal.getTerminalSize();
     }
 
+    /**
+     * start of console snake presenter.
+     *
+     * @throws IOException if exception
+     */
     public void start() throws IOException {
 
         ConsoleMenuScene menuScene = new ConsoleMenuScene(screen);

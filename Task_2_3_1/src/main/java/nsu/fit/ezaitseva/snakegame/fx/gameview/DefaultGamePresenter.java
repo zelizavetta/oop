@@ -8,6 +8,9 @@ import nsu.fit.ezaitseva.snakegame.model.game.field.GameField;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.*;
 
+/**
+ * class for default game presenter.
+ */
 public class DefaultGamePresenter {
     private final GameView gameView;
     private final int gameWidth;
@@ -18,6 +21,11 @@ public class DefaultGamePresenter {
     protected Game game;
     private final SnakeDrawer snakeDrawer;
 
+    /**
+     * class-constructor for default game presenter.
+     *
+     * @param gameView game view
+     */
     public DefaultGamePresenter(GameView gameView) {
         this.gameView = gameView;
         game = gameSettings.getGame().getCopy();
@@ -29,12 +37,18 @@ public class DefaultGamePresenter {
         this.gameView.setSize(cellWidth, cellHeight);
     }
 
+    /**
+     * update for default game presenter.
+     */
     public void update() {
         gameView.clear();
         drawField();
         drawGameObjects();
     }
 
+    /**
+     * draw game objects.
+     */
     protected void drawGameObjects() {
         GameField field = game.getField();
         Map<Integer, Snake> snakeMap = game.getSnakeMap();
@@ -49,6 +63,12 @@ public class DefaultGamePresenter {
         snakeMap.forEach(this::drawSnake);
     }
 
+    /**
+     * draw cell meth.
+     *
+     * @param x x
+     * @param y y
+     */
     protected void drawCell(int x, int y) {
         Image image;
         if (((x + y) & 1) == 0) {
@@ -59,6 +79,9 @@ public class DefaultGamePresenter {
         gameView.drawImage(image, x, y);
     }
 
+    /**
+     * draw field meth.
+     */
     protected void drawField() {
         for (int x = 0; x < gameWidth; x++) {
             for (int y = 0; y < gameHeight; y++) {
@@ -68,11 +91,22 @@ public class DefaultGamePresenter {
     }
 
 
+    /**
+     * draw food meth.
+     *
+     * @param food food
+     */
     protected void drawFood(Food food) {
         gameView.drawImage(ImageCollector.getFood(food.getValue()),
                 food.getX(), food.getY());
     }
 
+    /**
+     * draw snake meth.
+     *
+     * @param id    id
+     * @param snake snake
+     */
     protected void drawSnake(int id, Snake snake) {
         if (snake.isControllable()) {
 
@@ -88,10 +122,20 @@ public class DefaultGamePresenter {
         }
     }
 
+    /**
+     * getting for game.
+     *
+     * @return game
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     * setting game.
+     *
+     * @param game game
+     */
     public void setGame(Game game) {
         this.game = game;
     }

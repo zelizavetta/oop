@@ -36,6 +36,12 @@ public class ConstructorScene {
     private int width;
     private int height;
 
+    /**
+     * class-constructor for scene.
+     *
+     * @param file   file
+     * @param screen sceen
+     */
     public ConstructorScene(File file, Screen screen) {
         this.screen = screen;
         FieldDao = new FieldDao(file);
@@ -46,6 +52,11 @@ public class ConstructorScene {
         height = field.height();
     }
 
+    /**
+     * starting game.
+     *
+     * @return game
+     */
     public Game start() {
         ConstructorView gameScene = new ConstructorView(screen);
         boolean escapeFlag = true;
@@ -100,6 +111,7 @@ public class ConstructorScene {
         FieldDao.saveField(game);
         return game;
     }
+    
 
     private GameStateDto getGameStateDto() {
         List<FoodDto> foods = new ArrayList<>();

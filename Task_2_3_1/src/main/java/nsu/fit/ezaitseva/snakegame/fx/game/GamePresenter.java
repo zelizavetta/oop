@@ -21,6 +21,9 @@ import nsu.fit.ezaitseva.snakegame.model.units.Snake;
 import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
+/**
+ * game presenter class.
+ */
 public class GamePresenter extends DefaultGamePresenter {
     private final GameController gameController;
     private Timeline timeline = new Timeline();
@@ -33,6 +36,11 @@ public class GamePresenter extends DefaultGamePresenter {
     private final GameSettings gameSettings = GlobalGameSettings.gameSettings;
     private final SnakeDrawer snakeDrawer;
 
+    /**
+     * class-constructor for game presenter.
+     *
+     * @param gameController game controller
+     */
     public GamePresenter(GameController gameController) {
         super(gameController);
         this.gameController = gameController;
@@ -45,14 +53,25 @@ public class GamePresenter extends DefaultGamePresenter {
         gameController.setSize(cellWidth, cellHeight);
     }
 
+    /**
+     * init method.
+     */
     public void init() {
         initPlayers();
     }
 
+    /**
+     * getting key resolver.
+     *
+     * @return key resolver
+     */
     public KeyResolver getKeyResolver() {
         return keyResolver;
     }
 
+    /**
+     * init players.
+     */
     private void initPlayers() {
         humanPlayer = new HumanPlayer(game, 0);
         if (gameSettings.getUserMode() == UserMode.Player) {
@@ -77,6 +96,9 @@ public class GamePresenter extends DefaultGamePresenter {
         updateLeaders();
     }
 
+    /**
+     * updating for statistic.
+     */
     private void updateStatistics() {
         if (humanPlayer != null) {
             gameController.updatePersonStatistic(humanPlayer.getScore() + "",
@@ -86,6 +108,9 @@ public class GamePresenter extends DefaultGamePresenter {
     }
 
 
+    /**
+     * restart for game.
+     */
     private void restart() {
         timeline.stop();
         game = GlobalGameSettings.gameSettings.getGame().getCopy();
@@ -112,6 +137,9 @@ public class GamePresenter extends DefaultGamePresenter {
 
     }
 
+    /**
+     * starting game meth.
+     */
     void startGame() {
         timeline = new Timeline(new KeyFrame(Duration.millis((double) 100 / (gameSettings.getGameSpeed())), ev -> {
             timeline.stop();
@@ -126,6 +154,12 @@ public class GamePresenter extends DefaultGamePresenter {
         timeline.play();
     }
 
+    /**
+     * get bot meth.
+     *
+     * @param id id
+     * @return player behavior.
+     */
     private PlayerListener getBot(int id) {
         PlayerListener playerListener;
         switch (new Random().nextInt(6)) {
@@ -166,10 +200,16 @@ public class GamePresenter extends DefaultGamePresenter {
         return playerListener;
     }
 
+    /**
+     * stop for game.
+     */
     public void stop() {
         timeline.stop();
     }
 
+    /**
+     * updating for leaders.
+     */
     public void updateLeaders() {
         Map<Integer, Integer> results = game.getResults();
         List<Map.Entry<Integer, Integer>> listOfWinners = results.entrySet().stream()
@@ -186,7 +226,15 @@ public class GamePresenter extends DefaultGamePresenter {
     }
 
 
+    /**
+     * key resolver class.
+     */
     public class KeyResolver {
+        /**
+         * resolving key code.
+         *
+         * @param keyCode key code.
+         */
         public void resolveKeyCode(KeyCode keyCode) {
             if (keyCode == null) return;
             Runnable action = keyMap.get(keyCode.getCode());
@@ -195,6 +243,11 @@ public class GamePresenter extends DefaultGamePresenter {
             }
         }
 
+        /**
+         * changing direction.
+         *
+         * @param direction direction
+         */
         private void changeDirection(Direction direction) {
             if (humanPlayer != null) {
                 humanPlayer.setDirection(direction);

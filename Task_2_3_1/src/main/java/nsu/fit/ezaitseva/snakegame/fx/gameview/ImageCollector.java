@@ -7,6 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
+/**
+ * image collector class.
+ */
 public class ImageCollector {
     public final static Image light_grass = loadImage("light_grass.png");
     public final static Image dark_grass = loadImage("dark_grass.png");
@@ -18,6 +21,12 @@ public class ImageCollector {
     public static int maxFood = 3;
     private static final Random random = new Random();
 
+    /**
+     * getting food meth.
+     *
+     * @param foodValue value of food
+     * @return image
+     */
     public static Image getFood(int foodValue) {
         if (foodValue > maxFood) {
             foodValue = maxFood;
@@ -27,6 +36,12 @@ public class ImageCollector {
     }
 
 
+    /**
+     * loading image meth.
+     *
+     * @param filename file name of image
+     * @return image
+     */
     private static Image loadImage(String filename) {
 
         try {

@@ -6,6 +6,9 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.GameSettings;
 
+/**
+ * setting of console scene.
+ */
 public class ConsoleSettingsScene {
 
     private SettingsView settingsView;
@@ -14,11 +17,22 @@ public class ConsoleSettingsScene {
     private int state = 0;
     private GameSettings gameSettings;
 
+    /**
+     * class-constructor for console scene.
+     *
+     * @param screen       screen
+     * @param gameSettings game settings
+     */
     public ConsoleSettingsScene(Screen screen, GameSettings gameSettings) {
         this.screen = screen;
         this.gameSettings = gameSettings;
     }
 
+    /**
+     * start of console scene.
+     *
+     * @throws IOException if exception
+     */
     public void start() throws IOException {
         screen.clear();
         settingsView = new SettingsView(screen, gameSettings.getGameSpeed());
@@ -41,6 +55,12 @@ public class ConsoleSettingsScene {
         }
     }
 
+    /**
+     * increasing speed if possible.
+     *
+     * @param deltaValue delta value for speed
+     * @return possible or not
+     */
     private boolean tryIncreaseSpeed(int deltaValue) {
         int newSpeed = gameSettings.getGameSpeed() + deltaValue;
         if (newSpeed < 1 || newSpeed > 5) {

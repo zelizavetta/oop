@@ -46,6 +46,11 @@ public class FieldView {
         }
     }
 
+    /**
+     * draw food meth.
+     *
+     * @param foodDto food
+     */
     private void drawFood(FoodDto foodDto) {
         setCharacterAtPoint(
                 foodDto.foodPoint(),
@@ -53,6 +58,11 @@ public class FieldView {
                         TextColor.ANSI.GREEN, TextColor.ANSI.BLACK));
     }
 
+    /**
+     * draw snake meth.
+     *
+     * @param snakeDto snake
+     */
     private void drawSnake(SnakeDto snakeDto) {
         var snakeHead = snakeDto.head();
         Character headCharacter = UnitsCharacters.HEADDOWN;
@@ -100,6 +110,11 @@ public class FieldView {
                         });
     }
 
+    /**
+     * draw wall meth.
+     *
+     * @param wall wall
+     */
     private void drawWall(WallDto wall) {
         setCharacterAtPoint(
                 wall.point(),
@@ -107,6 +122,12 @@ public class FieldView {
                         TextColor.ANSI.YELLOW, TextColor.ANSI.BLACK));
     }
 
+    /**
+     * setting at point meth.
+     *
+     * @param point         point
+     * @param textCharacter text
+     */
     private void setCharacterAtPoint(PointDto point, TextCharacter textCharacter) {
         screen.setCharacter(point.x(), point.y(), textCharacter);
     }

@@ -13,6 +13,9 @@ import nsu.fit.ezaitseva.snakegame.model.game.field.FieldDao;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
+/**
+ * game settings.
+ */
 public class GameSettings {
     private int gameSpeed = 1;
 
@@ -25,6 +28,9 @@ public class GameSettings {
     private final Map<Character, Direction> keyCharacterDirectionMap;
     private final Map<KeyType, Direction> keyTypeDirectionMap;
 
+    /**
+     * game settings constructor.
+     */
     public GameSettings() {
         this.file = new File("C:\\Users\\Elisa\\oop\\Task_2_3_1\\src\\main\\resources\\maps", "1");
         setGame(new FieldDao(file).getField());
@@ -34,6 +40,9 @@ public class GameSettings {
         initializeFromSaved();
     }
 
+    /**
+     * init from saved settings.
+     */
     private void initializeFromSaved() {
 
         if (settingFile.exists()) {
@@ -56,24 +65,9 @@ public class GameSettings {
         }
     }
 
-    public void saveIntoFile() {
-        SavedSettings savedSettings = new SavedSettings(gameSpeed, userMode, difficult);
-        try {
-            new ObjectMapper().writeValue(settingFile, savedSettings);
-        } catch (IOException e) {
-            System.err.println("Not saved");
-        }
-    }
-
-    public Game getRandomGame() {
-        return null;
-    }
-
-    public Game getCustom() {
-        setGame(new FieldDao(file).getField());
-        return game;
-    }
-
+    /**
+     * init for key map.
+     */
     private void initializeKeyMap() {
         keyTypeDirectionMap.put(KeyType.ArrowDown, Direction.UP);
         keyTypeDirectionMap.put(KeyType.ArrowUp, Direction.DOWN);
@@ -90,6 +84,12 @@ public class GameSettings {
         keyCharacterDirectionMap.put('R', Direction.RIGHT);
     }
 
+    /**
+     * key directions.
+     *
+     * @param keyStroke key
+     * @return direction
+     */
     public Direction keyDirection(KeyStroke keyStroke) {
         if (keyStroke == null) {
             return null;
@@ -101,39 +101,67 @@ public class GameSettings {
         }
     }
 
+    /**
+     * getting file.
+     *
+     * @return file
+     */
     public File getFile() {
         return file;
     }
 
+    /**
+     * get game speed.
+     *
+     * @return game speed.
+     */
     public int getGameSpeed() {
         return gameSpeed;
     }
 
+    /**
+     * setting game speed.
+     *
+     * @param gameSpeed speed of th game
+     */
     public void setGameSpeed(int gameSpeed) {
         this.gameSpeed = gameSpeed;
     }
 
+    /**
+     * getting user mode.
+     *
+     * @return user mode
+     */
     public UserMode getUserMode() {
         return userMode;
     }
 
-    public void setUserMode(UserMode userMode) {
-        this.userMode = userMode;
-    }
-
+    /**
+     * getting game.
+     *
+     * @return game
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     * setting game.
+     *
+     * @param game game
+     */
     public void setGame(Game game) {
         this.game = game;
     }
 
+    /**
+     * get difficult.
+     *
+     * @return difficult
+     */
     public double getDifficult() {
         return difficult;
     }
 
-    public void setDifficult(double difficult) {
-        this.difficult = difficult;
-    }
 }
