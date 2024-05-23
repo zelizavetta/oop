@@ -76,9 +76,16 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-speed">speed</span></code> - speed of snake</dd>
+<dd><code><span id="param-userMode">userMode</span></code> - user mode</dd>
+<dd><code><span id="param-difficult">difficult</span></code> - difficult of game</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">SavedSettings</span>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;speed, <a href="UserMode.html" title="enum class in nsu.fit.ezaitseva.snakegame.console.settings">UserMode</a>&nbsp;userMode, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;difficult)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
+<div class="block">saved settings.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -113,7 +120,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#difficult()" class="member-name-link">difficult</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>difficult</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-difficult"><code>difficult</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -128,7 +135,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#speed()" class="member-name-link">speed</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>speed</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-speed"><code>speed</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -138,7 +145,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="UserMode.html" title="enum class in nsu.fit.ezaitseva.snakegame.console.settings">UserMode</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#userMode()" class="member-name-link">userMode</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>userMode</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-userMode"><code>userMode</code></a> record component.</div>
 </div>
 </div>
 </div>
@@ -166,9 +173,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Creates an instance of a <code>SavedSettings</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>speed</code> - the value for the <code>speed</code> record component</dd>
-<dd><code>userMode</code> - the value for the <code>userMode</code> record component</dd>
-<dd><code>difficult</code> - the value for the <code>difficult</code> record component</dd>
+<dd><code>speed</code> - the value for the <a href="#param-speed"><code>speed</code></a> record component</dd>
+<dd><code>userMode</code> - the value for the <a href="#param-userMode"><code>userMode</code></a> record component</dd>
+<dd><code>difficult</code> - the value for the <a href="#param-difficult"><code>difficult</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -225,10 +232,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="speed()">
 <h3>speed</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">speed</span>()</div>
-<div class="block">Returns the value of the <code>speed</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-speed"><code>speed</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>speed</code> record component</dd>
+<dd>the value of the <a href="#param-speed"><code>speed</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -236,10 +243,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="userMode()">
 <h3>userMode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="UserMode.html" title="enum class in nsu.fit.ezaitseva.snakegame.console.settings">UserMode</a></span>&nbsp;<span class="element-name">userMode</span>()</div>
-<div class="block">Returns the value of the <code>userMode</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-userMode"><code>userMode</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>userMode</code> record component</dd>
+<dd>the value of the <a href="#param-userMode"><code>userMode</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -247,10 +254,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="difficult()">
 <h3>difficult</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">difficult</span>()</div>
-<div class="block">Returns the value of the <code>difficult</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-difficult"><code>difficult</code></a> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>difficult</code> record component</dd>
+<dd>the value of the <a href="#param-difficult"><code>difficult</code></a> record component</dd>
 </dl>
 </section>
 </li>
