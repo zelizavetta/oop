@@ -29,6 +29,7 @@ public class TaskEvaluator {
                                       EvaluationConfig evaluationConfig)
             throws IOException {
         File moduleDir = FileManager.getTaskFolder(task, studentInfo, gradleTool.getProjectFolder());
+        System.out.println(moduleDir);
         File workingDir = moduleDir.getParentFile();
         moduleName = getModuleName(moduleDir, workingDir);
         boolean runTests = task.getRunTests();
