@@ -6,15 +6,29 @@ import nsu.fit.ezaitseva.model.dsl.Delegator;
 
 import java.util.Map;
 
+/**
+ * The type Fix config.
+ */
 @Data
 public class FixConfig {
     private Map<String, StudentInformation> informationMap;
 
+    /**
+     * Instantiates a new Fix config.
+     *
+     * @param informationMap the information map
+     */
     public FixConfig(Map<String, StudentInformation> informationMap) {
         this.informationMap = informationMap;
 
     }
 
+    /**
+     * For student.
+     *
+     * @param gitName the git name
+     * @param closure the closure
+     */
     public void forStudent(String gitName, Closure<?> closure) {
         if (!informationMap.containsKey(gitName)) {
             System.err.println("There is no " + gitName);

@@ -10,11 +10,19 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * The type Lessons config.
+ */
 @Data
 public class LessonsConfig {
     private final Set<Lesson> lessonList = new LinkedHashSet<>();
     private DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
+    /**
+     * Lesson.
+     *
+     * @param dateString the date string
+     */
     public void lesson(String dateString) {
 
         try {
@@ -26,6 +34,13 @@ public class LessonsConfig {
         }
     }
 
+    /**
+     * Lessons.
+     *
+     * @param startDateString the start date string
+     * @param stopDateString  the stop date string
+     * @param interval        the interval
+     */
     public void lessons(String startDateString, String stopDateString, int interval) {
 
         Date startDate;

@@ -19,23 +19,50 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * The type Groovy parser.
+ */
 public class GroovyParser {
     private final GroovyShell sh;
 
+    /**
+     * Instantiates a new Groovy parser.
+     */
     public GroovyParser() {
         CompilerConfiguration cc = new CompilerConfiguration();
         cc.setScriptBaseClass(DelegatingScript.class.getName());
         this.sh = new GroovyShell(GroovyParser.class.getClassLoader(), new Binding(), cc);
     }
 
+    /**
+     * Gets script.
+     *
+     * @param file the file
+     * @return the script
+     * @throws IOException the io exception
+     */
     public DelegatingScript getScript(File file) throws IOException {
         return (DelegatingScript) sh.parse(file);
     }
 
+    /**
+     * Gets script.
+     *
+     * @param filePath the file path
+     * @return the script
+     * @throws IOException the io exception
+     */
     public DelegatingScript getScript(String filePath) throws IOException {
         return getScript(new File(filePath));
     }
 
+    /**
+     * Parse script.
+     *
+     * @param filePath the file path
+     * @param delegate the delegate
+     * @throws IOException the io exception
+     */
     public void parseScript(String filePath, Object delegate) throws IOException {
         DelegatingScript script = getScript(filePath);
         script.setDelegate(delegate);
@@ -43,6 +70,12 @@ public class GroovyParser {
     }
 
 
+    /**
+     * Read general general config.
+     *
+     * @param scriptPath the script path
+     * @return the general config
+     */
     public GeneralConfig readGeneral(String scriptPath) {
         GeneralConfig generalConfig = new GeneralConfig();
         try {
@@ -54,6 +87,13 @@ public class GroovyParser {
         return generalConfig;
     }
 
+    /**
+     * Read tasks task config.
+     *
+     * @param generalConfig the general config
+     * @param scriptPath    the script path
+     * @return the task config
+     */
     public TaskConfig readTasks(GeneralConfig generalConfig, String scriptPath) {
         TaskConfig taskConfig = new TaskConfig(generalConfig);
         try {
@@ -65,6 +105,13 @@ public class GroovyParser {
 
     }
 
+    /**
+     * Read group group config.
+     *
+     * @param generalConfig the general config
+     * @param scriptPath    the script path
+     * @return the group config
+     */
     public GroupConfig readGroup(GeneralConfig generalConfig, String scriptPath) {
         GroupConfig groupConfig = new GroupConfig(generalConfig);
         try {
@@ -75,6 +122,13 @@ public class GroovyParser {
         return groupConfig;
     }
 
+    /**
+     * Read fixes fix config.
+     *
+     * @param studentInformation the student information
+     * @param scriptPath         the script path
+     * @return the fix config
+     */
     public FixConfig readFixes(Map<String, StudentInformation> studentInformation, String scriptPath) {
         FixConfig fixConfig = new FixConfig(studentInformation);
         try {
@@ -85,6 +139,12 @@ public class GroovyParser {
         return fixConfig;
     }
 
+    /**
+     * Read lessons lessons config.
+     *
+     * @param scriptPath the script path
+     * @return the lessons config
+     */
     public LessonsConfig readLessons(String scriptPath) {
         LessonsConfig lessonsConfig = new LessonsConfig();
         try {
@@ -95,6 +155,14 @@ public class GroovyParser {
         return lessonsConfig;
     }
 
+    /**
+     * Read attendance attendance config.
+     *
+     * @param studentInformation the student information
+     * @param lessons            the lessons
+     * @param scriptPath         the script path
+     * @return the attendance config
+     */
     public AttendanceConfig readAttendance(Map<String, StudentInformation> studentInformation,
                                            Set<Lesson> lessons, String scriptPath) {
         AttendanceConfig attendanceConfig = new AttendanceConfig(studentInformation, lessons);
@@ -106,6 +174,13 @@ public class GroovyParser {
         return attendanceConfig;
     }
 
+    /**
+     * Gets student information map.
+     *
+     * @param groupConfig the group config
+     * @param taskConfig  the task config
+     * @return the student information map
+     */
     public static Map<String, StudentInformation> getStudentInformationMap(GroupConfig groupConfig,
                                                                            TaskConfig taskConfig) {
         Map<String, StudentInformation> informationMap = new HashMap<>();

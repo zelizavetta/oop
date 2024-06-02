@@ -4,6 +4,9 @@ import lombok.Builder;
 
 import java.util.Objects;
 
+/**
+ * The type Assessment.
+ */
 @Builder
 public class Assessment {
     @Builder.Default
@@ -17,10 +20,22 @@ public class Assessment {
     @Builder.Default
     private Double styleScores = .0;
 
+    /**
+     * Instantiates a new Assessment.
+     */
     public Assessment() {
 
     }
 
+    /**
+     * Instantiates a new Assessment.
+     *
+     * @param buildMark   the build mark
+     * @param docsMark    the docs mark
+     * @param testMark    the test mark
+     * @param extraScores the extra scores
+     * @param styleScores the style scores
+     */
     public Assessment(Double buildMark, Double docsMark,
                       Double testMark, Double extraScores, Double styleScores) {
         this.buildMark = buildMark;
@@ -30,6 +45,11 @@ public class Assessment {
         this.styleScores = styleScores;
     }
 
+    /**
+     * Gets summary.
+     *
+     * @return the summary
+     */
     public double getSummary() {
         if (buildMark == 0) {
             return 0;
@@ -39,22 +59,47 @@ public class Assessment {
 
     }
 
+    /**
+     * Compile mark double.
+     *
+     * @return the double
+     */
     public Double compileMark() {
         return buildMark;
     }
 
+    /**
+     * Docs mark double.
+     *
+     * @return the double
+     */
     public Double docsMark() {
         return docsMark;
     }
 
+    /**
+     * Test mark double.
+     *
+     * @return the double
+     */
     public Double testMark() {
         return testMark;
     }
 
+    /**
+     * Extra scores double.
+     *
+     * @return the double
+     */
     public Double extraScores() {
         return extraScores;
     }
 
+    /**
+     * Style scores double.
+     *
+     * @return the double
+     */
     public Double styleScores() {
         return styleScores;
     }
@@ -81,6 +126,11 @@ public class Assessment {
         return buildMark + " " + docsMark + " " + testMark + " " + styleScores + " " + extraScores + " " + getSummary();
     }
 
+    /**
+     * Formalize string.
+     *
+     * @return the string
+     */
     public String formalize() {
         return notZero(buildMark, "b")
                 + " " + notZero(docsMark, "d")
@@ -90,6 +140,12 @@ public class Assessment {
                 + " " + "%.2f".formatted(getSummary());
     }
 
+    /**
+     * To format string.
+     *
+     * @param assessment the assessment
+     * @return the string
+     */
     public static String toFormat(Assessment assessment) {
         return assessment.formalize();
     }

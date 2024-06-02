@@ -3,6 +3,9 @@ package nsu.fit.ezaitseva.model.entity.attendance;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The type Lesson.
+ */
 public record Lesson(Date date) {
     @Override
     public boolean equals(Object o) {

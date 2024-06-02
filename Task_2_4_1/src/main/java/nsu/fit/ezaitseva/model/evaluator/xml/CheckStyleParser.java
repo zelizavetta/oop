@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * The type Check style parser.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 //@JacksonXmlRootElement(localName = "name")
 public class CheckStyleParser {
@@ -28,16 +31,33 @@ public class CheckStyleParser {
 
     private List<error> errorList;
 
+    /**
+     * Parse check style results.
+     *
+     * @param reportXml the report xml
+     * @return the check style results
+     * @throws IOException the io exception
+     */
     public static CheckStyleResults parse(File reportXml) throws IOException {
         return xmlMapper.readValue(
                 reportXml,
                 CheckStyleResults.class);
     }
 
+    /**
+     * Gets all.
+     *
+     * @return the all
+     */
     public Collection<error> getAll() {
         return errorList;
     }
 
+    /**
+     * Gets amount.
+     *
+     * @return the amount
+     */
     public int getAmount() {
         if (errorList == null) {
             return 0;
@@ -45,12 +65,20 @@ public class CheckStyleParser {
         return errorList.size();
     }
 
+    /**
+     * The type Check style results.
+     */
     public record CheckStyleResults(
             @JsonProperty("version") String version,
             @JacksonXmlProperty(localName = "file")
             @JacksonXmlElementWrapper(useWrapping = false)
             List<file> files
     ) {
+        /**
+         * Gets warnings amount.
+         *
+         * @return the warnings amount
+         */
         public int getWarningsAmount() {
             if (files == null) {
                 return 0;
@@ -62,6 +90,9 @@ public class CheckStyleParser {
 
     }
 
+    /**
+     * The type File.
+     */
     public record file(
             @JsonProperty("name") String name,
             @JacksonXmlProperty(localName = "error")
@@ -69,6 +100,11 @@ public class CheckStyleParser {
             List<error> errors
 
     ) {
+        /**
+         * Gets error amount.
+         *
+         * @return the error amount
+         */
         public int getErrorAmount() {
             if (errors == null) {
                 return 0;
@@ -78,6 +114,9 @@ public class CheckStyleParser {
 
     }
 
+    /**
+     * The type Error.
+     */
     public record error(
             @JsonProperty("line") int line,
             @JsonProperty("column") int column,

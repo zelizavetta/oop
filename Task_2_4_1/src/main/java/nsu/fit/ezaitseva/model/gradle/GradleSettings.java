@@ -2,6 +2,9 @@ package nsu.fit.ezaitseva.model.gradle;
 
 import lombok.Builder;
 
+/**
+ * The type Gradle settings.
+ */
 @Builder
 public class GradleSettings {
     @Builder.Default

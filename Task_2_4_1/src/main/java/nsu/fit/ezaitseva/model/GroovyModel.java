@@ -18,18 +18,54 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Groovy model.
+ */
 public class GroovyModel {
+    /**
+     * The Groovy parser.
+     */
     public final GroovyParser groovyParser = new GroovyParser();
+    /**
+     * The General config.
+     */
     public final GeneralConfig generalConfig;
+    /**
+     * The Group.
+     */
     public final GroupConfig group;
+    /**
+     * The Task config.
+     */
     public final TaskConfig taskConfig;
+    /**
+     * The Student information map.
+     */
     public final Map<String, StudentInformation> studentInformationMap;
+    /**
+     * The Fixes.
+     */
     public final FixConfig fixes;
+    /**
+     * The Attendance config.
+     */
     public final AttendanceConfig attendanceConfig;
+    /**
+     * The Lessons config.
+     */
     public final LessonsConfig lessonsConfig;
 
+    /**
+     * The General dir.
+     */
     public final File generalDir;
 
+    /**
+     * Instantiates a new Groovy model.
+     *
+     * @param scriptsDir the scripts dir
+     * @param generalDir the general dir
+     */
     public GroovyModel(File scriptsDir, File generalDir) {
         this.generalDir = generalDir;
         String scriptPath = scriptsDir.getPath() + "/";
@@ -38,17 +74,28 @@ public class GroovyModel {
         group = groovyParser.readGroup(generalConfig, scriptPath + "group22214.groovy");
         fixes = groovyParser.readFixes(studentInformationMap = GroovyParser.getStudentInformationMap(group, taskConfig),
                 scriptPath + "fixes.groovy");
-        lessonsConfig = groovyParser.readLessons(scriptPath +"lessons.groovy");
+        lessonsConfig = groovyParser.readLessons(scriptPath + "lessons.groovy");
 
         attendanceConfig = groovyParser.readAttendance(studentInformationMap, lessonsConfig.getLessonList(),
                 scriptPath + "attendance.groovy");
 
     }
 
+    /**
+     * Evaluate all map.
+     *
+     * @return the map
+     */
     public Map<String, Map<String, Assessment>> evaluateAll() {
         return evaluatePersons(studentInformationMap.keySet());
     }
 
+    /**
+     * Evaluate person map.
+     *
+     * @param studentInfo the student info
+     * @return the map
+     */
     public Map<String, Assessment> evaluatePerson(StudentInformation studentInfo) {
         try {
             try (StudentEvaluator studentEvaluator = new StudentEvaluator(studentInfo, generalDir,
@@ -69,10 +116,22 @@ public class GroovyModel {
         return assessmentMap;
     }
 
+    /**
+     * Evaluate person map.
+     *
+     * @param gitName the git name
+     * @return the map
+     */
     public Map<String, Assessment> evaluatePerson(String gitName) {
         return evaluatePerson(studentInformationMap.get(gitName));
     }
 
+    /**
+     * Evaluate persons map.
+     *
+     * @param gitNames the git names
+     * @return the map
+     */
     public Map<String, Map<String, Assessment>> evaluatePersons(Collection<String> gitNames) {
         Map<String, Map<String, Assessment>> studentResults = new HashMap<>();
         for (String studentGit : gitNames) {

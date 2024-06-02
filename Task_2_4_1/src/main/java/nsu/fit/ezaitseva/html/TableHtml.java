@@ -1,23 +1,43 @@
 package nsu.fit.ezaitseva.html;
 
-import nsu.fit.ezaitseva.model.entity.attendance.Lesson;
-import nsu.fit.ezaitseva.model.entity.tasks.Task;
-import nsu.fit.ezaitseva.model.evaluator.Assessment;
-
-import javax.swing.text.html.HTML;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import nsu.fit.ezaitseva.model.entity.attendance.Lesson;
+import nsu.fit.ezaitseva.model.entity.tasks.Task;
+import nsu.fit.ezaitseva.model.evaluator.Assessment;
 
+import javax.swing.text.html.*;
+
+/**
+ * The type Table html.
+ */
 public class TableHtml {
     private HTML html;
 
+    /**
+     * Instantiates a new Table html.
+     */
     public TableHtml() {
         LinkedList<?> linkedList;
     }
 
+    /**
+     * Smth.
+     *
+     * @param outputStream          the output stream
+     * @param attendance            the attendance
+     * @param studentsAssessmentMap the students assessment map
+     * @param tasks                 the tasks
+     * @param generalDir            the general dir
+     * @throws IOException the io exception
+     */
     public void smth(OutputStream outputStream, Map<String, Map<Lesson, Boolean>> attendance,
                      Map<String, Map<String, Assessment>> studentsAssessmentMap,
                      List<Task> tasks, File generalDir) throws IOException {
@@ -96,7 +116,7 @@ public class TableHtml {
 
         studentsAssessmentMap.forEach((gitName, mapAss) -> {
             double val = mapAss.values().stream().map((Assessment::getSummary)).reduce(.0, Double::sum);
-            int mark = val >= 6 ? 5 : val >= 4 ? 4 : val >= 2 ? 3 : 2; //TODO: score to mark
+            int mark = val >= 6 ? 5 : val >= 4 ? 4 : val >= 2 ? 3 : 2;
             String row = getCell(gitName);
             row += getCell("%.2f".formatted(val));
             row += getCell(mark);
@@ -128,7 +148,7 @@ public class TableHtml {
 
     private void moreInfo(String gitName, List<Task> tasks, File studentsDir) throws IOException {
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
-                new FileOutputStream("htmls/" + gitName + "_info.html"));
+                new FileOutputStream("Task_2_4_1/htmls/" + gitName + "_info.html"));
         outputStreamWriter.write("""
                 <!DOCTYPE html>
                 <html>
@@ -174,6 +194,7 @@ public class TableHtml {
             if (!taskDir.exists()) {
                 continue;
             }
+            File newTaskDir = new File(taskDir.getPath().substring(11));
             row += getCell(ref("click", new File(taskDir, "build/reports/jacoco/test/html/index.html")));
             row += getCell(ref("click", new File(taskDir, "build/reports/tests/test/index.html")));
             row += getCell(ref("click", new File(taskDir, "build/reports/checkstyle/main.html")));
@@ -201,8 +222,9 @@ public class TableHtml {
 //            String fileName = gitName + "_" + file.getName();
 //            File saveFile = new File(htmls, fileName);
 
-            return "<a href=\"..\\%s\">%s</a>".formatted(file.getPath(), name);
+            return "<a href=\"..\\%s\">%s</a>".formatted(file.getPath().substring(11), name);
         } else {
+            System.out.println("NOOOOOOOOOOOO");
             return "<a>-</a>";
         }
     }

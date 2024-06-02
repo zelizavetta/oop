@@ -12,11 +12,23 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Attendance checker.
+ */
 public class AttendanceChecker {
 
+    /**
+     * Check attendance map.
+     *
+     * @param gitConfig           the git config
+     * @param studentInformations the student informations
+     * @param workingDir          the working dir
+     * @param lessonList          the lesson list
+     * @return the map
+     */
     public static Map<String, Map<Lesson, Boolean>> checkAttendance
-            (GitConfig gitConfig, Collection<StudentInformation> studentInformations,
-             File workingDir, Collection<Lesson> lessonList) {
+    (GitConfig gitConfig, Collection<StudentInformation> studentInformations,
+     File workingDir, Collection<Lesson> lessonList) {
         Map<String, Map<Lesson, Boolean>> studentAttendance = new HashMap<>();
         for (StudentInformation studentInfo : studentInformations) {
             studentAttendance.put(studentInfo.getStudentConfig().getGitName(),
@@ -28,6 +40,15 @@ public class AttendanceChecker {
         return studentAttendance;
     }
 
+    /**
+     * Check attendance map.
+     *
+     * @param gitConfig   the git config
+     * @param studentInfo the student info
+     * @param workingDir  the working dir
+     * @param lessonList  the lesson list
+     * @return the map
+     */
     public static Map<Lesson, Boolean> checkAttendance(
             GitConfig gitConfig, StudentInformation studentInfo, File workingDir, Collection<Lesson> lessonList) {
         Map<Lesson, Boolean> studentAttendance = new HashMap<>();

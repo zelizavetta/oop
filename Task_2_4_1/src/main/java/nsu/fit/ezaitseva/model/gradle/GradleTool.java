@@ -11,19 +11,35 @@ import java.util.Collection;
 import java.util.List;
 
 
+/**
+ * The type Gradle tool.
+ */
 public class GradleTool implements AutoCloseable {
     private final File projectFolder;
     private ProjectConnection projectConnection;
 
+    /**
+     * Instantiates a new Gradle tool.
+     *
+     * @param projectFolder the project folder
+     */
     public GradleTool(File projectFolder) {
         this.projectFolder = projectFolder;
         connect();
     }
 
+    /**
+     * Gets project folder.
+     *
+     * @return the project folder
+     */
     public File getProjectFolder() {
         return projectFolder;
     }
 
+    /**
+     * Connect.
+     */
     public void connect() {
         projectConnection = GradleConnector.newConnector()
                 .forProjectDirectory(projectFolder)
@@ -70,15 +86,29 @@ public class GradleTool implements AutoCloseable {
         projectConnection.close();
     }
 
+    /**
+     * The type Task pair.
+     */
     public record TaskPair(String task, Runnable onSuccess) {
+        /**
+         * Instantiates a new Task pair.
+         *
+         * @param task the task
+         */
         TaskPair(String task) {
             this(task, () -> {
             });
         }
     }
 
+    /**
+     * The type Task list.
+     */
     @Builder
     public static class TaskList {
+        /**
+         * The Task pairs.
+         */
         @Singular
         public final List<TaskPair> taskPairs;
     }

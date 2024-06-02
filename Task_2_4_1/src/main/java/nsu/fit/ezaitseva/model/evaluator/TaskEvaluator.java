@@ -25,6 +25,16 @@ public class TaskEvaluator {
     private TaskEvaluator() {
     }
 
+    /**
+     * Evaluate assessment.
+     *
+     * @param gradleTool       the gradle tool
+     * @param task             the task
+     * @param studentInfo      the student info
+     * @param evaluationConfig the evaluation config
+     * @return the assessment
+     * @throws IOException the io exception
+     */
     public static Assessment evaluate(GradleTool gradleTool, Task task, StudentInformation studentInfo,
                                       EvaluationConfig evaluationConfig)
             throws IOException {
@@ -56,7 +66,9 @@ public class TaskEvaluator {
             assessmentBuilder.buildMark(evaluationConfig.getJacocoScore());
         }
         try {
-            FileManager.addCheckStyle(moduleDir, new File("google_checks.xml"));
+            System.out.println("ModuleDir in TaskEvaluator" + moduleDir);
+            FileManager.addCheckStyle(moduleDir, new File("Task_2_4_1/google_checks.xml"));
+            System.out.println("end task eval");
             builder.taskPair(new GradleTool.TaskPair(moduleTaskName("checkstyleMain"), () -> {
                 double res = checkCheckstyle(moduleDir) * 100;
 //                double res =0;

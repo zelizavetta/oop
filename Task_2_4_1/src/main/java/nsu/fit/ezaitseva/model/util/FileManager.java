@@ -6,7 +6,19 @@ import nsu.fit.ezaitseva.model.entity.tasks.Task;
 import java.io.*;
 import java.util.List;
 
+/**
+ * The type File manager.
+ */
 public class FileManager {
+    /**
+     * Gets task folder.
+     *
+     * @param task        the task
+     * @param studentInfo the student info
+     * @param workingDir  the working dir
+     * @return the task folder
+     * @throws IOException the io exception
+     */
     public static File getTaskFolder(Task task, StudentInformation studentInfo, File workingDir) throws IOException {
         File taskDir = new File(workingDir, task.getFolder());
 
@@ -34,7 +46,15 @@ public class FileManager {
         throw new IOException("There is no folder for " + studentInfo.getStudentConfig().getGitName() + ":" + taskDir);
     }
 
+    /**
+     * Style file create.
+     *
+     * @param taskDir        the task dir
+     * @param checkStyleFile the check style file
+     * @throws IOException the io exception
+     */
     public static void styleFileCreate(File taskDir, File checkStyleFile) throws IOException {
+        System.out.println("start styleFileCreate");
         File checkstyleDir = new File(taskDir.getParentFile(), "config/checkstyle");
         checkstyleDir.mkdirs();
         File newCheckStyleFile = new File(checkstyleDir, "checkstyle.xml");
@@ -51,8 +71,16 @@ public class FileManager {
         bufferedWriter.close();
 
         template.close();
+        System.out.println("end styleFileCreate");
     }
 
+    /**
+     * Change gradle.
+     *
+     * @param taskDir        the task dir
+     * @param checkStyleFile the check style file
+     * @throws IOException the io exception
+     */
     public static void changeGradle(File taskDir, File checkStyleFile) throws IOException {
         char[] buf = new char[1000000];
         File buildGradle = new File(taskDir, "build.gradle");
@@ -94,10 +122,18 @@ public class FileManager {
         fileReader.close();
     }
 
+    /**
+     * Add check style.
+     *
+     * @param taskDir        the task dir
+     * @param checkStyleFile the check style file
+     * @throws IOException the io exception
+     */
     public static void addCheckStyle(File taskDir, File checkStyleFile) throws IOException {
+        System.out.println("start addCheckStyle");
         styleFileCreate(taskDir, checkStyleFile);
         changeGradle(taskDir, checkStyleFile);
-
+        System.out.println("end addCheckStyle");
 
 //        bufferedWriter.close();
 //        fileWriter.close();

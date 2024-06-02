@@ -15,23 +15,67 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Person git.
+ */
 public class PersonGit implements AutoCloseable {
+    /**
+     * The Git.
+     */
     Git git;
+    /**
+     * The Student info.
+     */
     StudentInformation studentInfo;
+    /**
+     * The Student config.
+     */
     StudentConfig studentConfig;
+    /**
+     * The Git config.
+     */
     GitConfig gitConfig;
+    /**
+     * The Working dir.
+     */
     File workingDir;
 
+    /**
+     * Git name string.
+     *
+     * @return the string
+     */
     public String gitName() {
         return studentConfig.getGitName();
     }
-    public StudentConfig studentConfig(){
+
+    /**
+     * Student config student config.
+     *
+     * @return the student config
+     */
+    public StudentConfig studentConfig() {
         return studentConfig;
     }
-    public StudentInformation studentInfo(){
+
+    /**
+     * Student info student information.
+     *
+     * @return the student information
+     */
+    public StudentInformation studentInfo() {
         return studentInfo;
     }
 
+    /**
+     * Instantiates a new Person git.
+     *
+     * @param gitConfig   the git config
+     * @param studentInfo the student info
+     * @param workingDir  the working dir
+     * @throws IOException     the io exception
+     * @throws GitAPIException the git api exception
+     */
     public PersonGit(GitConfig gitConfig, StudentInformation studentInfo,
                      File workingDir) throws IOException, GitAPIException {
         this.gitConfig = gitConfig;
@@ -52,6 +96,14 @@ public class PersonGit implements AutoCloseable {
 //        }
     }
 
+    /**
+     * Switch task if not exists file.
+     *
+     * @param task the task
+     * @return the file
+     * @throws GitAPIException the git api exception
+     * @throws IOException     the io exception
+     */
     public File switchTaskIfNotExists(Task task) throws GitAPIException, IOException {
         try {
             return tryFile(task);
@@ -66,6 +118,12 @@ public class PersonGit implements AutoCloseable {
     }
 
 
+    /**
+     * Switch task branch.
+     *
+     * @param task the task
+     * @throws GitAPIException the git api exception
+     */
     public void switchTaskBranch(Task task) throws GitAPIException {
         String taskBranch = task.getBranch();
         String branchByAlias = studentInfo.getBranchRename().get(task.id());
@@ -139,6 +197,12 @@ public class PersonGit implements AutoCloseable {
 
     }
 
+    /**
+     * Gets commits.
+     *
+     * @return the commits
+     * @throws GitAPIException the git api exception
+     */
     public Iterable<RevCommit> getCommits() throws GitAPIException {
         return git.log().call();
     }

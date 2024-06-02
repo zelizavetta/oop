@@ -14,12 +14,24 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Student evaluator.
+ */
 public class StudentEvaluator implements AutoCloseable {
     private final StudentInformation studentInformation;
     private final PersonGit personGit;
     private final EvaluationConfig evaluationConfig;
     private final GradleTool gradleTool;
 
+    /**
+     * Instantiates a new Student evaluator.
+     *
+     * @param studentInformation the student information
+     * @param generalDir         the general dir
+     * @param generalConfig      the general config
+     * @throws GitAPIException the git api exception
+     * @throws IOException     the io exception
+     */
     public StudentEvaluator(StudentInformation studentInformation, File generalDir,
                             GeneralConfig generalConfig) throws GitAPIException, IOException {
         this.studentInformation = studentInformation;
@@ -29,12 +41,26 @@ public class StudentEvaluator implements AutoCloseable {
         gradleTool = new GradleTool(studentDir);
     }
 
+    /**
+     * Evaluate task assessment.
+     *
+     * @param task the task
+     * @return the assessment
+     * @throws IOException     the io exception
+     * @throws GitAPIException the git api exception
+     */
     public Assessment evaluateTask(Task task) throws IOException, GitAPIException {
         personGit.switchTaskIfNotExists(task);
 
         return TaskEvaluator.evaluate(gradleTool, task, studentInformation, evaluationConfig);
     }
 
+    /**
+     * Evaluate task map.
+     *
+     * @param tasks the tasks
+     * @return the map
+     */
     public Map<String, Assessment> evaluateTask(Collection<Task> tasks) {
         HashMap<String, Assessment> assessments = new HashMap<String, Assessment>();
         tasks.forEach((task -> {

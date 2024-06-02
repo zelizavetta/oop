@@ -1,5 +1,4 @@
 plugins {
-    id 'checkstyle'
     id 'java'
     id 'jacoco'
 }
@@ -10,6 +9,7 @@ version 'unspecified'
 
 repositories {
     mavenCentral()
+    google()
     maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 }
 
@@ -17,6 +17,9 @@ dependencies {
 
 
     implementation 'org.codehaus.groovy:groovy-all:2.4.21'
+    implementation 'com.puppycrawl.tools:checkstyle:10.9.1'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+
 
     compileOnly 'org.projectlombok:lombok:1.18.26'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
@@ -29,6 +32,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.14.2'
+    implementation 'org.slf4j:slf4j-simple:2.0.5'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
@@ -61,14 +65,4 @@ jacocoTestReport {
             ])
         }))
     }
-}
-configurations {
-    checkstyleConfig
-}
-
-checkstyle {
-    toolVersion '10.9.1'
-}
-dependencies {
-    checkstyleConfig('com.puppycrawl.tools:checkstyle:10.9.1') { transitive = false }
 }
