@@ -1,8 +1,7 @@
 package nsu.fit.ezaitseva.model.evaluator;
 
-import lombok.Builder;
-
 import java.util.Objects;
+import lombok.Builder;
 
 /**
  * The type Assessment.
@@ -106,14 +105,18 @@ public class Assessment {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
         var that = (Assessment) obj;
-        return Objects.equals(this.buildMark, that.buildMark) &&
-                Objects.equals(this.docsMark, that.docsMark) &&
-                Objects.equals(this.testMark, that.testMark) &&
-                Objects.equals(this.styleScores, that.styleScores) &&
-                Objects.equals(this.extraScores, that.extraScores);
+        return Objects.equals(this.buildMark, that.buildMark)
+                && Objects.equals(this.docsMark, that.docsMark)
+                && Objects.equals(this.testMark, that.testMark)
+                && Objects.equals(this.styleScores, that.styleScores)
+                && Objects.equals(this.extraScores, that.extraScores);
     }
 
     @Override
@@ -123,7 +126,8 @@ public class Assessment {
 
     @Override
     public String toString() {
-        return buildMark + " " + docsMark + " " + testMark + " " + styleScores + " " + extraScores + " " + getSummary();
+        return buildMark + " " + docsMark + " " + testMark + " "
+                + styleScores + " " + extraScores + " " + getSummary();
     }
 
     /**

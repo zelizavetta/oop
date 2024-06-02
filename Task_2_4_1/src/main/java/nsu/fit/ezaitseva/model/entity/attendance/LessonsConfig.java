@@ -1,7 +1,5 @@
 package nsu.fit.ezaitseva.model.entity.attendance;
 
-import lombok.Data;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +7,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import lombok.Data;
 
 /**
  * The type Lessons config.

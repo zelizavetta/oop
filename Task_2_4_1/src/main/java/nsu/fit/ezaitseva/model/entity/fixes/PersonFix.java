@@ -1,9 +1,9 @@
 package nsu.fit.ezaitseva.model.entity.fixes;
 
-import lombok.Data;
-
 import java.math.BigDecimal;
 import java.util.Map;
+import lombok.Data;
+
 
 /**
  * The type Person fix.
@@ -41,6 +41,15 @@ public class PersonFix {
     }
 
     /**
+     * Change branch.
+     *
+     * @param changes the changes
+     */
+    public void changeBranch(Map<String, String> changes) {
+        changes.forEach(this::changeBranch);
+    }
+
+    /**
      * Change folder.
      *
      * @param taskId        the task id
@@ -53,15 +62,6 @@ public class PersonFix {
             studentInformation.folderRename.put(taskId, newFolderName);
         }
 
-    }
-
-    /**
-     * Change branch.
-     *
-     * @param changes the changes
-     */
-    public void changeBranch(Map<String, String> changes) {
-        changes.forEach(this::changeBranch);
     }
 
     /**

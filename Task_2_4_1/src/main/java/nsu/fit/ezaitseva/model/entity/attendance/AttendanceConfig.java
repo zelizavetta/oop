@@ -26,7 +26,8 @@ public class AttendanceConfig {
      * @param studentInformationMap the student information map
      * @param lessons               the lessons
      */
-    public AttendanceConfig(Map<String, StudentInformation> studentInformationMap, Set<Lesson> lessons) {
+    public AttendanceConfig(Map<String, StudentInformation> studentInformationMap,
+                            Set<Lesson> lessons) {
         this.studentInformationMap = studentInformationMap;
         this.lessons = lessons;
     }

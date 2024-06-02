@@ -10,13 +10,13 @@ import nsu.fit.ezaitseva.model.entity.group.GroupConfig;
 import nsu.fit.ezaitseva.model.entity.tasks.TaskConfig;
 import nsu.fit.ezaitseva.model.evaluator.Assessment;
 import nsu.fit.ezaitseva.model.evaluator.StudentEvaluator;
-import org.eclipse.jgit.api.errors.GitAPIException;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import org.eclipse.jgit.api.errors.GitAPIException;
+
 
 /**
  * The type Groovy model.
@@ -72,11 +72,13 @@ public class GroovyModel {
         generalConfig = groovyParser.readGeneral(scriptPath + "general.groovy");
         taskConfig = groovyParser.readTasks(generalConfig, scriptPath + "tasks.groovy");
         group = groovyParser.readGroup(generalConfig, scriptPath + "group22214.groovy");
-        fixes = groovyParser.readFixes(studentInformationMap = GroovyParser.getStudentInformationMap(group, taskConfig),
+        fixes = groovyParser.readFixes(studentInformationMap = GroovyParser.
+                        getStudentInformationMap(group, taskConfig),
                 scriptPath + "fixes.groovy");
         lessonsConfig = groovyParser.readLessons(scriptPath + "lessons.groovy");
 
-        attendanceConfig = groovyParser.readAttendance(studentInformationMap, lessonsConfig.getLessonList(),
+        attendanceConfig = groovyParser.readAttendance(studentInformationMap,
+                lessonsConfig.getLessonList(),
                 scriptPath + "attendance.groovy");
 
     }

@@ -11,13 +11,12 @@ import nsu.fit.ezaitseva.model.entity.fixes.FixConfig;
 import nsu.fit.ezaitseva.model.entity.fixes.StudentInformation;
 import nsu.fit.ezaitseva.model.entity.group.GroupConfig;
 import nsu.fit.ezaitseva.model.entity.tasks.TaskConfig;
-import org.codehaus.groovy.control.CompilerConfiguration;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import org.codehaus.groovy.control.CompilerConfiguration;
 
 /**
  * The type Groovy parser.
@@ -129,7 +128,8 @@ public class GroovyParser {
      * @param scriptPath         the script path
      * @return the fix config
      */
-    public FixConfig readFixes(Map<String, StudentInformation> studentInformation, String scriptPath) {
+    public FixConfig readFixes(Map<String, StudentInformation> studentInformation,
+                               String scriptPath) {
         FixConfig fixConfig = new FixConfig(studentInformation);
         try {
             parseScript(scriptPath, fixConfig);

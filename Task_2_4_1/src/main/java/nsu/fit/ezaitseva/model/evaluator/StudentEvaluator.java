@@ -1,5 +1,10 @@
 package nsu.fit.ezaitseva.model.evaluator;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import nsu.fit.ezaitseva.model.entity.common.EvaluationConfig;
 import nsu.fit.ezaitseva.model.entity.common.GeneralConfig;
 import nsu.fit.ezaitseva.model.entity.fixes.StudentInformation;
@@ -8,11 +13,6 @@ import nsu.fit.ezaitseva.model.git.PersonGit;
 import nsu.fit.ezaitseva.model.gradle.GradleTool;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * The type Student evaluator.

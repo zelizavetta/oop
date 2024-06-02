@@ -1,5 +1,9 @@
 package nsu.fit.ezaitseva.model.evaluator.xml;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -7,11 +11,6 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Getter;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * The type Jacoco report parser.

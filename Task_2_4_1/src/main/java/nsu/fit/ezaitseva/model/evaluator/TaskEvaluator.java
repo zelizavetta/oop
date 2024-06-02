@@ -1,5 +1,12 @@
 package nsu.fit.ezaitseva.model.evaluator;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Optional;
+import java.util.stream.Stream;
 import nsu.fit.ezaitseva.model.entity.common.EvaluationConfig;
 import nsu.fit.ezaitseva.model.entity.fixes.StudentInformation;
 import nsu.fit.ezaitseva.model.entity.tasks.Task;
@@ -8,16 +15,9 @@ import nsu.fit.ezaitseva.model.evaluator.xml.JacocoReportParser;
 import nsu.fit.ezaitseva.model.gradle.GradleTool;
 import nsu.fit.ezaitseva.model.util.FileManager;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Optional;
-import java.util.stream.Stream;
 
 /**
- * It's class evaluate only one task (only one folder) with gradle
+ * It's class evaluate only one task (only one folder) with gradle.
  */
 public class TaskEvaluator {
     static private String moduleName;
@@ -35,10 +35,12 @@ public class TaskEvaluator {
      * @return the assessment
      * @throws IOException the io exception
      */
-    public static Assessment evaluate(GradleTool gradleTool, Task task, StudentInformation studentInfo,
+    public static Assessment evaluate(GradleTool gradleTool, Task task,
+                                      StudentInformation studentInfo,
                                       EvaluationConfig evaluationConfig)
             throws IOException {
-        File moduleDir = FileManager.getTaskFolder(task, studentInfo, gradleTool.getProjectFolder());
+        File moduleDir = FileManager.getTaskFolder(task, studentInfo,
+                gradleTool.getProjectFolder());
         System.out.println(moduleDir);
         File workingDir = moduleDir.getParentFile();
         moduleName = getModuleName(moduleDir, workingDir);
@@ -47,8 +49,6 @@ public class TaskEvaluator {
         var builder = GradleTool.TaskList.builder()
                 .taskPair(new GradleTool.TaskPair(moduleTaskName("clean"),
                                 () -> {
-//                                    System.out.println("clean")
-
                                 }
                         )
                 )
@@ -71,7 +71,6 @@ public class TaskEvaluator {
             System.out.println("end task eval");
             builder.taskPair(new GradleTool.TaskPair(moduleTaskName("checkstyleMain"), () -> {
                 double res = checkCheckstyle(moduleDir) * 100;
-//                double res =0;
                 if (res <= evaluationConfig.getCheckStylePercentage()) {
                     assessmentBuilder.styleScores(evaluationConfig.getCheckStyleScore());
                 }
@@ -101,9 +100,10 @@ public class TaskEvaluator {
             if (maybeResults.isPresent()) {
                 JacocoReportParser.Counter results = maybeResults.get();
                 System.out.println(results);
-                double coveredPercentage = 100 * results.covered() / ((double) results.covered() + results.missed());
-                return coveredPercentage >= evaluationConfig.getJacocoPercentage() ?
-                        evaluationConfig.getJacocoScore() : 0;
+                double coveredPercentage = 100 * results.covered()
+                        / ((double) results.covered() + results.missed());
+                return coveredPercentage >= evaluationConfig.getJacocoPercentage()
+                        ? evaluationConfig.getJacocoScore() : 0;
             }
             return 0.0;
         } catch (IOException e) {
@@ -115,12 +115,15 @@ public class TaskEvaluator {
     private static Double checkCheckstyle(File moduleDir) {
         File checkStyleXmlFile = new File(moduleDir, "build/reports/checkstyle/main.xml");
         try {
-            CheckStyleParser.CheckStyleResults checkStyleParser = CheckStyleParser.parse(checkStyleXmlFile);
+            CheckStyleParser.CheckStyleResults checkStyleParser = CheckStyleParser.
+                    parse(checkStyleXmlFile);
             int warningsAmount = checkStyleParser.getWarningsAmount();
             int linesAmount = warningsAmount;
-            try (Stream<Path> stream = Files.walk(Paths.get(new File(moduleDir, "src/main").getPath()))) {
+            try (Stream<Path> stream = Files.walk(Paths.get(
+                    new File(moduleDir, "src/main").getPath()))) {
                 linesAmount =
-                        stream.filter((path) -> Files.isRegularFile(path.toAbsolutePath()) && path.toString().endsWith(".java"))
+                        stream.filter((path) -> Files.isRegularFile(path.toAbsolutePath())
+                                        && path.toString().endsWith(".java"))
                                 .map((path -> {
                                     try {
                                         return Files.readAllLines(path).size();

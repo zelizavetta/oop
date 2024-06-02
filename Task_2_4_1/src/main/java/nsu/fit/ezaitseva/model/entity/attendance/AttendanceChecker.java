@@ -3,14 +3,13 @@ package nsu.fit.ezaitseva.model.entity.attendance;
 import nsu.fit.ezaitseva.model.entity.common.GitConfig;
 import nsu.fit.ezaitseva.model.entity.fixes.StudentInformation;
 import nsu.fit.ezaitseva.model.git.PersonGit;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-
 import java.io.File;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
 
 /**
  * The type Attendance checker.
@@ -26,9 +25,9 @@ public class AttendanceChecker {
      * @param lessonList          the lesson list
      * @return the map
      */
-    public static Map<String, Map<Lesson, Boolean>> checkAttendance
-    (GitConfig gitConfig, Collection<StudentInformation> studentInformations,
-     File workingDir, Collection<Lesson> lessonList) {
+    public static Map<String, Map<Lesson, Boolean>> checkAttendance(
+            GitConfig gitConfig, Collection<StudentInformation> studentInformations,
+            File workingDir, Collection<Lesson> lessonList) {
         Map<String, Map<Lesson, Boolean>> studentAttendance = new HashMap<>();
         for (StudentInformation studentInfo : studentInformations) {
             studentAttendance.put(studentInfo.getStudentConfig().getGitName(),
@@ -50,21 +49,12 @@ public class AttendanceChecker {
      * @return the map
      */
     public static Map<Lesson, Boolean> checkAttendance(
-            GitConfig gitConfig, StudentInformation studentInfo, File workingDir, Collection<Lesson> lessonList) {
+            GitConfig gitConfig, StudentInformation studentInfo,
+            File workingDir, Collection<Lesson> lessonList) {
         Map<Lesson, Boolean> studentAttendance = new HashMap<>();
 
         for (Lesson lesson : lessonList) {
             boolean isLessonAttended = studentInfo.getStudentAttendance().contains(lesson);
-
-//            if (true || !isLessonAttended) {
-//                try (PersonGit personGit = new PersonGit(gitConfig, studentInfo, new File(workingDir,
-//                        studentInfo.getStudentConfig().getGitName()))) {
-//                    isLessonAttended = checkStudentAttendance(personGit, lesson);
-//
-//                } catch (Exception e) {
-//                    System.err.println("gitException" + e);
-//                }
-//            }
             studentAttendance.put(lesson, isLessonAttended);
         }
         return studentAttendance;
@@ -77,7 +67,9 @@ public class AttendanceChecker {
             for (RevCommit commit : commits) {
                 Date authorDate = commit.getAuthorIdent().getWhen();
 
-                if (authorDate.equals(lesson.date())) return true;
+                if (authorDate.equals(lesson.date())) {
+                    return true;
+                }
             }
         } catch (GitAPIException e) {
             System.err.println(e);

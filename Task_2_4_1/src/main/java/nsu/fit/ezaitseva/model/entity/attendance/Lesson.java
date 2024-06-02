@@ -9,8 +9,12 @@ import java.util.Objects;
 public record Lesson(Date date) {
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Lesson lesson = (Lesson) o;
         return Objects.equals(date, lesson.date);
     }
@@ -22,8 +26,9 @@ public record Lesson(Date date) {
 
     @Override
     public String toString() {
-        return "Lesson{" +
-                "date=" + date +
-                '}';
+        return "Lesson{"
+                + "date="
+                + date
+                + '}';
     }
 }

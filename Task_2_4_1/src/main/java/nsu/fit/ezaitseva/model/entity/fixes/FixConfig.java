@@ -1,10 +1,9 @@
 package nsu.fit.ezaitseva.model.entity.fixes;
 
+import java.util.Map;
 import groovy.lang.Closure;
 import lombok.Data;
 import nsu.fit.ezaitseva.model.dsl.Delegator;
-
-import java.util.Map;
 
 /**
  * The type Fix config.

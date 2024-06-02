@@ -1,8 +1,7 @@
 package nsu.fit.ezaitseva.model.entity.tasks;
 
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 
 /**

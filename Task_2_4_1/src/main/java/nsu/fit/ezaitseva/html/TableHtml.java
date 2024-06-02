@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import javax.swing.text.html.HTML;
 import nsu.fit.ezaitseva.model.entity.attendance.Lesson;
 import nsu.fit.ezaitseva.model.entity.tasks.Task;
 import nsu.fit.ezaitseva.model.evaluator.Assessment;
 
-import javax.swing.text.html.*;
 
 /**
  * The type Table html.
@@ -91,7 +91,8 @@ public class TableHtml {
                 String prev = studentsRows.get(gitName);
                 Assessment assessmentForTask = studentsAssessmentMap.get(gitName).get(task.id());
                 String newRow = prev
-                        + getCell(assessmentForTask != null ? assessmentForTask.formalize() : new Assessment());
+                        + getCell(assessmentForTask != null ?
+                        assessmentForTask.formalize() : new Assessment());
                 studentsRows.put(gitName, newRow);
             }
         }
@@ -115,7 +116,8 @@ public class TableHtml {
                 """.formatted("group22214"));
 
         studentsAssessmentMap.forEach((gitName, mapAss) -> {
-            double val = mapAss.values().stream().map((Assessment::getSummary)).reduce(.0, Double::sum);
+            double val = mapAss.values().stream().map((Assessment::getSummary)).
+                    reduce(.0, Double::sum);
             int mark = val >= 6 ? 5 : val >= 4 ? 4 : val >= 2 ? 3 : 2;
             String row = getCell(gitName);
             row += getCell("%.2f".formatted(val));
@@ -195,9 +197,12 @@ public class TableHtml {
                 continue;
             }
             File newTaskDir = new File(taskDir.getPath().substring(11));
-            row += getCell(ref("click", new File(taskDir, "build/reports/jacoco/test/html/index.html")));
-            row += getCell(ref("click", new File(taskDir, "build/reports/tests/test/index.html")));
-            row += getCell(ref("click", new File(taskDir, "build/reports/checkstyle/main.html")));
+            row += getCell(ref("click",
+                    new File(taskDir, "build/reports/jacoco/test/html/index.html")));
+            row += getCell(ref("click",
+                    new File(taskDir, "build/reports/tests/test/index.html")));
+            row += getCell(ref("click",
+                    new File(taskDir, "build/reports/checkstyle/main.html")));
             addRow(outputStreamWriter, row);
         }
         outputStreamWriter.write("""
@@ -212,16 +217,10 @@ public class TableHtml {
 
     }
 
-//    private String ref(String name, String filePath) {
-//        return ref(name, new File(filePath));
-//    }
+
 
     private String ref(String name, File file) {
         if (file.exists()) {
-//            File htmls = new File("./htmls");
-//            String fileName = gitName + "_" + file.getName();
-//            File saveFile = new File(htmls, fileName);
-
             return "<a href=\"..\\%s\">%s</a>".formatted(file.getPath().substring(11), name);
         } else {
             System.out.println("NOOOOOOOOOOOO");

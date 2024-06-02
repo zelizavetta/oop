@@ -1,12 +1,12 @@
 package nsu.fit.ezaitseva.model.entity.tasks;
 
+import java.util.ArrayList;
+import java.util.List;
 import groovy.lang.Closure;
 import lombok.Data;
 import nsu.fit.ezaitseva.model.dsl.Delegator;
 import nsu.fit.ezaitseva.model.entity.common.GeneralConfig;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The type Task config.

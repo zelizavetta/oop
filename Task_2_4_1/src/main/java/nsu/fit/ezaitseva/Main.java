@@ -42,11 +42,8 @@ public class Main {
             tableHtml.smth(new FileOutputStream(htmlFile),
                     AttendanceChecker.checkAttendance(groovyModel.generalConfig.getGit(),
                             groovyModel.studentInformationMap.values(), generalDir,
-                            groovyModel.lessonsConfig.getLessonList())
-                    ,
-                    evaluationResults
-                    ,
-                    groovyModel.taskConfig.getTasks(), generalDir);
+                            groovyModel.lessonsConfig.getLessonList()),
+                    evaluationResults, groovyModel.taskConfig.getTasks(), generalDir);
         } catch (FileNotFoundException e) {
             System.out.println("Main");
             throw new RuntimeException(e);
