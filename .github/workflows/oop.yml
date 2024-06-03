@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup Java      
+      - name: Setup Java    
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
