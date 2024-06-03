@@ -3,12 +3,25 @@ package nsu.fit.ezaitseva.snakegame.model.players;
 import java.util.Map;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.GameLogic;
-import nsu.fit.ezaitseva.snakegame.model.units.*;
+import nsu.fit.ezaitseva.snakegame.model.units.Food;
+import nsu.fit.ezaitseva.snakegame.model.units.GameUnit;
+import nsu.fit.ezaitseva.snakegame.model.units.Snake;
+import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
+import nsu.fit.ezaitseva.snakegame.model.units.Wall;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
+/**
+ * The type Common bot player.
+ */
 public class CommonBotPlayer extends PlayerListener {
     private Snake snake;
 
+    /**
+     * Instantiates a new Common bot player.
+     *
+     * @param game    the game
+     * @param snakeId the snake id
+     */
     public CommonBotPlayer(Game game, Integer snakeId) {
         super(game, snakeId);
         snake = game.getSnakeMap().get(snakeId);
@@ -21,7 +34,8 @@ public class CommonBotPlayer extends PlayerListener {
         Direction nextDirection = snakeHead.getDirection();
         if (isDangerous(nextUnit)) {
             nextDirection = snakeHead.getDirection().changeDirection(true);
-            if (isDangerous(getNextUnit(nextPoint(nextDirection, snakeHead.getX(), snakeHead.getY())))) {
+            if (isDangerous(getNextUnit(nextPoint(nextDirection,
+                    snakeHead.getX(), snakeHead.getY())))) {
                 nextDirection = snakeHead.getDirection().changeDirection(false);
             }
             return nextDirection;

@@ -36,8 +36,8 @@ public record GameStateDto(List<SnakeDto> snakes,
                         DirectionDto.valueOf(snakeBody.getDirection().toString())));
             });
             SnakeBody head = snake.getHead();
-            SnakeDtoS.add(new SnakeDto
-                    (bodyDtos, new SnakeHeadDto(
+            SnakeDtoS.add(new SnakeDto(
+                    bodyDtos, new SnakeHeadDto(
                             new PointDto(head.getX(), head.getY()),
                             DirectionDto.valueOf(head.getDirection().name())),
                             snake.isControllable(), id)

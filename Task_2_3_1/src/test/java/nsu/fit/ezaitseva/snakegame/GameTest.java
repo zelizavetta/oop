@@ -1,8 +1,5 @@
 package nsu.fit.ezaitseva.snakegame;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import nsu.fit.ezaitseva.snakegame.model.game.field.FieldConstructor;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.players.CommonBotPlayer;
@@ -12,10 +9,19 @@ import nsu.fit.ezaitseva.snakegame.model.units.Snake;
 import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
 import nsu.fit.ezaitseva.snakegame.model.units.Wall;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
+/**
+ * The type Game test.
+ */
 public class GameTest {
     static private Game gameForCopy;
 
+    /**
+     * Init empty game.
+     */
     @BeforeAll
     static void initEmptyGame() {
         FieldConstructor fieldConstructor = new FieldConstructor(50, 50);
@@ -35,6 +41,9 @@ public class GameTest {
         gameForCopy = fieldConstructor.getGameField();
     }
 
+    /**
+     * Test food.
+     */
     @Test
     void testFood() {
         Game game = gameForCopy.getCopy();
@@ -49,6 +58,9 @@ public class GameTest {
 
     }
 
+    /**
+     * Test playing bot.
+     */
     @Test
     void testPlayingBot() {
         Game game = gameForCopy.getCopy();
@@ -62,6 +74,9 @@ public class GameTest {
         Assertions.assertTrue(snake.length() > 1);
     }
 
+    /**
+     * Test playing person.
+     */
     @Test
     void testPlayingPerson() {
         Game game = gameForCopy.getCopy();

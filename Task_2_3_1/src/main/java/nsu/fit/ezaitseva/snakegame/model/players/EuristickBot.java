@@ -3,17 +3,37 @@ package nsu.fit.ezaitseva.snakegame.model.players;
 import java.util.Map;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.GameLogic;
-import nsu.fit.ezaitseva.snakegame.model.units.*;
+import nsu.fit.ezaitseva.snakegame.model.units.Empty;
+import nsu.fit.ezaitseva.snakegame.model.units.Food;
+import nsu.fit.ezaitseva.snakegame.model.units.GameUnit;
+import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
+import nsu.fit.ezaitseva.snakegame.model.units.Wall;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
 
+/**
+ * The type Euristick bot.
+ */
 public class EuristickBot extends PlayerListener {
     private final int range;
 
+    /**
+     * Instantiates a new Euristick bot.
+     *
+     * @param game    the game
+     * @param snakeId the snake id
+     */
     public EuristickBot(Game game, Integer snakeId) {
         this(game, snakeId, 4);
     }
 
+    /**
+     * Instantiates a new Euristick bot.
+     *
+     * @param game    the game
+     * @param snakeId the snake id
+     * @param range   the range
+     */
     public EuristickBot(Game game, Integer snakeId, int range) {
 
         super(game, snakeId);
@@ -58,7 +78,8 @@ public class EuristickBot extends PlayerListener {
         }
         if (gameUnit instanceof SnakeBody snakeBody) {
             double res = 50;
-            if (!snakeBody.getSnake().getBody().isEmpty() && snakeBody.getSnake().getBody().getLast() == snakeBody) {
+            if (!snakeBody.getSnake().getBody().isEmpty()
+                    && snakeBody.getSnake().getBody().getLast() == snakeBody) {
                 res = 10;
             }
             if (snakeBody.getSnake() == game.getSnakeMap().get(mySnakeId)) {
@@ -101,7 +122,8 @@ public class EuristickBot extends PlayerListener {
         double res = 0;
         for (int i = x - range; i <= x + range; i++) {
             for (int j = y - range; j <= y + range; j++) {
-                res += getPenalty(game.getUnitAt(i, j)) * distanceScale(Math.abs(i - x) + Math.abs(j - y));
+                res += getPenalty(game.getUnitAt(i, j)) * distanceScale(Math.abs(i - x)
+                        + Math.abs(j - y));
             }
         }
         return res;

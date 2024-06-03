@@ -4,10 +4,17 @@ import java.util.Map;
 import java.util.Random;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.GameLogic;
-import nsu.fit.ezaitseva.snakegame.model.units.*;
+import nsu.fit.ezaitseva.snakegame.model.units.Empty;
+import nsu.fit.ezaitseva.snakegame.model.units.Food;
+import nsu.fit.ezaitseva.snakegame.model.units.GameUnit;
+import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
+import nsu.fit.ezaitseva.snakegame.model.units.Wall;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
 
+/**
+ * The type Customizable euristick bot.
+ */
 public class CustomizableEuristickBot extends PlayerListener {
 
     private final int range;
@@ -28,16 +35,23 @@ public class CustomizableEuristickBot extends PlayerListener {
     private double nullPenalty = 40.0;
     private final Random random = new Random();
 
+    /**
+     * Get coefficient arr double [ ].
+     *
+     * @return the double [ ]
+     */
     public Double[] getCoefficientArr() {
         return new Double[]{distanceSquare, distanceLinear, distanceConstant,
                 tailPenalty, anotherSnakePenalty, emptyPenalty,
                 wallPenalty, foodPenalty, snakeBodyPenalty, nullPenalty};
     }
 
+    /**
+     * Sets coefficient.
+     *
+     * @param coefficient the coefficient
+     */
     public void setCoefficient(Double[] coefficient) {
-//        distanceSquare = coefficient[0];
-//        distanceLinear = coefficient[1];
-//        distanceConstant = coefficient[2];
         tailPenalty = coefficient[3];
         anotherSnakePenalty = coefficient[4];
         emptyPenalty = coefficient[5];
@@ -48,10 +62,23 @@ public class CustomizableEuristickBot extends PlayerListener {
 
     }
 
+    /**
+     * Instantiates a new Customizable euristick bot.
+     *
+     * @param game    the game
+     * @param snakeId the snake id
+     */
     public CustomizableEuristickBot(Game game, Integer snakeId) {
         this(game, snakeId, 3);
     }
 
+    /**
+     * Instantiates a new Customizable euristick bot.
+     *
+     * @param game    the game
+     * @param snakeId the snake id
+     * @param range   the range
+     */
     public CustomizableEuristickBot(Game game, Integer snakeId, int range) {
         super(game, snakeId);
         this.range = range;
@@ -97,7 +124,8 @@ public class CustomizableEuristickBot extends PlayerListener {
         }
         if (gameUnit instanceof SnakeBody snakeBody) {
             double res = snakeBodyPenalty;
-            if (!snakeBody.getSnake().getBody().isEmpty() && snakeBody.getSnake().getBody().getLast() == snakeBody) {
+            if (!snakeBody.getSnake().getBody().isEmpty()
+                    && snakeBody.getSnake().getBody().getLast() == snakeBody) {
                 res = tailPenalty;
             }
             if (snakeBody.getSnake() == game.getSnakeMap().get(mySnakeId)) {
@@ -146,16 +174,27 @@ public class CustomizableEuristickBot extends PlayerListener {
         double res = 0;
         for (int i = x - range; i <= x + range; i++) {
             for (int j = y - range; j <= y + range; j++) {
-                res += getPenalty(game.getUnitAt(i, j)) * distanceScale(Math.abs(i - x) + Math.abs(j - y));
+                res += getPenalty(game.getUnitAt(i, j)) * distanceScale(Math.abs(i - x)
+                        + Math.abs(j - y));
             }
         }
         return res;
     }
 
+    /**
+     * Gets correct.
+     *
+     * @return the correct
+     */
     public double getCorrect() {
         return correct;
     }
 
+    /**
+     * Sets correct.
+     *
+     * @param correct the correct
+     */
     public void setCorrect(double correct) {
         this.correct = correct;
     }

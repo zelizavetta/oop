@@ -1,7 +1,7 @@
 package nsu.fit.ezaitseva.snakegame.units;
 
 /**
- * wall class
+ * wall class.
  *
  * @param point point
  */

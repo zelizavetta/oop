@@ -3,10 +3,25 @@ package nsu.fit.ezaitseva.snakegame.model.players;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
+/**
+ * The type Player listener.
+ */
 abstract public class PlayerListener {
+    /**
+     * The Game.
+     */
     protected final Game game;
+    /**
+     * The My snake id.
+     */
     protected final Integer mySnakeId;
 
+    /**
+     * Instantiates a new Player listener.
+     *
+     * @param game    the game
+     * @param snakeId the snake id
+     */
     public PlayerListener(Game game, Integer snakeId) {
         this.game = game;
         mySnakeId = snakeId;
