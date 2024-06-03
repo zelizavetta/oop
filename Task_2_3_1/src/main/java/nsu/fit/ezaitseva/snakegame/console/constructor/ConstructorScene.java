@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import nsu.fit.ezaitseva.snakegame.console.common.FieldView;
 import nsu.fit.ezaitseva.snakegame.model.game.field.FieldConstructor;
-import nsu.fit.ezaitseva.snakegame.model.game.field.GameField;
 import nsu.fit.ezaitseva.snakegame.model.game.field.FieldDao;
+import nsu.fit.ezaitseva.snakegame.model.game.field.GameField;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
 import nsu.fit.ezaitseva.snakegame.model.units.Empty;
 import nsu.fit.ezaitseva.snakegame.model.units.Food;
@@ -20,10 +20,10 @@ import nsu.fit.ezaitseva.snakegame.units.DirectionDto;
 import nsu.fit.ezaitseva.snakegame.units.PointDto;
 import nsu.fit.ezaitseva.snakegame.units.SnakeBodyDto;
 import nsu.fit.ezaitseva.snakegame.units.SnakeHeadDto;
-import nsu.fit.ezaitseva.snakegame.units.WallDto;
 import nsu.fit.ezaitseva.snakegame.units.FoodDto;
 import nsu.fit.ezaitseva.snakegame.units.GameStateDto;
 import nsu.fit.ezaitseva.snakegame.units.SnakeDto;
+import nsu.fit.ezaitseva.snakegame.units.WallDto;
 
 /**
  * class-constructor for scene.
@@ -70,13 +70,17 @@ public class ConstructorScene {
                             escapeFlag = false;
                         }
                         case ArrowDown -> cursorPosition =
-                                cursorPosition.withRow(Math.min(height - 1, cursorPosition.getRow() + 1));
+                                cursorPosition.withRow(Math.min(
+                                        height - 1, cursorPosition.getRow() + 1));
                         case ArrowUp ->
-                                cursorPosition = cursorPosition.withRow(Math.max(0, cursorPosition.getRow() - 1));
+                                cursorPosition = cursorPosition.withRow(Math.max(
+                                        0, cursorPosition.getRow() - 1));
                         case ArrowLeft -> cursorPosition =
-                                cursorPosition.withColumn(Math.max(0, cursorPosition.getColumn() - 1));
+                                cursorPosition.withColumn(Math.max(
+                                        0, cursorPosition.getColumn() - 1));
                         case ArrowRight -> cursorPosition =
-                                cursorPosition.withColumn(Math.min(width - 1, cursorPosition.getColumn() + 1));
+                                cursorPosition.withColumn(Math.min(
+                                        width - 1, cursorPosition.getColumn() + 1));
                         case Delete -> {
                             fieldConstructor.setUnit(
                                     new Empty(cursorPosition.getColumn(), cursorPosition.getRow()));
@@ -84,20 +88,28 @@ public class ConstructorScene {
                         case Character -> {
                             switch (keyStroke.getCharacter()) {
                                 case 's', 'S' -> fieldConstructor.setUnit(
-                                        new SnakeBody(cursorPosition.getColumn(), cursorPosition.getRow()));
+                                        new SnakeBody(cursorPosition.getColumn(),
+                                                cursorPosition.getRow()));
                                 case 'w', 'W' -> {
                                     fieldConstructor.setUnit(
-                                            new Wall(cursorPosition.getColumn(), cursorPosition.getRow()));
+                                            new Wall(cursorPosition.getColumn(),
+                                                    cursorPosition.getRow()));
                                 }
                                 case 'f', 'F' -> {
                                     fieldConstructor.setUnit(
-                                            new Food(cursorPosition.getColumn(), cursorPosition.getRow(), 1));
+                                            new Food(cursorPosition.getColumn(),
+                                                    cursorPosition.getRow(), 1));
                                 }
                                 case 'E', 'e' -> {
                                     fieldConstructor.setUnit(
-                                            new Empty(cursorPosition.getColumn(), cursorPosition.getRow()));
+                                            new Empty(cursorPosition.getColumn(),
+                                                    cursorPosition.getRow()));
+                                }
+                                default -> {
                                 }
                             }
+                        }
+                        default -> {
                         }
                     }
                 }
@@ -121,10 +133,13 @@ public class ConstructorScene {
                 .forEach(
                         (unit -> {
                             if (unit instanceof Food food) {
-                                foods.add(new FoodDto(new PointDto(food.getX(), food.getY()), food.getValue()));
+                                foods.add(new FoodDto(
+                                        new PointDto(food.getX(),
+                                                food.getY()), food.getValue()));
                             }
                             if (unit instanceof Wall wall) {
-                                walls.add(new WallDto(new PointDto(wall.getX(), wall.getY())));
+                                walls.add(new WallDto(
+                                        new PointDto(wall.getX(), wall.getY())));
                             }
                         }));
         List<SnakeDto> SnakeDtoS = new ArrayList<>();
@@ -133,14 +148,13 @@ public class ConstructorScene {
                 .forEach(
                         snake -> {
                             List<SnakeBodyDto> bodyDtos = new ArrayList<>();
-                            //                bodyDtos.add(new SnakeBodyDto(new PointDto(snake.getX(),
-                            // snake.getY()), DirectionDto.UP));
                             SnakeDtoS.add(
                                     new SnakeDto(
                                             bodyDtos,
                                             new SnakeHeadDto(
                                                     new PointDto(snake.getX(), snake.getY()),
-                                                    DirectionDto.valueOf(snake.getDirection().name())),
+                                                    DirectionDto.valueOf(
+                                                            snake.getDirection().name())),
                                             true,
                                             0));
                         });

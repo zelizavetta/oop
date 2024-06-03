@@ -1,5 +1,7 @@
 package nsu.fit.ezaitseva.snakegame.fx.game;
 
+import java.io.IOException;
+import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.util.List;
 import nsu.fit.ezaitseva.snakegame.fx.gameview.GameView;
 import nsu.fit.ezaitseva.snakegame.fx.gameview.ImageCollector;
 
@@ -132,7 +132,7 @@ public class GameController implements GameView {
     }
 
     /**
-     * update for person
+     * update for person.
      *
      * @param personScore          person score
      * @param personSnakeHeadImage person head snake image
@@ -208,7 +208,9 @@ public class GameController implements GameView {
     }
 
 
-    private record LeaderBoard(List<ImageView> leaderViews, List<Text> boardScores, List<Text> boardNames) {
+    private record LeaderBoard(List<ImageView> leaderViews,
+                               List<Text> boardScores,
+                               List<Text> boardNames) {
         public void update(int index, Image playerImage, int newScore, String playerName) {
             leaderViews.get(index).setImage(playerImage);
             boardScores.get(index).setText(newScore + "");

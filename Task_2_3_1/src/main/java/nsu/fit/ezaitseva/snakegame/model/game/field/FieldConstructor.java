@@ -27,7 +27,12 @@ public class FieldConstructor {
     public FieldConstructor(int width, int height) {
         gameField = new GameField(width, height);
     }
-    
+
+    /**
+     * Sets unit.
+     *
+     * @param unit the unit
+     */
     public void setUnit(GameUnit unit) {
         int x = unit.getX();
         int y = unit.getY();
@@ -43,14 +48,32 @@ public class FieldConstructor {
         gameField.set(unit);
     }
 
+    /**
+     * Remove unit.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public void removeUnit(int x, int y) {
         gameField.set(new Empty(x, y));
     }
 
+    /**
+     * Gets unit.
+     *
+     * @param x the x
+     * @param y the y
+     * @return the unit
+     */
     public GameUnit getUnit(int x, int y) {
         return gameField.get(x, y);
     }
 
+    /**
+     * Gets game field.
+     *
+     * @return the game field
+     */
     public Game getGameField() {
         Map<Integer, Snake> snakes = new HashMap<>();
         int i = 0;
@@ -61,18 +84,38 @@ public class FieldConstructor {
         return new Game(gameField, snakes);
     }
 
+    /**
+     * Gets all.
+     *
+     * @return the all
+     */
     public List<GameUnit> getAll() {
         return gameField.getAll();
     }
 
+    /**
+     * Gets snakes.
+     *
+     * @return the snakes
+     */
     public List<SnakeBody> getSnakes() {
         return snakeHeads.stream().toList();
     }
 
+    /**
+     * Width int.
+     *
+     * @return the int
+     */
     public int width() {
         return gameField.width();
     }
 
+    /**
+     * Height int.
+     *
+     * @return the int
+     */
     public int height() {
         return gameField.height();
     }

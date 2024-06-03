@@ -115,7 +115,8 @@ public class GamePresenter {
                         case Escape -> {
                             escapeFlag = true;
                         }
-                        default -> directionWrapper.direction = gameSettings.keyDirection(keyStroke);
+                        default -> directionWrapper.direction = gameSettings.
+                                keyDirection(keyStroke);
                     }
                 }
             } catch (IOException e) {

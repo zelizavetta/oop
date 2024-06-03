@@ -1,13 +1,16 @@
 package nsu.fit.ezaitseva.snakegame.fx;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
 import nsu.fit.ezaitseva.snakegame.console.GameSettings;
 
+/**
+ * The type Snake fx app.
+ */
 public class SnakeFXApp extends Application {
     private GameSettings gameSettings = GlobalGameSettings.gameSettings;
 
@@ -29,14 +32,27 @@ public class SnakeFXApp extends Application {
 
     }
 
+    /**
+     * Run.
+     */
     public void run() {
         launch();
     }
 
+    /**
+     * Gets game settings.
+     *
+     * @return the game settings
+     */
     public GameSettings getGameSettings() {
         return gameSettings;
     }
 
+    /**
+     * Sets game settings.
+     *
+     * @param gameSettings the game settings
+     */
     public void setGameSettings(GameSettings gameSettings) {
         this.gameSettings = gameSettings;
     }

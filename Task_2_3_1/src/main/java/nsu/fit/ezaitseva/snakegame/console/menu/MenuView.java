@@ -90,9 +90,13 @@ public class MenuView {
             throw new RuntimeException();
         }
         switch (index) {
-            case 0 -> screen.setCursorPosition(playPosition.withColumn(playPosition.getColumn() - 1));
-            case 1 -> screen.setCursorPosition(settingsPosition.withColumn(settingsPosition.getColumn() - 1));
-            case 2 -> screen.setCursorPosition(editorPosition.withColumn(editorPosition.getColumn() - 1));
+            case 0 -> screen.setCursorPosition(playPosition.
+                    withColumn(playPosition.getColumn() - 1));
+            case 1 -> screen.setCursorPosition(settingsPosition.
+                    withColumn(settingsPosition.getColumn() - 1));
+            case 2 -> screen.setCursorPosition(editorPosition.
+                    withColumn(editorPosition.getColumn() - 1));
+            default -> {}
         }
         screen.refresh();
     }

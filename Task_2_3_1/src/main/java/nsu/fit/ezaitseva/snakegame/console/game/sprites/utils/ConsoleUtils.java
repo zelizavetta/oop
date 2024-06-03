@@ -28,8 +28,12 @@ public class ConsoleUtils {
      * @param position  position
      * @param textColor text color
      */
-    public static void printLine(Screen screen, String text, TerminalPosition position, TextColor textColor) {
-        TerminalPosition terminalPosition = new TerminalPosition(position.getColumn(), position.getRow());
+    public static void printLine(Screen screen, String text,
+                                 TerminalPosition position,
+                                 TextColor textColor) {
+        TerminalPosition terminalPosition =
+                new TerminalPosition(position.getColumn(),
+                        position.getRow());
         for (int i = 0; i < text.length(); i++) {
             Character character = text.charAt(i);
             screen.setCharacter(terminalPosition.withColumn(terminalPosition.getColumn() + i),

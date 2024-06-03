@@ -34,7 +34,8 @@ public class WinnerScene {
     public void showWinners() {
         List<Map.Entry<Integer, Integer>> listOfWinners =
                 results.entrySet().stream()
-                        .sorted((entry1, entry2) -> -Long.compare(entry1.getValue(), entry2.getValue()))
+                        .sorted((entry1, entry2) -> -Long.compare(entry1.getValue(),
+                                entry2.getValue()))
                         .limit(3)
                         .toList();
         TerminalSize size = screen.getTerminalSize();

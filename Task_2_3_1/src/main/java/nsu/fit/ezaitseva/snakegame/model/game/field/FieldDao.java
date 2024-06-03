@@ -30,10 +30,20 @@ public class FieldDao {
         this.file = file;
     }
 
+    /**
+     * Sets input stream.
+     *
+     * @param inputStream the input stream
+     */
     public void setInputStream(File inputStream) {
         this.file = inputStream;
     }
 
+    /**
+     * Gets field.
+     *
+     * @return the field
+     */
     public Game getField() {
         FieldData fieldData = null;
         try {
@@ -43,8 +53,10 @@ public class FieldDao {
             System.err.println("There is no field");
             throw new RuntimeException(e);
         }
-        FieldConstructor fieldConstructor = new FieldConstructor(fieldData.width(), fieldData.height());
-        fieldData.foods().forEach((foodData) -> fieldConstructor.setUnit(new Food(foodData.point().x(),
+        FieldConstructor fieldConstructor = new FieldConstructor(
+                fieldData.width(), fieldData.height());
+        fieldData.foods().forEach((foodData) ->
+                fieldConstructor.setUnit(new Food(foodData.point().x(),
                 foodData.point().y(), foodData.value())));
         fieldData.walls().forEach((pointData) ->
                 fieldConstructor.setUnit(
@@ -57,6 +69,11 @@ public class FieldDao {
         return fieldConstructor.getGameField();
     }
 
+    /**
+     * Save field.
+     *
+     * @param game the game
+     */
     public void saveField(Game game) {
         List<FoodData> foods = new ArrayList<>();
         List<PointData> walls = new ArrayList<>();
@@ -91,6 +108,8 @@ public class FieldDao {
  * @param width      width
  * @param height     height
  */
-record FieldData(List<FoodData> foods, List<PointData> walls, List<PointData> snakeHeads, int width, int height) {
+record FieldData(List<FoodData> foods, List<PointData> walls,
+                 List<PointData> snakeHeads, int width,
+                 int height) {
 
 }

@@ -31,15 +31,28 @@ public class GeneticAlgorithm {
      */
     int sizeOfHof = 10;
 
+    /**
+     * Instantiates a new Genetic algorithm.
+     */
     public GeneticAlgorithm() {
         this(GlobalGameSettings.gameSettings.getGame().getCopy());
     }
 
+    /**
+     * Instantiates a new Genetic algorithm.
+     *
+     * @param gameForCopy the game for copy
+     */
     public GeneticAlgorithm(Game gameForCopy) {
         this.gameForCopy = gameForCopy;
         snakeAmount = gameForCopy.getSnakeMap().size();
     }
 
+    /**
+     * Generate genes list.
+     *
+     * @return the list
+     */
     public List<Individual> generateGenes() {
         CustomizableEuristickBot initialBot = new CustomizableEuristickBot(gameForCopy, 0);
         Double[] initialCoefs = initialBot.getCoefficientArr();
@@ -64,14 +77,17 @@ public class GeneticAlgorithm {
             System.out.println(
                     "Best: "
                             + Arrays.stream(individuals)
-                            .sorted(Comparator.comparingInt((individual -> -fitMap.get(individual.id))))
+                            .sorted(Comparator.comparingInt((
+                                    individual -> -fitMap.get(individual.id))))
                             .limit(10)
-                            .map((individual -> Map.entry(individual.id, fitMap.get(individual.id))))
+                            .map((individual -> Map.entry(
+                                    individual.id, fitMap.get(individual.id))))
                             .toList());
             System.out.println(
                     "Best: "
                             + Arrays.stream(individuals)
-                            .sorted(Comparator.comparingInt((individual -> -fitMap.get(individual.id))))
+                            .sorted(Comparator.comparingInt((
+                                    individual -> -fitMap.get(individual.id))))
                             .limit(2)
                             .map(individual -> Arrays.toString(individual.genes))
                             .toList());
@@ -157,8 +173,10 @@ public class GeneticAlgorithm {
             if (random.nextDouble() < chance) {
                 double gen = genes[i];
                 genes[i] =
-                        (random.nextDouble(gen - 0.05, gen + 0.05) + random.nextDouble(gen - .05, gen + .05))
-                                / 2;
+                        (random.nextDouble(
+                                gen - 0.05, gen + 0.05)
+                                + random.nextDouble(gen - .05,
+                                gen + .05)) / 2;
             }
         }
     }
@@ -227,20 +245,42 @@ public class GeneticAlgorithm {
         private int id;
         private Double[] genes;
 
+        /**
+         * Instantiates a new Individual.
+         *
+         * @param genes the genes
+         * @param id    the id
+         */
         public Individual(Double[] genes, int id) {
             this.genes = genes;
             this.id = id;
         }
 
+        /**
+         * Instantiates a new Individual.
+         *
+         * @param size the size
+         * @param id   the id
+         */
         public Individual(int size, int id) {
             this.genes = new Double[size];
             this.id = id;
         }
 
+        /**
+         * Get genes double [ ].
+         *
+         * @return the double [ ]
+         */
         public Double[] getGenes() {
             return genes;
         }
 
+        /**
+         * Sets genes.
+         *
+         * @param genes the genes
+         */
         public void setGenes(Double[] genes) {
             this.genes = genes;
         }

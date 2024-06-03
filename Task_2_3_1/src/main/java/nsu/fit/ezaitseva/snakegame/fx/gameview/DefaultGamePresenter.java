@@ -1,12 +1,15 @@
 package nsu.fit.ezaitseva.snakegame.fx.gameview;
 
-import javafx.scene.image.Image;
 import java.util.Map;
+import javafx.scene.image.Image;
 import nsu.fit.ezaitseva.snakegame.console.GameSettings;
 import nsu.fit.ezaitseva.snakegame.fx.GlobalGameSettings;
 import nsu.fit.ezaitseva.snakegame.model.game.field.GameField;
 import nsu.fit.ezaitseva.snakegame.model.game.logic.Game;
-import nsu.fit.ezaitseva.snakegame.model.units.*;
+import nsu.fit.ezaitseva.snakegame.model.units.Food;
+import nsu.fit.ezaitseva.snakegame.model.units.GameUnit;
+import nsu.fit.ezaitseva.snakegame.model.units.Snake;
+import nsu.fit.ezaitseva.snakegame.model.units.SnakeBody;
 
 /**
  * class for default game presenter.
@@ -56,9 +59,6 @@ public class DefaultGamePresenter {
             if (gameUnit instanceof Food food) {
                 drawFood(food);
             }
-//            if (gameUnit instanceof Wall wall) {
-//                drawWall(wall);
-//            }
         }
         snakeMap.forEach(this::drawSnake);
     }
@@ -112,8 +112,8 @@ public class DefaultGamePresenter {
 
             for (SnakeBody snakeBody : snake.getBody()) {
                 Image bodyImage = snakeDrawer.getBodyImage(snakeBody.getDirection(), 0);
-                gameView.drawImage(bodyImage, snakeBody.getX() * cellWidth, snakeBody.getY() * cellWidth,
-                        cellWidth, cellHeight);
+                gameView.drawImage(bodyImage, snakeBody.getX() * cellWidth,
+                        snakeBody.getY() * cellWidth, cellWidth, cellHeight);
             }
             SnakeBody head = snake.getHead();
             Image headImage = snakeDrawer.getHeadImage(head.getDirection(), 0);

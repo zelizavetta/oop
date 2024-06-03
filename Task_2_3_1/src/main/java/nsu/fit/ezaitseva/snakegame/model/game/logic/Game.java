@@ -83,6 +83,11 @@ public class Game {
         return true;
     }
 
+    /**
+     * Tick boolean.
+     *
+     * @return the boolean
+     */
     public boolean tick() {
         currentTick++;
         if (isContinue()) {
@@ -116,7 +121,10 @@ public class Game {
         }
     }
 
-    //    @Deprecated
+    /**
+     * Move snakes.
+     */
+//    @Deprecated
     public void moveSnakes() {
         players.forEach(((snakeId, playerListener) -> {
             Snake snake = snakeMap.get(snakeId);
@@ -131,6 +139,11 @@ public class Game {
         snakeMap.values().forEach(this::moveSnake);
     }
 
+    /**
+     * Gets results.
+     *
+     * @return the results
+     */
     public Map<Integer, Integer> getResults() {
         Map<Integer, Integer> results = new HashMap<>();
         snakeMap.forEach(((id, snake) -> {
@@ -139,6 +152,12 @@ public class Game {
         return results;
     }
 
+    /**
+     * Add player.
+     *
+     * @param integer the integer
+     * @param player  the player
+     */
     public void addPlayer(Integer integer, PlayerListener player) {
         if (snakeMap.containsKey(integer)) {
             players.put(integer, player);
@@ -169,30 +188,67 @@ public class Game {
 
     }
 
+    /**
+     * Sets game unit.
+     *
+     * @param unit the unit
+     */
     public void setGameUnit(GameUnit unit) {
         field.set(unit);
     }
 
+    /**
+     * Gets unit at.
+     *
+     * @param x the x
+     * @param y the y
+     * @return the unit at
+     */
     public GameUnit getUnitAt(int x, int y) {
         return field.get(x, y);
     }
 
+    /**
+     * Gets field.
+     *
+     * @return the field
+     */
     public GameField getField() {
         return field;
     }
 
+    /**
+     * Gets snake map.
+     *
+     * @return the snake map
+     */
     public Map<Integer, Snake> getSnakeMap() {
         return snakeMap;
     }
 
+    /**
+     * Width int.
+     *
+     * @return the int
+     */
     public int width() {
         return field.width();
     }
 
+    /**
+     * Height int.
+     *
+     * @return the int
+     */
     public int height() {
         return field.height();
     }
 
+    /**
+     * Gets copy.
+     *
+     * @return the copy
+     */
     public Game getCopy() {
         GameField gameField = new GameField(field.width(), field.height());
         field.getAll().forEach((gameUnit) -> {
@@ -200,17 +256,29 @@ public class Game {
         });
         Map<Integer, Snake> newSnakeMap = new HashMap<>();
         snakeMap.forEach((id, snake) -> {
-            Snake newSnake = new Snake((SnakeBody) gameField.get(snake.getHead().getX(), snake.getHead().getY()));
+            Snake newSnake = new Snake((SnakeBody) gameField.get(snake.getHead().getX(),
+                    snake.getHead().getY()));
             newSnakeMap.put(id, newSnake);
         });
 
         return new Game(gameField, newSnakeMap);
     }
 
+    /**
+     * Change direction.
+     *
+     * @param snakeID   the snake id
+     * @param direction the direction
+     */
     public void changeDirection(Integer snakeID, Direction direction) {
         snakeMap.get(snakeID).changeDirection(direction);
     }
 
+    /**
+     * Gets game logic.
+     *
+     * @return the game logic
+     */
     public GameLogic getGameLogic() {
         return gameLogic;
     }

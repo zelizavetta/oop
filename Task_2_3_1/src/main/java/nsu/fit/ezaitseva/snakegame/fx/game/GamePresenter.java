@@ -49,7 +49,7 @@ public class GamePresenter extends DefaultGamePresenter {
         gameHeight = game.height();
         cellWidth = gameController.getCanvasWidth() / gameWidth;
         cellHeight = gameController.getCanvasHeight() / gameHeight;
-        snakeDrawer = new SnakeDrawer(game.getSnakeMap().size());//TODO:
+        snakeDrawer = new SnakeDrawer(game.getSnakeMap().size());
         gameController.setSize(cellWidth, cellHeight);
     }
 
@@ -126,8 +126,8 @@ public class GamePresenter extends DefaultGamePresenter {
 
             for (SnakeBody snakeBody : snake.getBody()) {
                 Image bodyImage = snakeDrawer.getBodyImage(snakeBody.getDirection(), id);
-                gameController.drawImage(bodyImage, snakeBody.getX() * cellWidth, snakeBody.getY() * cellWidth,
-                        cellWidth, cellHeight);
+                gameController.drawImage(bodyImage, snakeBody.getX() * cellWidth,
+                        snakeBody.getY() * cellWidth, cellWidth, cellHeight);
             }
             SnakeBody head = snake.getHead();
             Image headImage = snakeDrawer.getHeadImage(head.getDirection(), id);
@@ -141,7 +141,8 @@ public class GamePresenter extends DefaultGamePresenter {
      * starting game meth.
      */
     void startGame() {
-        timeline = new Timeline(new KeyFrame(Duration.millis((double) 100 / (gameSettings.getGameSpeed())), ev -> {
+        timeline = new Timeline(new KeyFrame(Duration.millis((double) 100
+                / (gameSettings.getGameSpeed())), ev -> {
             timeline.stop();
             if (!game.tick()) {
                 gameController.showWinner();
@@ -176,8 +177,10 @@ public class GamePresenter extends DefaultGamePresenter {
             case 1 -> {
                 CustomizableEuristickBot euristickBot = new CustomizableEuristickBot(game, id);
                 euristickBot.setCoefficient(new Double[]{
-                        0.113355912365809, -0.5392756791650084, 0.8736243720174397, -0.6029860009717296, 1.0418435344411954, -0.5325674024668574, 0.4920820254381191, -1.0827373196482935, 1.199074784965746, 0.6805539788418411
-                        //0.7664221551452993, -2.3292002242198406, 0.3750945478344285, -1.0191706203924107, 0.990466926647421, -0.24505616190359297, 0.47664983093143076, -2.0664856125919777, 1.0459271897885696, 0.7929273437018975
+                        0.113355912365809, -0.5392756791650084, 0.8736243720174397,
+                        -0.6029860009717296, 1.0418435344411954, -0.5325674024668574,
+                        0.4920820254381191, -1.0827373196482935, 1.199074784965746,
+                        0.6805539788418411
                 });
                 playerListener = euristickBot;
                 euristickBot.setCorrect(gameSettings.getDifficult());
@@ -185,7 +188,10 @@ public class GamePresenter extends DefaultGamePresenter {
             case 2 -> {
                 CustomizableEuristickBot euristickBot = new CustomizableEuristickBot(game, id);
                 euristickBot.setCoefficient(new Double[]{
-                        0.09865971684861066, -0.4643200390092408, 0.7857669324215983, -0.6228303030795024, 0.9228189402716853, -0.49254778454935, 0.4148989662520721, -1.2272530568992939, 1.2165053092305018, 0.7029863307757604
+                        0.09865971684861066, -0.4643200390092408, 0.7857669324215983,
+                        -0.6228303030795024, 0.9228189402716853, -0.49254778454935,
+                        0.4148989662520721, -1.2272530568992939, 1.2165053092305018,
+                        0.7029863307757604
                 });
                 playerListener = euristickBot;
                 euristickBot.setCorrect(gameSettings.getDifficult());
@@ -236,7 +242,9 @@ public class GamePresenter extends DefaultGamePresenter {
          * @param keyCode key code.
          */
         public void resolveKeyCode(KeyCode keyCode) {
-            if (keyCode == null) return;
+            if (keyCode == null) {
+                return;
+            }
             Runnable action = keyMap.get(keyCode.getCode());
             if (action != null) {
                 action.run();

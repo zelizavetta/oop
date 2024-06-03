@@ -43,7 +43,8 @@ public class SettingsView {
         TerminalSize size = screen.getTerminalSize();
         gameSpeedPosition =
                 new TerminalPosition(
-                        Math.max(size.getColumns() / 2 - 7, 1), Math.max(1, size.getRows() / 2 - 3));
+                        Math.max(size.getColumns() / 2 - 7, 1),
+                        Math.max(1, size.getRows() / 2 - 3));
     }
 
     /**

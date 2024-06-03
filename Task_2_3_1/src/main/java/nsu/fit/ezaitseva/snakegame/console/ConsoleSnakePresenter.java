@@ -36,7 +36,8 @@ public class ConsoleSnakePresenter {
 
         terminal =
                 new DefaultTerminalFactory()
-                        .setInitialTerminalSize(new TerminalSize(MenuConfig.WIDTH, MenuConfig.HEIGHT))
+                        .setInitialTerminalSize(new TerminalSize(
+                                MenuConfig.WIDTH, MenuConfig.HEIGHT))
                         .createTerminal();
         screen = new TerminalScreen(terminal);
         mapDir = new File("resources/maps");
@@ -65,15 +66,20 @@ public class ConsoleSnakePresenter {
                     gamePresenter.start();
                 }
                 case Settings -> {
-                    ConsoleSettingsScene settingsPresenter = new ConsoleSettingsScene(screen, settings);
+                    ConsoleSettingsScene settingsPresenter = new ConsoleSettingsScene(
+                            screen, settings);
                     settingsPresenter.start();
                 }
                 case Exit -> {
                     flag = false;
                 }
                 case FieldConstructor -> {
-                    ConstructorScene constructorScene = new ConstructorScene(settings.getFile(), screen);
+                    ConstructorScene constructorScene = new ConstructorScene(
+                            settings.getFile(), screen);
                     settings.setGame(constructorScene.start());
+                }
+                default -> {
+
                 }
             }
         }

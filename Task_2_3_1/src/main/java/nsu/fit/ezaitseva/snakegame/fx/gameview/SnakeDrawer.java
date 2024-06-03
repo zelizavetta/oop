@@ -1,12 +1,12 @@
 package nsu.fit.ezaitseva.snakegame.fx.gameview;
 
+import java.util.HashMap;
+import java.util.Map;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import java.util.HashMap;
-import java.util.Map;
 import nsu.fit.ezaitseva.snakegame.model.units.snake.Direction;
 
 /**

@@ -71,6 +71,9 @@ public class FieldView {
             case DOWN -> headCharacter = UnitsCharacters.HEADDOWN;
             case LEFT -> headCharacter = UnitsCharacters.HEADLEFT;
             case RIGHT -> headCharacter = UnitsCharacters.HEADRIGHT;
+            default -> {
+
+            }
         }
         TextColor textColor1 = new TextColor.ANSI.RGB(200, 200, 200);
         if (snakeDto.id() == 0) {
